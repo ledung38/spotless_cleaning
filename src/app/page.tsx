@@ -3,5 +3,5 @@ import LayoutComponents from "@/components/layouts/LayoutComponents";
 import Home from "@/modules/home";
 
 export default function HomePage() {
-  return <Home />;
+  return <LayoutComponents></LayoutComponents>;
 }
