@@ -19,9 +19,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useCallback, useEffect, useState } from "react";
 
-// 52A7FF
-// 0A84FF
-// F4F4F4
 export const Header = () => {
   const pathname = usePathname();
 
@@ -140,7 +137,7 @@ export const Header = () => {
           className="flex gap-2 bg-white text-primary hover:bg-accent hover:text-primary p-5 text-lg"
         >
           <PhoneIcon className="[&_path]:stroke-primary size-6" />
-          <span>0968686868</span>
+          <span>0451210238</span>
         </Button>
         <Button
           variant={"container"}
