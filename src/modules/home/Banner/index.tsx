@@ -1,6 +1,3 @@
-import React, { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
-import { Sparkles, Zap, Shield, ChevronLeft, ChevronRight } from "lucide-react";
 import {
   Carousel,
   CarouselApi,
@@ -11,8 +8,11 @@ import {
   PaginationItem,
   PaginationLink,
 } from "@/components/ui";
-const AnimateCarousel = motion(Carousel);
 import Autoplay from "embla-carousel-autoplay";
+import { ChevronLeft, ChevronRight, Shield, Sparkles, Zap } from "lucide-react";
+import { motion } from "motion/react";
+import React, { useEffect, useState } from "react";
+const AnimateCarousel = motion(Carousel);
 
 const FloatingIcon = ({
   Icon,
