@@ -232,40 +232,58 @@ export const Header = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, delay: 0.4 }}
-                className="group"
+                className="flex-1 group"
               >
-                <Button
-                  variant="container"
-                  className="hidden sm:flex gap-2 bg-white text-primary font-semibold hover:bg-blue-50 hover:shadow-2xl transition-all duration-300 active:scale-95 px-4 sm:px-6 py-2.5 text-sm sm:text-base rounded-lg"
+                <motion.button
+                  whileHover="hover"
+                  initial="initial"
+                  variants={{}} // cần để button có state để truyền xuống
+                  className="w-full hidden lg:flex  gap-2 items-center bg-white text-primary font-semibold hover:bg-blue-50 hover:shadow-2xl transition-transform duration-300 active:scale-95 hover:scale-105 px-4 py-1.5 text-sm sm:text-base rounded-lg"
+                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                  style={{ originX: 0.5, originY: 0.5 }}
                 >
                   <motion.div
-                    whileHover={{ x: [-2, 2, -2, 2, -2, 2, 0] }}
-                    transition={{ duration: 0.6 }}
+                    variants={{
+                      initial: { rotate: 0 },
+                      hover: {
+                        rotate: [0, 15, -15, 10, -10, 0],
+                        transition: { duration: 0.5 },
+                      },
+                    }}
                   >
-                    <PhoneIcon className="[&_path]:stroke-primary size-5" />
+                    <PhoneIcon className="[&_path]:stroke-primary size-5 transition-all " />
                   </motion.div>
                   <span>0451210238</span>
-                </Button>
+                </motion.button>
               </motion.div>
 
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, delay: 0.45 }}
-                className="group"
+                className="group flex-1"
               >
-                <Button
-                  variant="container"
-                  className="hidden sm:flex gap-2 bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold hover:shadow-2xl transition-all duration-300 active:scale-95 px-4 sm:px-6 py-2.5 text-sm sm:text-base rounded-lg"
+                <motion.button
+                  whileHover="hover"
+                  initial="initial"
+                  variants={{}} // cần để button có state để truyền xuống
+                  className="w-full hidden lg:flex flex-1 gap-2 items-center bg-white  font-semibold hover:bg-blue-50 hover:shadow-2xl transition-transform duration-300 active:scale-95 hover:scale-105 px-4 py-1.5 text-sm sm:text-base rounded-lg group bg-gradient-to-r from-orange-500 to-red-500 text-white"
+                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                  style={{ originX: 0.5, originY: 0.5 }}
                 >
                   <motion.div
-                    whileHover={{ rotate: [-12, 12, -12, 12, -12, 12, 0] }}
-                    transition={{ duration: 0.6 }}
+                    variants={{
+                      initial: { rotate: 0 },
+                      hover: {
+                        rotate: [0, 15, -15, 10, -10, 0],
+                        transition: { duration: 0.5 },
+                      },
+                    }}
                   >
                     <BellIcon className="size-5" />
                   </motion.div>
                   <span>Book now</span>
-                </Button>
+                </motion.button>
               </motion.div>
 
               <motion.div
