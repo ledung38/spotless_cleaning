@@ -18,6 +18,7 @@ import ExampleServicePage, {
   WindowCleaningPage,
 } from "@/components/layouts/Banner/REAL_WORLD_EXAMPLES";
 import LayoutComponents from "@/components/layouts/LayoutComponents";
+import AboutUs from "@/modules/about-us";
 import Home from "@/modules/home";
 
 export default function HomePage() {
