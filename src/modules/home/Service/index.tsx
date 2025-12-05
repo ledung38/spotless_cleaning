@@ -46,8 +46,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       <div className="relative z-10">
         {/* Icon */}
         <motion.div
-          whileHover={{ scale: 1.1, rotate: 10 }}
-          className={`w-12 h-12 rounded-xl bg-gradient-to-br ${color} flex items-center justify-center mb-4 text-white`}
+          whileHover={{ rotate: 0, scale: 1.2 }}
+          transition={{ duration: 0.3 }}
+          className={`w-12 h-12 rounded-xl bg-gradient-to-br ${color} group-hover:scale-110 flex items-center justify-center mb-4 text-white transition-all duration-300`}
         >
           <Icon className="w-6 h-6" />
         </motion.div>

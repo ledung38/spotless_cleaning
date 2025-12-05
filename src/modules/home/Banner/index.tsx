@@ -1,6 +1,3 @@
-import React, { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
-import { Sparkles, Zap, Shield, ChevronLeft, ChevronRight } from "lucide-react";
 import {
   Carousel,
   CarouselApi,
@@ -11,8 +8,11 @@ import {
   PaginationItem,
   PaginationLink,
 } from "@/components/ui";
-const AnimateCarousel = motion(Carousel);
 import Autoplay from "embla-carousel-autoplay";
+import { ChevronLeft, ChevronRight, Shield, Sparkles, Zap } from "lucide-react";
+import { motion } from "motion/react";
+import React, { useEffect, useState } from "react";
+const AnimateCarousel = motion(Carousel);
 
 const FloatingIcon = ({
   Icon,
@@ -190,7 +190,7 @@ export const Banner = ({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="space-y-8"
+            className="space-y-6"
           >
             {/* Main Heading */}
             <div className="space-y-4">
@@ -206,7 +206,7 @@ export const Banner = ({
                 </motion.span>
               </div>
 
-              <h1 className="text-5xl lg:text-6xl font-black text-foreground leading-tight">
+              <h1 className="text-4xl lg:text-5xl font-black text-foreground leading-tight">
                 <AnimatedText delay={0.2}>Your Home Deserves</AnimatedText>
                 <AnimatedText delay={0.5}>Spotless Care</AnimatedText>
               </h1>
@@ -351,7 +351,7 @@ export const Banner = ({
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => api?.scrollPrev()}
-                  className="w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-primary hover:bg-white transition-all duration-300 shadow-lg"
+                  className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-primary hover:bg-white transition-all duration-300 shadow-lg"
                 >
                   <ChevronLeft size={24} />
                 </motion.button>
@@ -360,7 +360,7 @@ export const Banner = ({
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => api?.scrollNext()}
-                  className="w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-primary hover:bg-white transition-all duration-300 shadow-lg"
+                  className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-primary hover:bg-white transition-all duration-300 shadow-lg"
                 >
                   <ChevronRight size={24} />
                 </motion.button>
