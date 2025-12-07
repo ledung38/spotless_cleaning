@@ -9,7 +9,7 @@ import { WhyChooseUs } from "@/modules/home/WhyChooseUs";
 
 const Home = () => {
   return (
-    <div className="w-full">
+    <div className="w-full -mt-10">
       <Banner />
       <Service />
       <WhyChooseUs />

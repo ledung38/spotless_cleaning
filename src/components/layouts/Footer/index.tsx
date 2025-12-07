@@ -11,6 +11,9 @@ import {
   Mail,
   MapPin,
 } from "lucide-react";
+import { NextAvatar } from "@/components/ui";
+import { Routes } from "@/lib/enum/routes";
+import logo from "@/lib/assets/images/logo.webp";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -78,11 +81,11 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#e3985e] border-t border-border/50 relative overflow-hidden">
+    <footer className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 border-t border-primary/20 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
-          className="absolute -bottom-40 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
+          className="absolute -bottom-40 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.05, 0.1, 0.05],
@@ -104,14 +107,24 @@ const Footer = () => {
             {/* Brand section */}
             <motion.div variants={itemVariants} className="lg:col-span-1">
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-10 h-10 bg-gradient-primary rounded-xl flex items-center justify-center">
-                  <span className="text-white font-bold">S</span>
-                </div>
-                <span className="text-xl font-bold text-foreground">
-                  Spotless
-                </span>
+                <Link
+                  href={Routes.HOME}
+                  className="flex items-center gap-3 flex-shrink-0 group"
+                >
+                  <div className="relative transition-all duration-300 group-hover:scale-110">
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-300 to-secondary rounded-full blur-lg opacity-0 group-hover:opacity-75 transition-opacity duration-300" />
+                    <NextAvatar src={logo} alt="logo" className="relative" />
+                  </div>
+                  <div className="hidden sm:flex flex-col">
+                    <span className="text-lg font-black text-white leading-tight tracking-tight">
+                      N&T Spotless <br />
+                      Professional Cleaning
+                    </span>
+                  </div>
+                </Link>
               </div>
-              <p className="text-foreground/60 text-sm leading-relaxed mb-6">
+
+              <p className="text-white text-sm leading-relaxed mb-6">
                 Professional cleaning services you can trust. Making Sydney
                 cleaner, one space at a time.
               </p>
@@ -139,7 +152,7 @@ const Footer = () => {
             {/* Footer links */}
             {footerLinks.map((column, columnIndex) => (
               <motion.div key={columnIndex} variants={itemVariants}>
-                <h3 className="font-semibold text-foreground mb-4">
+                <h3 className="font-semibold text-white mb-4">
                   {column.title}
                 </h3>
                 <ul className="space-y-3">
@@ -147,15 +160,22 @@ const Footer = () => {
                     const Icon = link.icon;
                     return (
                       <li key={linkIndex}>
-                        <Link href={link.href}>
-                          <motion.a
-                            whileHover={{ x: 4 }}
-                            className="text-foreground/60 hover:text-primary transition-colors text-sm flex items-center gap-2"
-                          >
-                            {Icon && <Icon className="w-4 h-4" />}
-                            {link.label}
-                          </motion.a>
-                        </Link>
+                        <motion.a
+                          href={link.href}
+                          target={
+                            link.href.startsWith("http") ? "_blank" : undefined
+                          }
+                          rel={
+                            link.href.startsWith("http")
+                              ? "noopener noreferrer"
+                              : undefined
+                          }
+                          whileHover={{ x: 4 }}
+                          className="text-white hover:text-primary transition-colors text-sm flex items-center gap-2 cursor-pointer"
+                        >
+                          {Icon && <Icon className="w-4 h-4" />}
+                          {link.label}
+                        </motion.a>
                       </li>
                     );
                   })}
@@ -179,20 +199,24 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-foreground/60"
+            className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white"
           >
             <p>© {currentYear} Spotless Cleaning. All Rights Reserved.</p>
             <div className="flex gap-6">
-              <Link href="#">
-                <span className="hover:text-primary transition-colors cursor-pointer">
-                  Privacy Policy
-                </span>
-              </Link>
-              <Link href="#">
-                <span className="hover:text-primary transition-colors cursor-pointer">
-                  Terms of Service
-                </span>
-              </Link>
+              <motion.a
+                href="#"
+                whileHover={{ color: "#0A84FF" }}
+                className="hover:text-primary transition-colors cursor-pointer text-white"
+              >
+                Privacy Policy
+              </motion.a>
+              <motion.a
+                href="#"
+                whileHover={{ color: "#0A84FF" }}
+                className="hover:text-primary transition-colors cursor-pointer text-white"
+              >
+                Terms of Service
+              </motion.a>
             </div>
           </motion.div>
         </div>

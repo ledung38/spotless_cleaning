@@ -11,6 +11,7 @@ import {
   CheckCircle2,
   ArrowRight,
 } from "lucide-react";
+import logo from "@/lib/assets/images/logo.webp";
 
 // ============================================================================
 // COMPONENTS
@@ -137,17 +138,17 @@ const AboutUs = () => {
     {
       name: "Sarah Johnson",
       role: "Founder & Director",
-      image: "",
+      image: logo,
     },
     {
       name: "Michael Chen",
       role: "Operations Manager",
-      image: "",
+      image: logo,
     },
     {
       name: "Emma Davis",
       role: "Quality Lead",
-      image: "",
+      image: logo,
     },
   ];
 
@@ -255,8 +256,11 @@ const AboutUs = () => {
               <div className="relative overflow-hidden rounded-3xl h-96 lg:h-full min-h-96 shadow-2xl">
                 {/* Image placeholder with gradient */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-blue-100/30 to-primary/20 flex items-center justify-center border-2 border-primary/30">
-                  <div className="text-center space-y-4">
-                    <img src={"/public/about.png"} className="w-full" />
+                  <div className="text-center space-y-4 h-full">
+                    <img
+                      src={"/about.png"}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </div>
                 {/* Animated decorative elements */}
@@ -375,7 +379,7 @@ const AboutUs = () => {
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 bg-gradient-to-r from-primary to-blue-600 text-white font-bold rounded-xl hover:shadow-2xl transition-all duration-300"
               >
-                Join Our Team
+                Book now
               </motion.button>
             </motion.div>
 
@@ -471,8 +475,7 @@ const AboutUs = () => {
       </section>
 
       {/* ========== VALUES SECTION ========== */}
-      <section className="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-b from-primary/95 via-primary/90 to-primary/95">
-        {/* Animated background blobs */}
+      {/* <section className="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-b from-primary/95 via-primary/90 to-primary/95">
         <motion.div
           className="absolute top-0 -right-40 w-80 h-80 rounded-full bg-blue-400/20 blur-3xl"
           animate={{ y: [0, -50, 0], x: [0, 30, 0] }}
@@ -545,7 +548,7 @@ const AboutUs = () => {
             />
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ========== OUR PROCESS SECTION ========== */}
       <section className="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-b from-white via-primary/10 to-white">
@@ -741,8 +744,7 @@ const AboutUs = () => {
       </section>
 
       {/* ========== WHY CHOOSE US SECTION ========== */}
-      <section className="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-b from-white via-primary/8 to-white">
-        {/* Decorative shapes */}
+      {/* <section className="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-b from-white via-primary/8 to-white">
         <motion.div
           className="absolute top-20 -right-32 w-80 h-80 rounded-full border-2 border-primary/30"
           animate={{ rotate: 360 }}
@@ -842,7 +844,7 @@ const AboutUs = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ========== CTA SECTION ========== */}
       <section className="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-r from-blue-600 via-blue-700 to-cyan-600">

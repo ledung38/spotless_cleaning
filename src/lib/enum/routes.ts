@@ -8,4 +8,5 @@ export enum Routes {
   SERVICE_AIRBNB_CLEANING = "/service/airbnb-cleaning",
   PRICING = "/pricing",
   ABOUT_US = "/about-us",
+  BOOKING = "/booking",
 }

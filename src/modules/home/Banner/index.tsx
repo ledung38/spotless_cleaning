@@ -1,3 +1,4 @@
+import { ArrowCircleRightIcon } from "@/components/icons";
 import {
   Carousel,
   CarouselApi,
@@ -124,7 +125,7 @@ export const Banner = ({
   description = `Professional cleaning services that exceed expectations. From
                   deep cleaning to regular maintenance, we keep your space
                   pristine with premium attention to detail.`,
-  ctaText = "Get Started",
+  ctaText = "GET AN INSTANT QUOTE",
   onCtaClick,
   images = [
     "https://images.unsplash.com/photo-1581578731548-c64695c952952?w=600&h=600&fit=crop",
@@ -194,21 +195,23 @@ export const Banner = ({
           >
             {/* Main Heading */}
             <div className="space-y-4">
-              <div className="text-base font-semibold text-blue-300 mb-4">
+              <div className="text-base font-semibold text-primary/70 mb-4">
                 <motion.span
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6 }}
-                  className="inline-flex items-center gap-2 bg-blue-500/20 backdrop-blur-sm border border-blue-400/30 rounded-full px-4 py-2"
+                  className="inline-flex items-center gap-2 bg-primary/10 backdrop-blur-sm border border-primary/70 rounded-full px-4 py-2"
                 >
-                  <span className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
+                  <span className="w-2 h-2 bg-primary/70 rounded-full animate-pulse" />
                   Welcome to Premium Cleaning
                 </motion.span>
               </div>
 
               <h1 className="text-4xl lg:text-5xl font-black text-foreground leading-tight">
-                <AnimatedText delay={0.2}>Your Home Deserves</AnimatedText>
-                <AnimatedText delay={0.5}>Spotless Care</AnimatedText>
+                <AnimatedText delay={0.2}>
+                  Professional Cleaning Service in Sydney
+                </AnimatedText>
+                {/* <AnimatedText delay={0.5}>Spotless Care</AnimatedText> */}
               </h1>
 
               <p className=" sm:text-xl text-lg text-muted-foreground leading-relaxed max-w-xl">
@@ -230,12 +233,17 @@ export const Banner = ({
                 text="Professional Team"
                 delay={1.0}
               />
-              <FeatureBadge icon={Zap} text="Fast Service" delay={1.2} />
+              <FeatureBadge
+                icon={Zap}
+                text="Cleaning Supplies Provided"
+                delay={1.2}
+              />
               <FeatureBadge
                 icon={Shield}
                 text="100% Satisfaction"
                 delay={1.4}
               />
+              <FeatureBadge icon={Sparkles} text="On Time" delay={1.0} />
             </div>
 
             {/* CTA Button */}
@@ -256,7 +264,7 @@ export const Banner = ({
                     animate={{ x: [0, 5, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
                   >
-                    →
+                    <ArrowCircleRightIcon className="size-6" />
                   </motion.span>
                 </span>
               </button>

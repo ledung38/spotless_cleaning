@@ -10,7 +10,7 @@ const LayoutComponents = ({ children }: PropsWithChildren) => {
   return (
     <div className="flex flex-col min-h-screen relative">
       <Header />
-      <div className="min-h-screen -mt-10">
+      <div className="min-h-screen">
         {/* <SideBar /> */}
         {children}
       </div>

@@ -87,6 +87,7 @@ export const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useAppRouter();
+  const route = useAppRouter();
 
   const onChangeTab = useCallback(
     (key: string) => {
@@ -270,6 +271,9 @@ export const Header = () => {
                   className="w-full hidden lg:flex flex-1 gap-2 items-center bg-white  font-semibold hover:bg-blue-50 hover:shadow-2xl transition-transform duration-300 active:scale-95 hover:scale-105 px-4 py-1.5 text-sm sm:text-base rounded-lg group bg-gradient-to-r from-orange-500 to-red-500 text-white"
                   transition={{ type: "spring", stiffness: 300, damping: 15 }}
                   style={{ originX: 0.5, originY: 0.5 }}
+                  onClick={() => {
+                    route.push(Routes.BOOKING);
+                  }}
                 >
                   <motion.div
                     variants={{
@@ -330,7 +334,12 @@ export const Header = () => {
                   <PhoneIcon className="[&_path]:stroke-primary size-5" />
                   <span>0451210238</span>
                 </Button>
-                <Button className="w-full flex gap-2 bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold hover:shadow-lg transition-all duration-200 py-3 rounded-lg">
+                <Button
+                  onClick={() => {
+                    route.push(Routes.BOOKING);
+                  }}
+                  className="w-full flex gap-2 bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold hover:shadow-lg transition-all duration-200 py-3 rounded-lg"
+                >
                   <BellIcon className="size-5" />
                   <span>Book now</span>
                 </Button>

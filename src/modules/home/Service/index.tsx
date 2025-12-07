@@ -146,7 +146,9 @@ const FloatingShape: React.FC<{
         repeat: Infinity,
         ease: "easeInOut",
       }}
-    />
+    >
+      1312312
+    </motion.div>
   );
 };
 
@@ -203,19 +205,20 @@ export const Service: React.FC = () => {
         delay={0}
         position="top-20 -right-40"
         size={400}
-        opacity={0.08}
+        opacity={1}
       />
+
       <FloatingShape
         delay={2}
         position="bottom-40 -left-32"
         size={350}
-        opacity={0.06}
+        opacity={1}
       />
       <FloatingShape
         delay={4}
         position="top-1/2 right-1/4"
         size={300}
-        opacity={0.05}
+        opacity={1}
       />
 
       {/* Grid pattern background */}

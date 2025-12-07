@@ -321,7 +321,7 @@ export const WhyChooseUs = () => {
         />
 
         {/* Overlay Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/70 via-blue-600/60 to-primary/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/70 via-blue-600/120 to-primary/70" />
 
         {/* Content */}
         <div className="relative z-10 px-6 sm:px-8 lg:px-20 py-12 sm:py-16 lg:py-20">
