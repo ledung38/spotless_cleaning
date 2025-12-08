@@ -9,6 +9,8 @@ import {
   PaginationItem,
   PaginationLink,
 } from "@/components/ui";
+import TagTitle from "@/modules/home/Tag";
+import Tag from "@/modules/home/Tag";
 import Autoplay from "embla-carousel-autoplay";
 import { ChevronLeft, ChevronRight, Shield, Sparkles, Zap } from "lucide-react";
 import { motion } from "motion/react";
@@ -48,11 +50,11 @@ const FloatingIcon = ({
 const FeatureBadge = ({
   icon: Icon,
   text,
-  delay,
+  delay = 0,
 }: {
   icon: React.ComponentType<any>;
   text: string;
-  delay: number;
+  delay?: number;
 }) => {
   return (
     <motion.div
@@ -65,7 +67,7 @@ const FeatureBadge = ({
       whileHover={{ scale: 1.1, translateY: -5 }}
       className="flex items-center gap-2 bg-primary/8 backdrop-blur-sm border border-primary/20 rounded-full px-4 py-2 hover:bg-primary/12 transition-colors duration-300"
     >
-      <Icon size={18} className="text-primary" />
+      <Icon size={18} className="text-secondary/80" />
       <span className=" font-semibold text-foreground">{text}</span>
     </motion.div>
   );
@@ -177,16 +179,17 @@ export const Banner = ({
   };
 
   return (
-    <div className="relative w-full min-h-screen overflow-hidden bg-gradient-to-br from-primary/5 via-blue-50/30 to-accent/10 flex items-center">
+    <div className="relative w-full min-h-screen overflow-hidden bg-gradient-to-bl from-secondary/30 via-blue-50/30 to-primary/70 flex items-center">
       <FloatingIcon Icon={Sparkles} delay={0} position="top-20 right-10" />
       <FloatingIcon Icon={Zap} delay={0.5} position="top-40 left-20" />
       <FloatingIcon Icon={Shield} delay={1} position="bottom-32 right-20" />
       <FloatingIcon Icon={Sparkles} delay={1.5} position="bottom-20 left-32" />
-
+      {/* <div className="bg-[url('/home_banner.png')] absolute inset-0" /> */}
       {/* Main Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
+
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -195,17 +198,7 @@ export const Banner = ({
           >
             {/* Main Heading */}
             <div className="space-y-4">
-              <div className="text-base font-semibold text-primary/70 mb-4">
-                <motion.span
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6 }}
-                  className="inline-flex items-center gap-2 bg-primary/10 backdrop-blur-sm border border-primary/70 rounded-full px-4 py-2"
-                >
-                  <span className="w-2 h-2 bg-primary/70 rounded-full animate-pulse" />
-                  Welcome to Premium Cleaning
-                </motion.span>
-              </div>
+              <TagTitle>Welcome to Premium Cleaning</TagTitle>
 
               <h1 className="text-4xl lg:text-5xl font-black text-foreground leading-tight">
                 <AnimatedText delay={0.2}>
@@ -227,23 +220,11 @@ export const Banner = ({
             </div>
 
             {/* Feature Badges */}
-            <div className="flex flex-wrap gap-3 pt-6">
-              <FeatureBadge
-                icon={Sparkles}
-                text="Professional Team"
-                delay={1.0}
-              />
-              <FeatureBadge
-                icon={Zap}
-                text="Cleaning Supplies Provided"
-                delay={1.2}
-              />
-              <FeatureBadge
-                icon={Shield}
-                text="100% Satisfaction"
-                delay={1.4}
-              />
-              <FeatureBadge icon={Sparkles} text="On Time" delay={1.0} />
+            <div className="grid grid-cols-2  gap-3 pt-6">
+              <FeatureBadge icon={Sparkles} text="Professional Team" />
+              <FeatureBadge icon={Zap} text="Cleaning Supplies Provided" />
+              <FeatureBadge icon={Shield} text="100% Satisfaction" />
+              <FeatureBadge icon={Sparkles} text="On Time" />
             </div>
 
             {/* CTA Button */}
