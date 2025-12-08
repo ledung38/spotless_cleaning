@@ -13,6 +13,8 @@ import {
   Zap,
 } from "lucide-react";
 import { TickIcon } from "@/components/icons";
+import TagTitle from "@/modules/home/Tag";
+import { featuresData, statsData } from "@/modules/home/contants";
 
 const CounterStat = ({
   number,
@@ -58,7 +60,7 @@ const CounterStat = ({
         {count}
         <span className="text-xl sm:text-2xl ml-1">{suffix}</span>
       </motion.div>
-      <p className="text-xs sm:text-sm text-white/90 font-semibold mt-2 drop-shadow-md">
+      <p className="text-md sm:text-lg text-white/90 font-semibold mt-2 drop-shadow-md">
         {label}
       </p>
     </motion.div>
@@ -92,10 +94,10 @@ const FeatureItem = ({
         </div>
       </motion.div>
       <div className="flex-1">
-        <h4 className="text-base sm:text-lg font-bold text-foreground mb-1 group-hover:text-primary">
+        <h4 className="text-lg sm:text-xl font-bold text-foreground mb-1 group-hover:text-primary">
           {title}
         </h4>
-        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+        <p className="text-md sm:text-lg text-muted-foreground leading-relaxed">
           {description}
         </p>
       </div>
@@ -104,49 +106,9 @@ const FeatureItem = ({
 };
 
 export const WhyChooseUs = () => {
-  const features = [
-    {
-      title: "Professional Team",
-      description:
-        "Trained & certified cleaning experts with years of industry experience ensuring exceptional results.",
-    },
-    {
-      title: "Eco-Friendly Solutions",
-      description:
-        "Safe, environmentally sustainable products that protect your family and the planet.",
-    },
-    {
-      title: "On-Time Service",
-      description:
-        "Punctual scheduling with flexible booking options to fit your busy lifestyle.",
-    },
-    {
-      title: "Quality Guaranteed",
-      description:
-        "100% satisfaction guarantee with thorough inspections and meticulous attention to detail.",
-    },
-    {
-      title: "Customer Support",
-      description:
-        "24/7 dedicated support team ready to address your concerns and scheduling changes.",
-    },
-    {
-      title: "Fast & Efficient",
-      description:
-        "Advanced cleaning techniques and equipment ensure fast service without compromising quality.",
-    },
-  ];
-
-  const stats = [
-    { number: 2700, suffix: "+", label: "Happy Clients" },
-    { number: 100, suffix: "%", label: "Satisfaction Rate" },
-    { number: 99, suffix: "%", label: "On-Time Delivery" },
-    { number: 2800, suffix: "+", label: "Services Completed" },
-  ];
-
   return (
     <div className="relative mb-40">
-      <div className="relative w-full overflow-hidden bg-white py-16 sm:py-24 lg:py-32 !pb-24">
+      <div className="relative w-full overflow-hidden bg-white py-8 sm:py-12 !pb-24">
         {/* <div className="bg-[url('/bg_layer.webp')] bg-repeat w-64 h-64 absolute"></div> */}
         <div className="absolute inset-0 bg-[url('/bg_layer.webp')] bg-repeat"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 relative">
@@ -188,7 +150,14 @@ export const WhyChooseUs = () => {
             className="text-center mb-12 sm:mb-16"
           >
             <div className="inline-block">
-              <motion.span
+              <TagTitle>
+                <Sparkles size={16} className="text-primary" />
+                <span className="text-sm font-semibold text-primary">
+                  Why Choose N&T Spotless
+                </span>
+              </TagTitle>
+
+              {/* <motion.span
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
@@ -199,7 +168,7 @@ export const WhyChooseUs = () => {
                 <span className="text-sm font-semibold text-primary">
                   Why Choose N&T Spotless
                 </span>
-              </motion.span>
+              </motion.span> */}
             </div>
 
             <h2 className="text-4xl sm:text-5xl font-black text-foreground leading-tight mb-6">
@@ -246,7 +215,7 @@ export const WhyChooseUs = () => {
               viewport={{ once: true }}
               className="space-y-4"
             >
-              {features.slice(0, 3).map((feature, idx) => (
+              {featuresData.slice(0, 3).map((feature, idx) => (
                 <FeatureItem
                   key={idx}
                   title={feature.title}
@@ -264,7 +233,7 @@ export const WhyChooseUs = () => {
               viewport={{ once: true }}
               className="space-y-4"
             >
-              {features.slice(3, 6).map((feature, idx) => (
+              {featuresData.slice(3, 6).map((feature, idx) => (
                 <FeatureItem
                   key={idx + 3}
                   title={feature.title}
@@ -332,7 +301,7 @@ export const WhyChooseUs = () => {
             viewport={{ once: true }}
             className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-8"
           >
-            {stats.map((stat, idx) => (
+            {statsData.map((stat, idx) => (
               <CounterStat
                 key={idx}
                 number={stat.number}

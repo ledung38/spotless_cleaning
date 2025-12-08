@@ -14,6 +14,7 @@ import {
 import { NextAvatar } from "@/components/ui";
 import { Routes } from "@/lib/enum/routes";
 import logo from "@/lib/assets/images/logo.webp";
+import { TikTokIcon } from "@/components/icons";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -76,8 +77,7 @@ const Footer = () => {
   const socials = [
     { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
     { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
+    { icon: TikTokIcon, href: "https://linkedin.com", label: "TikTok" },
   ];
 
   return (
@@ -139,7 +139,7 @@ const Footer = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.2, y: -4 }}
-                      className="w-9 h-9 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-white flex items-center justify-center transition-colors"
+                      className="w-9 h-9 rounded-lg  bg-primary/10 hover:bg-primary text-primary hover:text-white flex items-center justify-center transition-colors"
                       title={social.label}
                     >
                       <Icon className="w-4 h-4" />

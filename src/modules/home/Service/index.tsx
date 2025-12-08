@@ -1,3 +1,6 @@
+import { CompactBannerAboutExample } from "@/components/layouts/Banner/EXAMPLES";
+import { services } from "@/modules/home/contants";
+import TagTitle from "@/modules/home/Tag";
 import {
   ArrowRight,
   Briefcase,
@@ -31,7 +34,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         visible: {
           opacity: 1,
           y: 0,
-          transition: { duration: 0.6, ease: "easeOut" },
+          transition: { duration: 0.3, ease: "easeOut" },
         },
       }}
       whileHover={{ y: -8, transition: { duration: 0.2 } }}
@@ -97,7 +100,7 @@ const SectionTitle: React.FC<{ delay: number }> = ({ delay }) => {
       className="text-center mb-16"
     >
       {/* Badge */}
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: delay - 0.1 }}
@@ -106,7 +109,8 @@ const SectionTitle: React.FC<{ delay: number }> = ({ delay }) => {
       >
         <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
         <span className="text-sm font-semibold text-primary">Our Services</span>
-      </motion.div>
+      </motion.div>*/}
+      <TagTitle isShowPulse={true}>Our Services</TagTitle>
 
       {/* Main Title */}
       <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-4 leading-tight max-w-3xl mx-auto">
@@ -114,7 +118,7 @@ const SectionTitle: React.FC<{ delay: number }> = ({ delay }) => {
       </h2>
 
       {/* Subtitle */}
-      <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+      <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
         We provide comprehensive cleaning solutions with professional expertise,
         modern techniques, and outstanding customer satisfaction.
       </p>
@@ -153,53 +157,8 @@ const FloatingShape: React.FC<{
 };
 
 export const Service: React.FC = () => {
-  const services = [
-    {
-      icon: Home,
-      title: "End of Lease Cleaning",
-      description:
-        "Professional end of lease cleaning services to ensure you get your full deposit back.",
-      color: "from-blue-500 to-cyan-500",
-    },
-    {
-      icon: Droplets,
-      title: "Regular Cleaning",
-      description:
-        "Scheduled cleaning services to keep your space clean and fresh every week or month.",
-      color: "from-purple-500 to-pink-500",
-    },
-    {
-      icon: Wind,
-      title: "Deep Cleaning",
-      description:
-        "Comprehensive deep cleaning that tackles every corner and surface thoroughly.",
-      color: "from-green-500 to-emerald-500",
-    },
-    {
-      icon: UtensilsCrossed,
-      title: "Restaurant Cleaning",
-      description:
-        "Specialized cleaning services for restaurants, meeting health and safety standards.",
-      color: "from-yellow-500 to-orange-500",
-    },
-    {
-      icon: Building2,
-      title: "Airbnb Cleaning",
-      description:
-        "Quick turnaround cleaning services for Airbnb properties between guest stays.",
-      color: "from-indigo-500 to-blue-500",
-    },
-    {
-      icon: Briefcase,
-      title: "Office Cleaning",
-      description:
-        "Professional office cleaning to maintain a clean and productive work environment.",
-      color: "from-red-500 to-pink-500",
-    },
-  ];
-
   return (
-    <section className="relative w-full py-20 lg:py-32 overflow-hidden bg-gradient-to-b from-background via-primary/2 to-background">
+    <section className="relative w-full py-8 lg:py-12 overflow-hidden bg-gradient-to-b from-background via-primary/2 to-background">
       {/* Animated background shapes */}
       <FloatingShape
         delay={0}
@@ -236,7 +195,6 @@ export const Service: React.FC = () => {
               opacity: 1,
               transition: {
                 staggerChildren: 0.1,
-                delayChildren: 0.2,
               },
             },
           }}
@@ -261,7 +219,8 @@ export const Service: React.FC = () => {
         </motion.div>
 
         {/* CTA Section */}
-        <motion.div
+
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{
@@ -288,7 +247,7 @@ export const Service: React.FC = () => {
               </motion.span>
             </span>
           </motion.button>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

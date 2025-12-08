@@ -84,7 +84,7 @@ const ListComment = ({ data }: { data: any }) => {
     };
   }, [api]);
   return (
-    <Container className="p-0 sm:py-6" ref={containerSecondRef}>
+    <Container className="p-0 sm:py-4" ref={containerSecondRef}>
       <Flex vertical={true} align={"center"} gap={24}>
         <Flex align={"center"} justify={"center"} className="mb-2">
           <div className="relative w-fit">

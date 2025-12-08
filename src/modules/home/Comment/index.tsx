@@ -21,11 +21,11 @@ const Comment = (props: Props) => {
   });
   return (
     <div
-      className="relative w-full overflow-hidden  bg-gradient-to-b from-background to-primary/80 py-16 sm:py-24 lg:py-32 !pb-24"
+      className="relative w-full overflow-hidden  bg-gradient-to-b from-background to-primary/80 py-8 sm:py-12 !pb-24"
       ref={containerSecondRef}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 relative">
-        <Flex vertical={true} align={"center"} gap={16}>
+        <Flex vertical={true} align={"center"}>
           <AnimateFlex
             align={"center"}
             gap={8}
@@ -37,13 +37,9 @@ const Comment = (props: Props) => {
             animate={isSecondInView ? "visible" : "hidden"}
             transition={{ type: "spring", delay: 0.1 }}
           >
-            <Text
-              weight={700}
-              size={"2x-large"}
-              className="max-sm:text-[24px] max-sm:leading-[32px]"
-            >
+            <p className="text-4xl sm:text-5xl font-black text-foreground leading-tight mb-6">
               What Our Customers Say
-            </Text>
+            </p>
             <CommentStar className="mb-2 max-sm:size-[28px]" />
           </AnimateFlex>
           <motion.div

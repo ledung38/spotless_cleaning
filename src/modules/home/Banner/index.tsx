@@ -67,7 +67,7 @@ const FeatureBadge = ({
       whileHover={{ scale: 1.1, translateY: -5 }}
       className="flex items-center gap-2 bg-primary/8 backdrop-blur-sm border border-primary/20 rounded-full px-4 py-2 hover:bg-primary/12 transition-colors duration-300"
     >
-      <Icon size={18} className="text-secondary/80" />
+      <Icon size={18} className="text-primary" />
       <span className=" font-semibold text-foreground">{text}</span>
     </motion.div>
   );
@@ -198,7 +198,7 @@ export const Banner = ({
           >
             {/* Main Heading */}
             <div className="space-y-4">
-              <TagTitle>Welcome to Premium Cleaning</TagTitle>
+              {/* <TagTitle>Welcome to Premium Cleaning</TagTitle> */}
 
               <h1 className="text-4xl lg:text-5xl font-black text-foreground leading-tight">
                 <AnimatedText delay={0.2}>
@@ -220,7 +220,7 @@ export const Banner = ({
             </div>
 
             {/* Feature Badges */}
-            <div className="grid grid-cols-2  gap-3 pt-6">
+            <div className="grid grid-cols-2 gap-3 pt-6">
               <FeatureBadge icon={Sparkles} text="Professional Team" />
               <FeatureBadge icon={Zap} text="Cleaning Supplies Provided" />
               <FeatureBadge icon={Shield} text="100% Satisfaction" />
@@ -259,15 +259,15 @@ export const Banner = ({
               className="grid grid-cols-3 gap-4 pt-8 border-t border-white/20"
             >
               {[
-                { number: "5000+", label: "Happy Clients" },
-                { number: "12+", label: "Years Experience" },
+                { number: "2000+", label: "Happy Clients" },
+                { number: "8+", label: "Years Experience" },
                 { number: "24/7", label: "Customer Support" },
               ].map((stat, idx) => (
                 <div key={idx} className="text-center">
                   <p className="text-3xl font-black text-secondary">
                     {stat.number}
                   </p>
-                  <p className="text-sm text-primary/80 mt-1">{stat.label}</p>
+                  <p className="text-sm text-primary mt-1">{stat.label}</p>
                 </div>
               ))}
             </motion.div>
