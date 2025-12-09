@@ -1,6 +1,9 @@
 "use client";
 
+import { CompactApp } from "@/components/common/Compact";
 import { TickIcon } from "@/components/icons";
+import TagTitle from "@/modules/home/Tag";
+import { listServiceIncludes } from "@/modules/service/contants";
 import {
   CheckCircle2,
   ClipboardList,
@@ -10,6 +13,7 @@ import {
   Zap,
 } from "lucide-react";
 import { motion } from "motion/react";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 interface ServiceItemProps {
@@ -68,9 +72,9 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
                 delay: delay + 0.1 + idx * 0.05,
               }}
               viewport={{ once: true, margin: "-100px" }}
-              className="flex items-start gap-2 text-sm text-foreground/70 group-hover:text-foreground/90 transition-colors"
+              className="flex items-center gap-2 text-md text-foreground/70 group-hover:text-foreground/90 transition-colors"
             >
-              <TickIcon className={"size-4"} />
+              <TickIcon className={"size-5"} />
               <span>{item}</span>
             </motion.li>
           ))}
@@ -159,105 +163,14 @@ const FloatingShape: React.FC<{
 };
 
 export const HowItWorks: React.FC = () => {
-  const mainServices = [
-    {
-      title: "Kitchen",
-      color: "from-orange-500 to-red-500",
-      icon: Wind,
-      items: [
-        "Thorough cleaning of kitchens, including sinks, taps, benches",
-        "Splashback, oven, range hood and cupboards",
-      ],
-    },
-    {
-      title: "Bathrooms and Laundry",
-      color: "from-blue-500 to-cyan-500",
-      icon: Sparkles,
-      items: [
-        "Thorough cleaning of bathrooms and laundry",
-        "Including sinks, taps, benches, bathtub, shower screen",
-        "Mirrors and floors",
-      ],
-    },
-    {
-      title: "Thorough Cleaning",
-      color: "from-purple-500 to-pink-500",
-      icon: CheckCircle2,
-      items: [
-        "Thorough cleaning of bedrooms, dining rooms",
-        "Dining room, and all floors",
-      ],
-    },
-    {
-      title: "Interior Details",
-      color: "from-green-500 to-emerald-500",
-      icon: ClipboardList,
-      items: [
-        "Interiors of cupboards and drawers in the kitchen",
-        "Bathrooms, and bedrooms will be wiped clean",
-      ],
-    },
-    {
-      title: "Oven Cleaning",
-      color: "from-yellow-500 to-orange-500",
-      icon: Zap,
-      items: [
-        "The inside of the oven will be cleaned",
-        "Including the oven trays and oven racks",
-      ],
-    },
-    {
-      title: "Rangehood & Windows",
-      color: "from-indigo-500 to-blue-500",
-      icon: Users,
-      items: [
-        "We'll clean the rangehood above your stove",
-        "Including the rangehood filters",
-        "Window interiors and glass doors included",
-      ],
-    },
-  ];
+  const pathName = usePathname();
+  const slug = pathName.split("/")[2];
 
-  const optionalExtras = [
-    {
-      title: "Carpet Steam",
-      description:
-        "Add carpet steam cleaning to your service if you need it. Simply select the number of areas that need cleaning.",
-      color: "from-orange-500 to-red-500",
-      icon: Wind,
-    },
-    {
-      title: "Oven Deep Clean",
-      description:
-        "Does your property need a bit of extra attention? If it does, then add this extra to ensure the cleaners have enough time.",
-      color: "from-yellow-500 to-orange-500",
-      icon: Zap,
-    },
-    {
-      title: "Fridge Interior",
-      description:
-        "Did your rental come with a fridge? Add this extra and we'll clean the inside of the fridge including the racks and drawers.",
-      color: "from-blue-500 to-cyan-500",
-      icon: Sparkles,
-    },
-    {
-      title: "Rangehood Deep Clean",
-      description:
-        "We can do a deeper clean of the rangehood. We'll clean that too, including the door and linings.",
-      color: "from-purple-500 to-pink-500",
-      icon: CheckCircle2,
-    },
-    {
-      title: "Balcony/Deck/Patio",
-      description:
-        "Got a balcony, deck, veranda, or patio? Add this extracost and select the number of areas you need cleaned.",
-      color: "from-green-500 to-emerald-500",
-      icon: Users,
-    },
-  ];
+  const mainServices = listServiceIncludes[slug].mainServices;
+  const optionalExtras = listServiceIncludes[slug].optionalExtras;
 
   return (
-    <section className="relative w-full py-20 lg:py-32 overflow-hidden bg-gradient-to-b from-background via-primary/2 to-background">
+    <section className="relative w-full py-8 lg:py-16 overflow-hidden bg-gradient-to-b from-white  to-primary/50">
       {/* Animated background shapes */}
       <FloatingShape
         delay={0}
@@ -291,7 +204,7 @@ export const HowItWorks: React.FC = () => {
           className="text-center mb-16"
         >
           {/* Badge */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0 }}
@@ -302,7 +215,8 @@ export const HowItWorks: React.FC = () => {
             <span className="text-sm font-semibold text-primary">
               How it works ?
             </span>
-          </motion.div>
+          </motion.div> */}
+          <TagTitle isShowPulse>How it works ?</TagTitle>
 
           {/* Title */}
           <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-4 leading-tight">
@@ -387,7 +301,7 @@ export const HowItWorks: React.FC = () => {
         </motion.div>
 
         {/* CTA Section */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.9, ease: "easeOut" }}
@@ -414,7 +328,13 @@ export const HowItWorks: React.FC = () => {
               </motion.span>
             </span>
           </motion.button>
-        </motion.div>
+        </motion.div> */}
+        <CompactApp
+          title="Ready for a spotless clean?"
+          subtitle="Our professional team is ready to handle your end of lease cleaning with precision and care. Get your bond back and move with confidence."
+          textButton="Book Your Free Quote"
+          className="rounded-3xl"
+        />
       </div>
     </section>
   );

@@ -2,19 +2,12 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import {
-  Facebook,
-  Instagram,
-  Linkedin,
-  Youtube,
-  Phone,
-  Mail,
-  MapPin,
-} from "lucide-react";
+import { Facebook, Instagram, Phone, Mail, MapPin } from "lucide-react";
 import { NextAvatar } from "@/components/ui";
 import { Routes } from "@/lib/enum/routes";
 import logo from "@/lib/assets/images/logo.webp";
 import { TikTokIcon } from "@/components/icons";
+import { AnimateLink } from "@/components/common/Animate";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -44,7 +37,7 @@ const Footer = () => {
       title: "Quick Links",
       links: [
         { label: "Home", href: "/" },
-        { label: "About Us", href: "/about" },
+        { label: "About Us", href: Routes.ABOUT_US },
         { label: "Services", href: "/#services" },
         { label: "Contact", href: "/#contact" },
       ],
@@ -52,21 +45,27 @@ const Footer = () => {
     {
       title: "Services",
       links: [
-        { label: "End of Lease Cleaning", href: "/#services" },
-        { label: "Regular Cleaning", href: "/#services" },
-        { label: "Deep Cleaning", href: "/#services" },
-        { label: "Office Cleaning", href: "/#services" },
-        { label: "Restaurant Cleaning", href: "/#services" },
-        { label: "Airbnb Cleaning", href: "/#services" },
+        {
+          label: "End of Lease Cleaning",
+          href: Routes.SERVICE_END_OF_LEASE_CLEANING,
+        },
+        { label: "Regular Cleaning", href: Routes.SERVICE_REGULAR_CLEANING },
+        { label: "Deep Cleaning", href: Routes.SERVICE_DEEP_CLEANING },
+        {
+          label: "Restaurant Cleaning",
+          href: Routes.SERVICE_RESTAURANT_CLEANING,
+        },
+        { label: "Airbnb Cleaning", href: Routes.SERVICE_AIRBNB_CLEANING },
+        { label: "Mould Cleaning", href: Routes.SERVICE_MOULD_CLEANING },
       ],
     },
     {
       title: "Contact Info",
       links: [
-        { label: "+61 1 2345 6789", href: "tel:+61123456789", icon: Phone },
+        { label: "0451210238", href: "tel:+0451210238", icon: Phone },
         {
-          label: "info@spotlesscleaning.com",
-          href: "mailto:info@spotlesscleaning.com",
+          label: "cleaningsydney102@gmail.com",
+          href: "mailto:cleaningsydney102@gmail.com",
           icon: Mail,
         },
         { label: "Sydney, Australia", href: "#", icon: MapPin },
@@ -109,16 +108,19 @@ const Footer = () => {
               <div className="flex items-center gap-2 mb-4">
                 <Link
                   href={Routes.HOME}
-                  className="flex items-center gap-3 flex-shrink-0 group"
+                  className="flex flex-col items-center gap-1  flex-shrink-0 group"
                 >
                   <div className="relative transition-all duration-300 group-hover:scale-110">
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-300 to-secondary rounded-full blur-lg opacity-0 group-hover:opacity-75 transition-opacity duration-300" />
-                    <NextAvatar src={logo} alt="logo" className="relative" />
+                    <NextAvatar
+                      src={logo}
+                      alt="logo"
+                      className="relative w-20 h-20"
+                    />
                   </div>
                   <div className="hidden sm:flex flex-col">
                     <span className="text-lg font-black text-white leading-tight tracking-tight">
-                      N&T Spotless <br />
-                      Professional Cleaning
+                      N&T Spotless Cleaning
                     </span>
                   </div>
                 </Link>
@@ -129,7 +131,7 @@ const Footer = () => {
                 cleaner, one space at a time.
               </p>
               {/* Social links */}
-              <div className="flex gap-4">
+              <div className="flex gap-4  [&>a:last-child_path]:fill-primary [&>a:last-child:hover_svg_path]:fill-white">
                 {socials.map((social, index) => {
                   const Icon = social.icon;
                   return (
@@ -139,7 +141,7 @@ const Footer = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.2, y: -4 }}
-                      className="w-9 h-9 rounded-lg  bg-primary/10 hover:bg-primary text-primary hover:text-white flex items-center justify-center transition-colors"
+                      className="w-9 h-9 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-white  flex items-center justify-center transition-colors"
                       title={social.label}
                     >
                       <Icon className="w-4 h-4" />
@@ -160,7 +162,7 @@ const Footer = () => {
                     const Icon = link.icon;
                     return (
                       <li key={linkIndex}>
-                        <motion.a
+                        <AnimateLink
                           href={link.href}
                           target={
                             link.href.startsWith("http") ? "_blank" : undefined
@@ -175,7 +177,7 @@ const Footer = () => {
                         >
                           {Icon && <Icon className="w-4 h-4" />}
                           {link.label}
-                        </motion.a>
+                        </AnimateLink>
                       </li>
                     );
                   })}

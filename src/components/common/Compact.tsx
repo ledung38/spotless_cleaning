@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
+import { cn } from "@/lib/utils/index";
 
 // Compact Banner for Secondary Pages
 export const CompactApp = ({
@@ -9,15 +10,20 @@ export const CompactApp = ({
   subtitle,
   backgroundImage,
   textButton = "",
+  className,
 }: {
   title?: string;
   subtitle?: string;
   backgroundImage?: string;
   textButton?: string;
+  className?: string;
 }) => {
   return (
     <div
-      className="relative w-full h-80 overflow-hidden bg-gradient-to-br from-primary via-blue-800 to-purple-900 flex items-center"
+      className={cn(
+        "relative w-full h-80 overflow-hidden bg-gradient-to-br from-primary via-blue-800 to-purple-900 flex items-center",
+        className
+      )}
       style={{
         backgroundImage: backgroundImage
           ? `url(${backgroundImage})`

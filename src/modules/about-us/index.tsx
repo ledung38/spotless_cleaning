@@ -12,6 +12,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import logo from "@/lib/assets/images/logo.webp";
+import TagTitle from "@/modules/home/Tag";
 
 // ============================================================================
 // COMPONENTS
@@ -180,7 +181,7 @@ const AboutUs = () => {
       {/* ========== ABOUT COMPANY SECTION ========== */}
       <section className="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-b from-white via-primary/5 to-white ">
         <div className="bg-[url('/about.png')] absolute inset-0" />
-        <div className="bg-[rgba(248,248,248,.89)] absolute inset-0" />
+        <div className="bg-[rgba(248,248,248,.79)] absolute inset-0" />
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left content */}
@@ -289,7 +290,7 @@ const AboutUs = () => {
       </section>
 
       {/* ========== OUR MISSION & CORE VALUES SECTION ========== */}
-      <section className="relative py-20 lg:py-24 overflow-hidden">
+      <section className="relative py-12 lg:py-20 overflow-hidden">
         {/* Split background */}
         {/* <div className="absolute inset-0 bg-gradient-to-br from-primary/75 via-blue-600/70 to-cyan-700/75" /> */}
 
@@ -319,18 +320,7 @@ const AboutUs = () => {
             viewport={{ once: true }}
             className="text-center mb-10"
           >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="inline-flex items-center gap-2 bg-primary/15 backdrop-primary-md border border-primary/30 rounded-full px-4 py-2 mb-8"
-            >
-              <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-              <span className="text-sm font-semibold text-primary">
-                Our Foundation
-              </span>
-            </motion.div>
+            <TagTitle isShowPulse={true}>Our Foundation</TagTitle>
           </motion.div>
 
           {/* Main Grid - Mission left, Values right */}
@@ -359,7 +349,9 @@ const AboutUs = () => {
               {/* Main Mission Title */}
               <div>
                 <h2 className="text-5xl lg:text-6xl font-black leading-tight">
-                  <span className="text-ư">Create Spaces</span>
+                  <span className="bg-gradient-to-r from-primary to-foreground/40 bg-clip-text text-transparent">
+                    Create Spaces
+                  </span>
                   <br />
                   <span className="bg-gradient-to-r from-foreground/40 to-primary bg-clip-text text-transparent">
                     That Inspire
@@ -551,7 +543,7 @@ const AboutUs = () => {
       </section> */}
 
       {/* ========== OUR PROCESS SECTION ========== */}
-      <section className="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-b from-white via-primary/10 to-white">
+      <section className="relative py-12 lg:py-20 overflow-hidden bg-gradient-to-bl from-primary/30 via-blue-50/30 to-primary/70">
         {/* Animated grid background */}
         <div className="absolute inset-0 bg-grid-primary/20 bg-[size:40px_40px] [mask-image:linear-gradient(to_bottom,transparent,black,black,transparent)]" />
 
@@ -575,18 +567,7 @@ const AboutUs = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="inline-flex items-center gap-2 bg-primary/20 backdrop-blur-md border border-primary/40 rounded-full px-4 py-2 mb-6"
-            >
-              <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-              <span className="text-sm font-semibold text-primary">
-                How It Works
-              </span>
-            </motion.div>
+            <TagTitle isShowPulse={true}>How It Works</TagTitle>
 
             <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-4 leading-tight">
               Our Service Process
@@ -651,8 +632,7 @@ const AboutUs = () => {
       </section>
 
       {/* ========== TEAM SECTION ========== */}
-      <section className="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-primary/90 via-primary/85 to-blue-700/90">
-        {/* Animated background blobs */}
+      {/* <section className="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-primary/90 via-primary/85 to-blue-700/90">
         <motion.div
           className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-blue-400/20 blur-3xl"
           animate={{ y: [0, 50, 0], x: [0, -30, 0] }}
@@ -686,7 +666,7 @@ const AboutUs = () => {
             </motion.div>
 
             <h2 className="text-4xl lg:text-5xl font-black text-white mb-4 leading-tight">
-              Expert Professionals
+              Expert Professionals 1
             </h2>
             <p className="text-lg text-white/70 max-w-2xl mx-auto">
               Our dedicated team of cleaning experts is passionate about
@@ -712,7 +692,6 @@ const AboutUs = () => {
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  {/* Overlay with info on hover */}
                   <motion.div
                     initial={{ opacity: 0 }}
                     whileHover={{ opacity: 1 }}
@@ -741,7 +720,7 @@ const AboutUs = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ========== WHY CHOOSE US SECTION ========== */}
       {/* <section className="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-b from-white via-primary/8 to-white">

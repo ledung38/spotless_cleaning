@@ -158,7 +158,7 @@ const FloatingShape: React.FC<{
 
 export const Service: React.FC = () => {
   return (
-    <section className="relative w-full py-8 lg:py-12 overflow-hidden bg-gradient-to-b from-background via-primary/2 to-background">
+    <section className="bg-white relative w-full py-8 lg:py-12 overflow-hidden bg-gradient-to-b from-background via-primary/2 to-background">
       {/* Animated background shapes */}
       <FloatingShape
         delay={0}

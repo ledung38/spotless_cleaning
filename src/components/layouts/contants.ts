@@ -30,6 +30,10 @@ export const MENU_ITEMS = [
         label: "Airbnb Cleaning",
         key: Routes.SERVICE_AIRBNB_CLEANING,
       },
+      {
+        label: "Mould Cleaning",
+        key: Routes.SERVICE_MOULD_CLEANING,
+      },
     ],
   },
   {

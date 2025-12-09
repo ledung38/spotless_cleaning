@@ -153,7 +153,7 @@ export const Header = () => {
                     N&T Spotless
                   </span>
                   <span className="text-xs text-blue-100 font-semibold tracking-wide uppercase">
-                    Professional Cleaning
+                    Cleaning
                   </span>
                 </div>
               </Link>

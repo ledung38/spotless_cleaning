@@ -690,7 +690,6 @@ const AboutUs = () => {
 
       {/* ========== TEAM SECTION ========== */}
       <section className="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-primary/90 via-primary/85 to-blue-700/90">
-        {/* Animated background blobs */}
         <motion.div
           className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-blue-400/20 blur-3xl"
           animate={{ y: [0, 50, 0], x: [0, -30, 0] }}
@@ -750,7 +749,6 @@ const AboutUs = () => {
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  {/* Overlay with info on hover */}
                   <motion.div
                     initial={{ opacity: 0 }}
                     whileHover={{ opacity: 1 }}

@@ -6,6 +6,7 @@ export enum Routes {
   SERVICE_DEEP_CLEANING = "/service/deep-cleaning",
   SERVICE_RESTAURANT_CLEANING = "/service/restaurant-cleaning",
   SERVICE_AIRBNB_CLEANING = "/service/airbnb-cleaning",
+  SERVICE_MOULD_CLEANING = "/service/mould-cleaning",
   PRICING = "/pricing",
   ABOUT_US = "/about-us",
   BOOKING = "/booking",
