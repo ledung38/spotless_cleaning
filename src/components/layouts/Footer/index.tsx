@@ -74,8 +74,16 @@ const Footer = () => {
   ];
 
   const socials = [
-    { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
-    { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
+    {
+      icon: Facebook,
+      href: "https://www.facebook.com/sydney.spotlesscleaning",
+      label: "Facebook",
+    },
+    {
+      icon: Instagram,
+      href: "instagram.com/sydney.spotlesscleaning",
+      label: "Instagram",
+    },
     { icon: TikTokIcon, href: "https://linkedin.com", label: "TikTok" },
   ];
 

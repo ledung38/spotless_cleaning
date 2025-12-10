@@ -10,6 +10,7 @@ import {
   Input,
 } from "@/components/ui";
 import { RHFDatePicker } from "@/components/ui/DatePicker";
+import { generateEmailHTML } from "@/lib/utils/email";
 import { bookingFormSchema } from "@/modules/booking/validate";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
@@ -17,9 +18,11 @@ import {
   ArrowRight,
   Bath,
   Bed,
+  Building2,
   Check,
   CheckCircle2,
   Clock,
+  Droplets,
   Home,
   MapPin,
   Phone,
@@ -31,6 +34,7 @@ import {
 import { motion } from "motion/react";
 import React, { useState } from "react";
 import { useForm, UseFormSetValue } from "react-hook-form";
+import { toast as message } from "sonner";
 
 export interface FormData {
   // Step 1
@@ -41,7 +45,7 @@ export interface FormData {
   laundries: number;
 
   // Step 2
-  customServices: string[];
+  customServices: { id: string; count: number }[];
 
   // Step 3
   frequency: string;
@@ -107,6 +111,13 @@ const ProgressBar: React.FC<{ currentStep: number; totalSteps: number }> = ({
 const Step1: React.FC<StepProps> = ({ data, setData, onNext }) => {
   const cleanTypes = [
     {
+      id: "endoflease",
+      name: "End of Lease",
+      description: "Perfect for move in/out",
+      icon: Home,
+      color: "from-green-500 to-emerald-500",
+    },
+    {
       id: "regular",
       name: "Regular Cleaning",
       description: "Best for weekly or fortnightly services",
@@ -120,13 +131,7 @@ const Step1: React.FC<StepProps> = ({ data, setData, onNext }) => {
       icon: Wind,
       color: "from-purple-500 to-pink-500",
     },
-    {
-      id: "endoflease",
-      name: "End of Lease",
-      description: "Perfect for move in/out",
-      icon: Home,
-      color: "from-green-500 to-emerald-500",
-    },
+
     {
       id: "restaurant",
       name: "Restaurant Cleaning",
@@ -138,14 +143,14 @@ const Step1: React.FC<StepProps> = ({ data, setData, onNext }) => {
       id: "airbnb",
       name: "Airbnb Cleaning",
       description: "Specialized for Airbnb rental properties",
-      icon: Bed,
+      icon: Building2,
       color: "from-red-500 to-rose-500",
     },
     {
       id: "mould",
       name: "Mould Cleaning",
       description: "Specialized for mould removal",
-      icon: Bath,
+      icon: Droplets,
       color: "from-indigo-500 to-violet-500",
     },
   ];
@@ -299,10 +304,10 @@ const Step2: React.FC<StepProps> = ({ data, setData, onNext, onBack }) => {
   const services = [
     { id: "carpet-steam", name: "Carpet Steam Cleaning", icon: Wind },
     { id: "oven", name: "Oven Cleaning", icon: Sparkles },
-    { id: "fridge", name: "Fridge Interior", icon: Sparkles },
-    { id: "rangehood", name: "Rangehood Deep Clean", icon: Wind },
+    { id: "stains", name: "Stains on wall", icon: Wind },
     { id: "balcony", name: "Balcony/Patio Cleaning", icon: Home },
     { id: "windows", name: "Window Interior Cleaning", icon: Sparkles },
+    { id: "mould", name: "Mould Cleaning", icon: Sparkles },
   ];
 
   return (
@@ -325,7 +330,9 @@ const Step2: React.FC<StepProps> = ({ data, setData, onNext, onBack }) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {services.map((service, idx) => {
           const Icon = service.icon;
-          const isSelected = data.customServices.includes(service.id);
+          const isSelected = data.customServices.some(
+            (current) => current.id === service.id && !!current.count
+          );
 
           return (
             <motion.button
@@ -335,15 +342,9 @@ const Step2: React.FC<StepProps> = ({ data, setData, onNext, onBack }) => {
               transition={{ delay: idx * 0.05 }}
               onClick={() => {
                 if (isSelected) {
-                  setData(
-                    "customServices",
-                    data.customServices.filter((s) => s !== service.id)
-                  );
+                  setData(`customServices.${idx}.count` as keyof FormData, 0);
                 } else {
-                  setData("customServices", [
-                    ...data.customServices,
-                    service.id,
-                  ]);
+                  setData(`customServices.${idx}.count` as keyof FormData, 1);
                 }
               }}
               className={`relative p-5 rounded-xl border-2 transition-all flex items-center gap-3 ${
@@ -362,12 +363,47 @@ const Step2: React.FC<StepProps> = ({ data, setData, onNext, onBack }) => {
               </div>
 
               {isSelected && (
-                <motion.div
-                  layoutId="check"
-                  className="w-6 h-6 rounded-full bg-primary flex items-center justify-center"
-                >
-                  <Check size={16} className="text-white" />
-                </motion.div>
+                <>
+                  <div className="flex items-center gap-2 bg-background border border-border rounded-lg">
+                    <div
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setData(
+                          `customServices.${idx}.count` as keyof FormData,
+                          Math.max(
+                            1,
+                            (data.customServices[idx]?.count as number) - 1
+                          )
+                        );
+                      }}
+                      className="p-2 hover:bg-primary/10 transition"
+                    >
+                      −
+                    </div>
+                    <span className="flex-1 text-center font-bold">
+                      {data.customServices[idx]?.count || 0}
+                    </span>
+                    <div
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setData(
+                          `customServices.${idx}.count` as keyof FormData,
+                          (data.customServices[idx]?.count as number) + 1
+                        );
+                      }}
+                      className="p-2 hover:bg-primary/10 transition"
+                    >
+                      +
+                    </div>
+                  </div>
+
+                  <motion.div
+                    layoutId="check"
+                    className="w-6 h-6 rounded-full bg-primary flex items-center justify-center"
+                  >
+                    <Check size={16} className="text-white" />
+                  </motion.div>
+                </>
               )}
             </motion.button>
           );
@@ -814,7 +850,32 @@ export const BookingWizard: React.FC = () => {
       bathrooms: 0,
       storeys: 1,
       laundries: 0,
-      customServices: [],
+      customServices: [
+        {
+          id: "carpet-steam",
+          count: 0,
+        },
+        {
+          id: "oven",
+          count: 0,
+        },
+        {
+          id: "stains",
+          count: 0,
+        },
+        {
+          id: "balcony",
+          count: 0,
+        },
+        {
+          id: "windows",
+          count: 0,
+        },
+        {
+          id: "mould",
+          count: 0,
+        },
+      ],
       frequency: "",
       time: "",
       address: "",
@@ -822,7 +883,7 @@ export const BookingWizard: React.FC = () => {
       phone: "",
       fullName: "",
     },
-    reValidateMode: "onChange",
+    reValidateMode: "onSubmit",
   });
 
   const steps = [
@@ -835,8 +896,34 @@ export const BookingWizard: React.FC = () => {
 
   const CurrentStepComponent = steps[currentStep].component;
 
-  function onSubmit(values: FormData) {
-    console.log(values);
+  async function onSubmit(values: FormData) {
+    try {
+      const content = generateEmailHTML(values);
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          to: values.email,
+          subject: `New Cleaning Order – ${values.fullName}`,
+          message: content,
+        }),
+      });
+
+      const data = await res.json();
+      if (data?.success) {
+        message.success(
+          "Your cleaning service booking has been successfully created!"
+        );
+        setCurrentStep(currentStep + 1);
+        form.reset();
+      } else {
+        message.error(
+          "Something went wrong. Please try again or contact support."
+        );
+      }
+    } catch (error: any) {
+      message.error("Something went wrong.");
+    }
   }
 
   return (

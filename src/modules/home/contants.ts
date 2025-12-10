@@ -4,6 +4,7 @@ import {
   Building2,
   Droplets,
   Home,
+  Sparkles,
   UtensilsCrossed,
   Wind,
 } from "lucide-react";
@@ -50,7 +51,7 @@ export const services = [
     color: "from-blue-500 to-cyan-500",
   },
   {
-    icon: Droplets,
+    icon: Sparkles,
     title: "Regular Cleaning",
     description:
       "Scheduled cleaning services to keep your space clean and fresh every week or month.",
@@ -78,7 +79,7 @@ export const services = [
     color: "from-indigo-500 to-blue-500",
   },
   {
-    icon: Briefcase,
+    icon: Droplets,
     title: "Mould Cleaning",
     description:
       "Professional mould cleaning services to remove mold and mildew from your home.",

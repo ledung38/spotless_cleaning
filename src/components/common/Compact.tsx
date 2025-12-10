@@ -3,6 +3,8 @@
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils/index";
 import { ArrowRightIcon } from "@/components/icons";
+import { useAppRouter } from "@/hooks/useAppRouter";
+import { Routes } from "@/lib/enum/routes";
 
 // Compact Banner for Secondary Pages
 export const CompactApp = ({
@@ -18,6 +20,7 @@ export const CompactApp = ({
   textButton?: string;
   className?: string;
 }) => {
+  const router = useAppRouter();
   return (
     <div
       className={cn(
@@ -80,7 +83,10 @@ export const CompactApp = ({
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mt-8 group"
           >
-            <button className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-6 py-3 text-white font-semibold hover:bg-white/30 transition-all duration-300">
+            <button
+              className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-6 py-3 text-white font-semibold hover:bg-white/30 transition-all duration-300"
+              onClick={() => router.push(Routes.BOOKING)}
+            >
               <span>{textButton}</span>
               <ArrowRightIcon className="group-hover:translate-x-1 transition-transform duration-300" />
             </button>

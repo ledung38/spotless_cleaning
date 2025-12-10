@@ -9,8 +9,6 @@ import {
   PaginationItem,
   PaginationLink,
 } from "@/components/ui";
-import TagTitle from "@/modules/home/Tag";
-import Tag from "@/modules/home/Tag";
 import Autoplay from "embla-carousel-autoplay";
 import { ChevronLeft, ChevronRight, Shield, Sparkles, Zap } from "lucide-react";
 import { motion } from "motion/react";
@@ -179,9 +177,8 @@ export const Banner = ({
   };
 
   return (
-    <div className="relative w-full min-h-screen overflow-hidden bg-gradient-to-bl from-secondary/30 via-blue-50/30 to-primary/70 flex items-center">
-      {/* <div className="relative w-full min-h-screen overflow-hidden flex items-center"> */}
-
+    // <div className="relative w-full min-h-screen overflow-hidden bg-gradient-to-bl from-secondary/30 via-blue-50/30 to-primary/70 flex items-center">
+    <div className="relative w-full min-h-screen overflow-hidden flex items-center">
       <FloatingIcon Icon={Sparkles} delay={0} position="top-20 right-10" />
       <FloatingIcon Icon={Zap} delay={0.5} position="top-40 left-20" />
       <FloatingIcon Icon={Shield} delay={1} position="bottom-32 right-20" />

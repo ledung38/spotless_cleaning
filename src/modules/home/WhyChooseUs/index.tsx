@@ -90,7 +90,7 @@ const FeatureItem = ({
         className="flex-shrink-0 mt-1"
       >
         <div className="flex items-center justify-center group-hover:scale-110 transition-all duration-300">
-          <TickIcon className="size-6 shrink-0 " />
+          <TickIcon className="size-8 shrink-0 " />
         </div>
       </motion.div>
       <div className="flex-1">

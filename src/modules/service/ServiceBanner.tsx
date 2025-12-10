@@ -8,6 +8,7 @@ import {
   Award,
   CheckCircle2,
   Heart,
+  Droplets,
 } from "lucide-react";
 
 const icons = {
@@ -16,6 +17,7 @@ const icons = {
   Heart,
   Shield,
   Sparkles,
+  Droplets,
 };
 
 export interface ServiceBannerProps {

@@ -7,7 +7,7 @@ export const bookingFormSchema = z.object({
   bathrooms: z.number(),
   storeys: z.number(),
   laundries: z.number(),
-  customServices: z.string().array(),
+  customServices: z.object({ id: z.string(), count: z.number() }).array(),
   frequency: z.string().trim().nonempty({
     message: "Service frequency is required.",
   }),

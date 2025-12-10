@@ -1,19 +1,23 @@
 "use client";
 
 import { CompactApp } from "@/components/common/Compact";
+import { TextGradient } from "@/components/common/TextGradient";
 import { TickIcon } from "@/components/icons";
 import {
   ArrowRight,
   Award,
   Briefcase,
+  Building2,
   Check,
   Droplets,
   Home,
   Sparkles,
+  UtensilsCrossed,
   Wind,
   Zap,
 } from "lucide-react";
 import { motion } from "motion/react";
+import { title } from "process";
 import React, { useState } from "react";
 
 interface PricingFeature {
@@ -114,6 +118,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
           </div>
 
           {/* Price */}
+
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -121,15 +126,30 @@ const PricingCard: React.FC<PricingCardProps> = ({
             viewport={{ once: true }}
             className="mb-8 pb-8 border-b border-border/30 group-hover:border-primary/30 transition-colors"
           >
-            <div className="flex items-baseline gap-1 mb-2">
-              <span className="text-sm text-foreground/60 group-hover:text-foreground/80 transition-colors">
-                from
-              </span>
-              <span className="text-5xl lg:text-6xl font-black text-primary">
-                ${price}
-              </span>
-            </div>
-            <p className="text-xs text-foreground/50">Per service</p>
+            {price === 0 ? (
+              <div className="flex items-baseline gap-1 mb-2">
+                <span className="text-sm text-foreground/60 group-hover:text-foreground/80 transition-colors">
+                  price
+                </span>
+                <TextGradient
+                  className={"text-4xl lg:text-5xl font-black text-left"}
+                >
+                  Contact Us
+                </TextGradient>
+              </div>
+            ) : (
+              <>
+                <div className="flex items-baseline gap-1 mb-2">
+                  <span className="text-sm text-foreground/60 group-hover:text-foreground/80 transition-colors">
+                    from
+                  </span>
+                  <span className="text-5xl lg:text-6xl font-black text-primary">
+                    ${price}
+                  </span>
+                </div>
+                <p className="text-xs text-foreground/50">Per service</p>
+              </>
+            )}
           </motion.div>
 
           {/* Features List */}
@@ -284,7 +304,7 @@ export const Pricing: React.FC = () => {
   const pricingPlans = [
     {
       title: "End of Lease Cleaning",
-      price: 359,
+      price: 320,
       description: "Perfect for bond cleans and move in/out cleaning",
       icon: Home,
       color: "from-blue-500 to-cyan-500",
@@ -293,15 +313,15 @@ export const Pricing: React.FC = () => {
         { text: "Bond inspection checklist included" },
         { text: "Professional team with experience" },
         { text: "Complete satisfaction warranty" },
-        { text: "100% Bond Return Guarantee", highlight: true },
+        { text: "We guarantee re-cleaning at no extra cost", highlight: true },
       ],
     },
 
     {
       title: "Regular Cleaning",
-      price: 103,
+      price: 100,
       description: "Same cleaners every time with equipment provided",
-      icon: Droplets,
+      icon: Sparkles,
       color: "from-green-500 to-emerald-500",
       isPopular: true,
       features: [
@@ -316,7 +336,7 @@ export const Pricing: React.FC = () => {
     },
     {
       title: "Deep Cleaning",
-      price: 194,
+      price: 200,
       description: "Ideal for spring cleans and pre-inspection cleans",
       icon: Wind,
       color: "from-purple-500 to-pink-500",
@@ -329,39 +349,24 @@ export const Pricing: React.FC = () => {
       ],
     },
     {
-      title: "Office & Commercial",
-      price: 158,
-      description: "Professional cleaning for commercial spaces",
-      icon: Briefcase,
-      color: "from-orange-500 to-red-500",
-      features: [
-        { text: "After-hours cleaning available" },
-        { text: "Customized corporate cleaning plans" },
-        { text: "Eco-friendly product options" },
-        { text: "Background-checked professional staff" },
-        { text: "Flexible contract terms" },
-        { text: "Bulk service discounts available" },
-      ],
-    },
-    {
       title: "Restaurant Cleaning",
-      price: 285,
-      description: "Specialized cleaning meeting health and safety standards",
-      icon: Zap,
+      price: 0,
+      description: "Specialized cleaning for food service establishments",
+      icon: UtensilsCrossed,
       color: "from-yellow-500 to-orange-500",
       features: [
-        { text: "Food safety compliance certified" },
-        { text: "Commercial-grade kitchen sanitization" },
-        { text: "Grease trap and hood cleaning" },
-        { text: "Staff trained in food service standards" },
-        { text: "Health inspection ready guarantee", highlight: true },
+        { text: "Comprehensive surface disinfection" },
+        { text: "Baseboards and ceiling cleaning" },
+        { text: "Appliance interior detailed cleaning" },
+        { text: "Full property inspection included" },
+        { text: "Quality assurance guarantee", highlight: true },
       ],
     },
     {
       title: "Airbnb Cleaning",
-      price: 215,
+      price: 80,
       description: "Quick turnaround between guest stays",
-      icon: Award,
+      icon: Building2,
       color: "from-indigo-500 to-blue-500",
       features: [
         { text: "Express 2-4 hour turnaround" },
@@ -369,6 +374,20 @@ export const Pricing: React.FC = () => {
         { text: "24/7 on-demand availability" },
         { text: "Linen change and refresh included" },
         { text: "Last-minute emergency support", highlight: true },
+      ],
+    },
+    {
+      title: "Mould Cleaning",
+      price: 220,
+      description: "Remove mould from your home",
+      icon: Droplets,
+      color: "from-green-500 to-emerald-500",
+      features: [
+        { text: "Comprehensive surface disinfection" },
+        { text: "Baseboards and ceiling cleaning" },
+        { text: "Appliance interior detailed cleaning" },
+        { text: "Full property inspection included" },
+        { text: "Quality assurance guarantee", highlight: true },
       ],
     },
   ];

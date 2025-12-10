@@ -60,7 +60,7 @@ const services: Record<string, ServiceBannerProps> = {
     title: "Mould Cleaning",
     description:
       "Remove mould from your home with our professional mould cleaning service. We use state-of-the-art equipment and techniques to ensure a clean and healthy environment.",
-    icon: "CheckCircle2",
+    icon: "Droplets",
     highlights: ["100% Eco-friendly", "Full Guarantee", "Insured Team"],
     ctaText: "Book Mould Cleaning Now",
   },
