@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "motion/react";
-import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils/index";
+import { ArrowRightIcon } from "@/components/icons";
 
 // Compact Banner for Secondary Pages
 export const CompactApp = ({
@@ -78,11 +78,11 @@ export const CompactApp = ({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-8"
+            className="mt-8 group"
           >
             <button className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-6 py-3 text-white font-semibold hover:bg-white/30 transition-all duration-300">
               <span>{textButton}</span>
-              <ArrowRight size={18} />
+              <ArrowRightIcon className="group-hover:translate-x-1 transition-transform duration-300" />
             </button>
           </motion.div>
         )}

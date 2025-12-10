@@ -1,5 +1,17 @@
 "use client";
 
+import { TextGradient } from "@/components/common/TextGradient";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+  Input,
+} from "@/components/ui";
+import { RHFDatePicker } from "@/components/ui/DatePicker";
+import { bookingFormSchema } from "@/modules/booking/validate";
+import { zodResolver } from "@hookform/resolvers/zod";
 import {
   ArrowLeft,
   ArrowRight,
@@ -13,12 +25,14 @@ import {
   Phone,
   Sparkles,
   User,
+  UtensilsCrossed,
   Wind,
 } from "lucide-react";
 import { motion } from "motion/react";
 import React, { useState } from "react";
+import { useForm, UseFormSetValue } from "react-hook-form";
 
-interface FormData {
+export interface FormData {
   // Step 1
   cleanType: string;
   bedrooms: number;
@@ -33,19 +47,20 @@ interface FormData {
   frequency: string;
 
   // Step 4
-  date: string;
+  date: Date;
   time: string;
   address: string;
-  name: string;
+  fullName: string;
   email: string;
   phone: string;
 }
 
 interface StepProps {
   data: FormData;
-  setData: (data: FormData) => void;
+  setData: UseFormSetValue<FormData>;
   onNext: () => void;
   onBack: () => void;
+  form: any;
 }
 
 const ProgressBar: React.FC<{ currentStep: number; totalSteps: number }> = ({
@@ -65,7 +80,7 @@ const ProgressBar: React.FC<{ currentStep: number; totalSteps: number }> = ({
                 ? "bg-gradient-to-br from-primary to-blue-600 text-white shadow-lg shadow-primary/50"
                 : idx === currentStep
                 ? "bg-primary/20 border-2 border-primary text-primary"
-                : "bg-muted border-2 border-border text-muted-foreground"
+                : "bg-background border-2 border-border text-foreground"
             }`}
           >
             {idx < currentStep ? <Check size={24} /> : <span>{idx + 1}</span>}
@@ -74,9 +89,9 @@ const ProgressBar: React.FC<{ currentStep: number; totalSteps: number }> = ({
           {idx < totalSteps - 1 && (
             <motion.div
               initial={{ scaleX: 0 }}
-              animate={{ scaleX: idx < currentStep ? 1 : 0 }}
+              animate={{ scaleX: 1 }}
               transition={{ delay: idx * 0.1 + 0.2, duration: 0.5 }}
-              className={`flex-1 h-1 mx-2 origin-left rounded ${
+              className={`flex-1 h-1  mx-2 origin-left rounded ${
                 idx < currentStep
                   ? "bg-gradient-to-r from-primary to-blue-600"
                   : "bg-border"
@@ -92,8 +107,8 @@ const ProgressBar: React.FC<{ currentStep: number; totalSteps: number }> = ({
 const Step1: React.FC<StepProps> = ({ data, setData, onNext }) => {
   const cleanTypes = [
     {
-      id: "general",
-      name: "General Cleaning",
+      id: "regular",
+      name: "Regular Cleaning",
       description: "Best for weekly or fortnightly services",
       icon: Sparkles,
       color: "from-blue-500 to-cyan-500",
@@ -111,6 +126,27 @@ const Step1: React.FC<StepProps> = ({ data, setData, onNext }) => {
       description: "Perfect for move in/out",
       icon: Home,
       color: "from-green-500 to-emerald-500",
+    },
+    {
+      id: "restaurant",
+      name: "Restaurant Cleaning",
+      description: "Specialized for restaurants",
+      icon: UtensilsCrossed,
+      color: "from-yellow-500 to-orange-500",
+    },
+    {
+      id: "airbnb",
+      name: "Airbnb Cleaning",
+      description: "Specialized for Airbnb rental properties",
+      icon: Bed,
+      color: "from-red-500 to-rose-500",
+    },
+    {
+      id: "mould",
+      name: "Mould Cleaning",
+      description: "Specialized for mould removal",
+      icon: Bath,
+      color: "from-indigo-500 to-violet-500",
     },
   ];
 
@@ -141,7 +177,7 @@ const Step1: React.FC<StepProps> = ({ data, setData, onNext }) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1 }}
-              onClick={() => setData({ ...data, cleanType: type.id })}
+              onClick={() => setData("cleanType", type.id)}
               className={`relative p-6 rounded-2xl border-2 transition-all ${
                 data.cleanType === type.id
                   ? "border-primary bg-primary/10"
@@ -215,14 +251,10 @@ const Step1: React.FC<StepProps> = ({ data, setData, onNext }) => {
                 <div className="flex items-center gap-2 bg-background border border-border rounded-lg">
                   <button
                     onClick={() =>
-                      setData({
-                        ...data,
-                        [field.key]:
-                          Math.max(
-                            0,
-                            data[field.key as keyof FormData] as number
-                          ) - 1,
-                      })
+                      setData(
+                        field.key as keyof FormData,
+                        Math.max(0, (data[field.key] as number) - 1)
+                      )
                     }
                     className="p-2 hover:bg-primary/10 transition"
                   >
@@ -233,11 +265,10 @@ const Step1: React.FC<StepProps> = ({ data, setData, onNext }) => {
                   </span>
                   <button
                     onClick={() =>
-                      setData({
-                        ...data,
-                        [field.key]:
-                          (data[field.key as keyof FormData] as number) + 1,
-                      })
+                      setData(
+                        field.key as keyof FormData,
+                        (data[field.key] as number) + 1
+                      )
                     }
                     className="p-2 hover:bg-primary/10 transition"
                   >
@@ -287,7 +318,7 @@ const Step2: React.FC<StepProps> = ({ data, setData, onNext, onBack }) => {
           Customise Your Service
         </h2>
         <p className="text-muted-foreground">
-          Select any extra options you'd like to add
+          {`Select any extra options you'd like to add`}
         </p>
       </div>
 
@@ -304,17 +335,15 @@ const Step2: React.FC<StepProps> = ({ data, setData, onNext, onBack }) => {
               transition={{ delay: idx * 0.05 }}
               onClick={() => {
                 if (isSelected) {
-                  setData({
-                    ...data,
-                    customServices: data.customServices.filter(
-                      (s) => s !== service.id
-                    ),
-                  });
+                  setData(
+                    "customServices",
+                    data.customServices.filter((s) => s !== service.id)
+                  );
                 } else {
-                  setData({
-                    ...data,
-                    customServices: [...data.customServices, service.id],
-                  });
+                  setData("customServices", [
+                    ...data.customServices,
+                    service.id,
+                  ]);
                 }
               }}
               className={`relative p-5 rounded-xl border-2 transition-all flex items-center gap-3 ${
@@ -426,7 +455,7 @@ const Step3: React.FC<StepProps> = ({ data, setData, onNext, onBack }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: idx * 0.1 }}
-            onClick={() => setData({ ...data, frequency: freq.id })}
+            onClick={() => setData("frequency", freq.id)}
             className={`relative p-6 rounded-2xl border-2 transition-all text-left ${
               data.frequency === freq.id
                 ? "border-primary bg-primary/10"
@@ -487,7 +516,7 @@ const Step3: React.FC<StepProps> = ({ data, setData, onNext, onBack }) => {
   );
 };
 
-const Step4: React.FC<StepProps> = ({ data, setData, onNext, onBack }) => {
+const Step4: React.FC<StepProps> = ({ data, setData, onBack, form }) => {
   return (
     <motion.div
       initial={{ opacity: 0, x: 20 }}
@@ -517,11 +546,11 @@ const Step4: React.FC<StepProps> = ({ data, setData, onNext, onBack }) => {
             <Clock size={18} className="text-primary" />
             Preferred Date
           </label>
-          <input
-            type="date"
-            value={data.date}
-            onChange={(e) => setData({ ...data, date: e.target.value })}
-            className="w-full px-4 py-3 border border-border rounded-lg bg-background focus:outline-none focus:border-primary transition"
+          <RHFDatePicker
+            name="date"
+            placeholder="dd/mm/yyyy"
+            formatString="dd/MM/yyyy"
+            clearable={false}
           />
         </motion.div>
 
@@ -539,8 +568,8 @@ const Step4: React.FC<StepProps> = ({ data, setData, onNext, onBack }) => {
           <input
             type="time"
             value={data.time}
-            onChange={(e) => setData({ ...data, time: e.target.value })}
-            className="w-full px-4 py-3 border border-border rounded-lg bg-background focus:outline-none focus:border-primary transition"
+            onChange={(e) => setData("time", e.target.value)}
+            className="w-full px-4 py-3 border border-border rounded-lg bg-background focus:outline-none focus:border-primary transition hover:text-primary hover:border-primary"
           />
         </motion.div>
 
@@ -555,12 +584,22 @@ const Step4: React.FC<StepProps> = ({ data, setData, onNext, onBack }) => {
             <User size={18} className="text-primary" />
             Full Name
           </label>
-          <input
-            type="text"
-            value={data.name}
-            onChange={(e) => setData({ ...data, name: e.target.value })}
-            placeholder="Your name"
-            className="w-full px-4 py-3 border border-border rounded-lg bg-background focus:outline-none focus:border-primary transition"
+
+          <FormField
+            control={form.control}
+            name="fullName"
+            render={({ field }) => (
+              <FormItem>
+                <FormControl>
+                  <Input
+                    className="rounded-lg shadow-none  "
+                    placeholder="Your name"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
           />
         </motion.div>
 
@@ -575,12 +614,22 @@ const Step4: React.FC<StepProps> = ({ data, setData, onNext, onBack }) => {
             <Sparkles size={18} className="text-primary" />
             Email
           </label>
-          <input
-            type="email"
-            value={data.email}
-            onChange={(e) => setData({ ...data, email: e.target.value })}
-            placeholder="your@email.com"
-            className="w-full px-4 py-3 border border-border rounded-lg bg-background focus:outline-none focus:border-primary transition"
+
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormControl>
+                  <Input
+                    className="rounded-lg shadow-none"
+                    placeholder="your@email.com"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
           />
         </motion.div>
 
@@ -595,12 +644,22 @@ const Step4: React.FC<StepProps> = ({ data, setData, onNext, onBack }) => {
             <Phone size={18} className="text-primary" />
             Phone
           </label>
-          <input
-            type="tel"
-            value={data.phone}
-            onChange={(e) => setData({ ...data, phone: e.target.value })}
-            placeholder="Your phone number"
-            className="w-full px-4 py-3 border border-border rounded-lg bg-background focus:outline-none focus:border-primary transition"
+
+          <FormField
+            control={form.control}
+            name="phone"
+            render={({ field }) => (
+              <FormItem>
+                <FormControl>
+                  <Input
+                    className="rounded-lg shadow-none "
+                    placeholder="Your phone number"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
           />
         </motion.div>
 
@@ -615,12 +674,22 @@ const Step4: React.FC<StepProps> = ({ data, setData, onNext, onBack }) => {
             <MapPin size={18} className="text-primary" />
             Address
           </label>
-          <input
-            type="text"
-            value={data.address}
-            onChange={(e) => setData({ ...data, address: e.target.value })}
-            placeholder="Your full address"
-            className="w-full px-4 py-3 border border-border rounded-lg bg-background focus:outline-none focus:border-primary transition"
+
+          <FormField
+            control={form.control}
+            name="address"
+            render={({ field }) => (
+              <FormItem>
+                <FormControl>
+                  <Input
+                    className="rounded-lg shadow-none"
+                    placeholder="Your full address"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
           />
         </motion.div>
       </div>
@@ -639,15 +708,15 @@ const Step4: React.FC<StepProps> = ({ data, setData, onNext, onBack }) => {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          onClick={onNext}
           disabled={
             !data.date ||
             !data.time ||
-            !data.name ||
+            !data.fullName ||
             !data.email ||
             !data.phone ||
             !data.address
           }
+          type="submit"
           className="flex-1 py-4 px-6 bg-gradient-to-r from-primary to-blue-600 text-white font-bold rounded-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-primary/40 transition-all"
         >
           Complete Booking
@@ -684,8 +753,8 @@ const Step5: React.FC = () => {
           Booking Confirmed!
         </h2>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          Thank you for choosing N&T Spotless Cleaning. We've received your
-          booking and our team will contact you shortly to confirm the details.
+          {`Thank you for choosing N&T Spotless Cleaning. We've received your
+          booking and our team will contact you shortly to confirm the details.`}
         </p>
       </motion.div>
 
@@ -695,7 +764,7 @@ const Step5: React.FC = () => {
         transition={{ delay: 0.6 }}
         className="bg-primary/10 border border-primary/50 rounded-2xl p-8 space-y-4 max-w-2xl mx-auto"
       >
-        <h3 className="font-bold text-lg text-foreground">What's Next?</h3>
+        <h3 className="font-bold text-lg text-foreground">{`What's Next?`}</h3>
         <ul className="space-y-3 text-left">
           {[
             "We'll call you within 24 hours to confirm your booking",
@@ -737,20 +806,23 @@ const Step5: React.FC = () => {
 
 export const BookingWizard: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(0);
-  const [formData, setFormData] = useState<FormData>({
-    cleanType: "",
-    bedrooms: 0,
-    bathrooms: 0,
-    storeys: 1,
-    laundries: 0,
-    customServices: [],
-    frequency: "",
-    date: "",
-    time: "",
-    address: "",
-    name: "",
-    email: "",
-    phone: "",
+  const form = useForm<FormData>({
+    resolver: zodResolver(bookingFormSchema),
+    defaultValues: {
+      cleanType: "",
+      bedrooms: 0,
+      bathrooms: 0,
+      storeys: 1,
+      laundries: 0,
+      customServices: [],
+      frequency: "",
+      time: "",
+      address: "",
+      email: "",
+      phone: "",
+      fullName: "",
+    },
+    reValidateMode: "onChange",
   });
 
   const steps = [
@@ -762,6 +834,10 @@ export const BookingWizard: React.FC = () => {
   ];
 
   const CurrentStepComponent = steps[currentStep].component;
+
+  function onSubmit(values: FormData) {
+    console.log(values);
+  }
 
   return (
     <div className="min-h-screen w-full bg-gradient-to-b from-background via-primary/2 to-background py-12 lg:py-20">
@@ -799,10 +875,10 @@ export const BookingWizard: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl lg:text-5xl font-black text-foreground mb-4">
+          <TextGradient className="text-4xl lg:text-5xl font-black mb-4 leading-20">
             Book Your Cleaning Service
-          </h1>
-          <p className="text-lg text-muted-foreground">
+          </TextGradient>
+          <p className="text-lg text-foreground">
             Complete steps 1-4 to book your service. Step 5 shows your
             confirmation.
           </p>
@@ -819,25 +895,30 @@ export const BookingWizard: React.FC = () => {
         </motion.div>
 
         {/* Step Content */}
-        <motion.div
-          key={currentStep}
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -20 }}
-          transition={{ duration: 0.4 }}
-          className="bg-card/50 backdrop-blur-sm border border-border/50 rounded-3xl p-8 lg:p-12 shadow-xl shadow-primary/10"
-        >
-          {currentStep < 4 ? (
-            <CurrentStepComponent
-              data={formData}
-              setData={setFormData}
-              onNext={() => setCurrentStep(currentStep + 1)}
-              onBack={() => setCurrentStep(currentStep - 1)}
-            />
-          ) : (
-            <Step5 />
-          )}
-        </motion.div>
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)}>
+            <motion.div
+              key={currentStep}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.4 }}
+              className="bg-card/50 backdrop-blur-sm border border-border/50 rounded-3xl p-8 lg:p-12 shadow-xl shadow-primary/10"
+            >
+              {currentStep < 4 ? (
+                <CurrentStepComponent
+                  data={form.watch()}
+                  setData={form.setValue}
+                  onNext={() => setCurrentStep(currentStep + 1)}
+                  onBack={() => setCurrentStep(currentStep - 1)}
+                  form={form}
+                />
+              ) : (
+                <Step5 />
+              )}
+            </motion.div>
+          </form>
+        </Form>
 
         {/* Footer Info */}
         {currentStep < 4 && (

@@ -106,16 +106,16 @@ export function DatePicker({
 
   return (
     <div className="grid ">
-      {label && <FormLabel>{label}</FormLabel>}
+      {label && <FormLabel className="mb-2">{label}</FormLabel>}
 
       <div className="relative">
         <Popover open={open} onOpenChange={setOpen}>
-          <div className="flex gap-2 mt-2">
+          <div className="flex gap-2">
             <PopoverTrigger asChild>
               <Button
                 variant="outline"
                 className={cn(
-                  "w-full justify-between gap-2 px-3 hover:text-black bg-white",
+                  "w-full justify-between gap-2 px-4 py-3.5 bg-background",
                   !value && "text-muted-foreground"
                 )}
                 disabled={disabled}

@@ -1,8 +1,9 @@
+import { TextGradient } from "@/components/common/TextGradient";
+import { ArrowRightIcon } from "@/components/icons";
 import { CompactBannerAboutExample } from "@/components/layouts/Banner/EXAMPLES";
 import { services } from "@/modules/home/contants";
 import TagTitle from "@/modules/home/Tag";
 import {
-  ArrowRight,
   Briefcase,
   Building2,
   Droplets,
@@ -11,6 +12,7 @@ import {
   Wind,
 } from "lucide-react";
 import { motion } from "motion/react";
+import Link from "next/link";
 import React from "react";
 
 interface ServiceCardProps {
@@ -65,14 +67,13 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         <p className="text-foreground/60 leading-relaxed mb-4">{description}</p>
 
         {/* CTA link */}
-        <motion.a
-          whileHover={{ x: 4 }}
-          href="#"
-          className="inline-flex items-center gap-2 text-primary font-medium text-sm hover:gap-3 transition-all"
+        <Link
+          href="/about"
+          className="inline-flex items-center gap-2 text-primary font-medium text-sm  hover:ml-1 transition-all duration-300"
         >
           Learn more
-          <span>→</span>
-        </motion.a>
+          <ArrowRightIcon className="w-5 h-5 [&_path]:stroke-primary" />
+        </Link>
       </div>
 
       {/* Shine effect */}
@@ -113,9 +114,12 @@ const SectionTitle: React.FC<{ delay: number }> = ({ delay }) => {
       <TagTitle isShowPulse={true}>Our Services</TagTitle>
 
       {/* Main Title */}
-      <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-4 leading-tight max-w-3xl mx-auto">
+      <TextGradient
+        as="h2"
+        className="text-4xl lg:text-5xl font-black text-center mb-4 leading-tight max-w-3xl mx-auto"
+      >
         Exceptional Cleaning Services Tailored for You
-      </h2>
+      </TextGradient>
 
       {/* Subtitle */}
       <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -158,7 +162,7 @@ const FloatingShape: React.FC<{
 
 export const Service: React.FC = () => {
   return (
-    <section className="bg-white relative w-full py-8 lg:py-12 overflow-hidden bg-gradient-to-b from-background via-primary/2 to-background">
+    <section className="bg-white relative w-full py-10 lg:py-16 overflow-hidden bg-gradient-to-b from-background via-primary/2 to-background">
       {/* Animated background shapes */}
       <FloatingShape
         delay={0}

@@ -65,7 +65,7 @@ const FeatureBadge = ({
         delay,
       }}
       whileHover={{ scale: 1.1, translateY: -5 }}
-      className="flex items-center gap-2 bg-primary/8 backdrop-blur-sm border border-primary/20 rounded-full px-4 py-2 hover:bg-primary/12 transition-colors duration-300"
+      className="flex items-center gap-2 backdrop-blur-sm border border-primary rounded-full px-4 py-2 hover:bg-primary/12 transition-colors duration-300"
     >
       <Icon size={18} className="text-primary" />
       <span className=" font-semibold text-foreground">{text}</span>
@@ -180,11 +180,16 @@ export const Banner = ({
 
   return (
     <div className="relative w-full min-h-screen overflow-hidden bg-gradient-to-bl from-secondary/30 via-blue-50/30 to-primary/70 flex items-center">
+      {/* <div className="relative w-full min-h-screen overflow-hidden flex items-center"> */}
+
       <FloatingIcon Icon={Sparkles} delay={0} position="top-20 right-10" />
       <FloatingIcon Icon={Zap} delay={0.5} position="top-40 left-20" />
       <FloatingIcon Icon={Shield} delay={1} position="bottom-32 right-20" />
       <FloatingIcon Icon={Sparkles} delay={1.5} position="bottom-20 left-32" />
-      {/* <div className="bg-[url('/home_banner.png')] absolute inset-0" /> */}
+      <div className="bg-[url('/home_banner_v2.png')] absolute inset-0 bg-cover" />
+      <div className="bg-gradient-to-r  from-[rgba(248,248,248,.89)] via-[rgba(248,248,248,.59)] to-[rgba(248,248,248,.01)] absolute inset-0" />
+      {/* <div className="bg-gradient-to-br from-primary via-blue-800 to-purple-900 absolute inset-0 opacity-40" /> */}
+      {/* <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/10 to-transparent" /> */}
       {/* Main Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -199,15 +204,17 @@ export const Banner = ({
             {/* Main Heading */}
             <div className="space-y-4">
               {/* <TagTitle>Welcome to Premium Cleaning</TagTitle> */}
-
-              <h1 className="text-4xl lg:text-5xl font-black text-foreground leading-tight">
+              {/* <span className="text-4xl font-bold bg-gradient-to-r from-[#FDBA74] to-[#FB923C] bg-clip-text text-transparent">
+                2800+ Services Completed
+              </span> */}
+              <h1 className="text-4xl lg:text-5xl font-black  leading-tight bg-gradient-to-r from-[#0871eb] via-primary/80 to-[#1565C0] bg-clip-text  text-transparent">
                 <AnimatedText delay={0.2}>
                   Professional Cleaning Service in Sydney
                 </AnimatedText>
                 {/* <AnimatedText delay={0.5}>Spotless Care</AnimatedText> */}
               </h1>
 
-              <p className=" sm:text-xl text-lg text-muted-foreground leading-relaxed max-w-xl">
+              <p className=" sm:text-xl text-lg text-foreground leading-relaxed max-w-xl">
                 <motion.span
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -264,10 +271,10 @@ export const Banner = ({
                 { number: "24/7", label: "Customer Support" },
               ].map((stat, idx) => (
                 <div key={idx} className="text-center">
-                  <p className="text-3xl font-black text-secondary">
+                  <p className="text-3xl font-black text-[#00cdb2]">
                     {stat.number}
                   </p>
-                  <p className="text-sm text-primary mt-1">{stat.label}</p>
+                  <p className="text-sm text-[#014138] mt-1">{stat.label}</p>
                 </div>
               ))}
             </motion.div>

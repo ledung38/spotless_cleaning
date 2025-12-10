@@ -1,5 +1,6 @@
 "use client";
 
+import { TextGradient } from "@/components/common/TextGradient";
 import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
 
@@ -40,7 +41,7 @@ const HomeAreas = () => {
   };
 
   return (
-    <section className="relative w-full py-8 md:py-16 bg-card/50 overflow-hidden">
+    <section className="relative w-full py-8 md:py-16 bg-background overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <motion.div
@@ -50,9 +51,12 @@ const HomeAreas = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <TextGradient
+            as="h2"
+            className="text-4xl md:text-5xl font-bold mb-4 text-center"
+          >
             Service Areas
-          </h2>
+          </TextGradient>
           <p className="text-lg text-foreground/60 max-w-2xl mx-auto">
             We proudly serve all of Sydney and surrounding areas
           </p>
@@ -70,11 +74,10 @@ const HomeAreas = () => {
             <motion.div
               key={index}
               variants={itemVariants}
-              whileHover={{ scale: 1.05, y: -4 }}
-              className="p-4 rounded-xl bg-background border border-border/50 hover:border-primary/50 flex items-center gap-3 transition-all duration-300 cursor-pointer group"
+              className="p-4 rounded-xl bg-white hover:scale-105 border border-border/50 hover:border-primary/50 flex items-center gap-3 transition-all duration-300 cursor-pointer group border-l-4 border-primary"
             >
               <MapPin className="w-5 h-5 text-primary flex-shrink-0 group-hover:scale-110 transition-transform" />
-              <span className="text-foreground/70 group-hover:text-foreground transition-colors">
+              <span className="text-foreground/70 group-hover:text-primary ">
                 {area}
               </span>
             </motion.div>

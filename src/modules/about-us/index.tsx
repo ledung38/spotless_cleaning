@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import logo from "@/lib/assets/images/logo.webp";
 import TagTitle from "@/modules/home/Tag";
+import { TextGradient } from "@/components/common/TextGradient";
 
 // ============================================================================
 // COMPONENTS
@@ -543,20 +544,36 @@ const AboutUs = () => {
       </section> */}
 
       {/* ========== OUR PROCESS SECTION ========== */}
-      <section className="relative py-12 lg:py-20 overflow-hidden bg-gradient-to-bl from-primary/30 via-blue-50/30 to-primary/70">
+      <section className="relative py-12 lg:py-20 overflow-hidden bg-background">
         {/* Animated grid background */}
         <div className="absolute inset-0 bg-grid-primary/20 bg-[size:40px_40px] [mask-image:linear-gradient(to_bottom,transparent,black,black,transparent)]" />
 
         {/* Decorative shapes */}
         <motion.div
           className="absolute top-10 right-20 w-40 h-40 rounded-full border-2 border-primary/30"
-          animate={{ rotate: 360 }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          // animate={{ rotate: 360 }}
+          // transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
         />
         <motion.div
           className="absolute bottom-20 left-10 w-32 h-32 rounded-full border-2 border-primary/25"
-          animate={{ rotate: -360 }}
-          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          // animate={{ rotate: -360 }}
+          // transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+        />
+
+        <motion.div
+          className="absolute top-20 right-1/3 w-96 h-96 rounded-full bg-blue-400/15 blur-3xl"
+          // animate={{ y: [0, -60, 0], x: [0, 40, 0] }}
+          // transition={{ duration: 10, repeat: Infinity }}
+        />
+        <motion.div
+          className="absolute -top-55 left-1/4 w-80 h-80 rounded-full bg-primary/20 blur-3xl"
+          // animate={{ y: [0, 60, 0], x: [0, -30, 0] }}
+          // transition={{ duration: 12, delay: 1, repeat: Infinity }}
+        />
+        <motion.div
+          className="absolute top-1/2 -right-40 w-96 h-96 rounded-full bg-white/10 blur-3xl"
+          // animate={{ rotate: 360 }}
+          // transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
         />
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -569,9 +586,9 @@ const AboutUs = () => {
           >
             <TagTitle isShowPulse={true}>How It Works</TagTitle>
 
-            <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-4 leading-tight">
+            <TextGradient className="text-4xl lg:text-5xl font-black  mb-4 leading-tight">
               Our Service Process
-            </h2>
+            </TextGradient>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               From initial consultation to final follow-up, we ensure a seamless
               experience tailored to your needs.
@@ -589,7 +606,7 @@ const AboutUs = () => {
                 className="group relative"
               >
                 {/* Card background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-blue-100/60 rounded-3xl border-2 border-primary/40 group-hover:border-primary/70 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-primary/30" />
+                <div className="absolute inset-0 bg-white rounded-3xl border-2 border-primary/40 group-hover:border-primary/70 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-primary/30" />
 
                 {/* Content */}
                 <div className="relative z-10 p-8">

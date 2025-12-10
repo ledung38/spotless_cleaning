@@ -1,5 +1,6 @@
 "use client";
 
+import { CompactApp } from "@/components/common/Compact";
 import { TickIcon } from "@/components/icons";
 import {
   ArrowRight,
@@ -550,7 +551,7 @@ export const Pricing: React.FC = () => {
         </motion.div>
 
         {/* CTA Section */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
@@ -576,7 +577,15 @@ export const Pricing: React.FC = () => {
               </motion.span>
             </span>
           </motion.button>
-        </motion.div>
+        </motion.div> */}
+
+        <CompactApp
+          title="Ready to get started?"
+          subtitle="Pick the perfect cleaning plan for your needs and experience the N&T
+            Spotless Cleaning difference today."
+          textButton="Get Your Free Quote"
+          className="rounded-3xl"
+        />
       </div>
     </section>
   );

@@ -11,6 +11,7 @@ import {
   CheckCircle2,
   ArrowRight,
 } from "lucide-react";
+import { TextGradient } from "@/components/common/TextGradient";
 
 // ============================================================================
 // COMPONENTS
@@ -626,9 +627,9 @@ const AboutUs = () => {
               </span>
             </motion.div>
 
-            <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-4 leading-tight">
+            <TextGradient className="text-4xl lg:text-5xl font-black mb-4 leading-tight">
               Our Service Process
-            </h2>
+            </TextGradient>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               From initial consultation to final follow-up, we ensure a seamless
               experience tailored to your needs.

@@ -7,6 +7,7 @@ import { Container, Text } from "@/components/ui";
 import Flex from "@/components/ui/Flex";
 import { AnimateFlex } from "@/components/common/Animate";
 import { CommentStar } from "@/components/icons/home";
+import { TextGradient } from "@/components/common/TextGradient";
 
 type Props = {
   ratings: TRatingDto[];
@@ -37,9 +38,9 @@ const Comment = (props: Props) => {
             animate={isSecondInView ? "visible" : "hidden"}
             transition={{ type: "spring", delay: 0.1 }}
           >
-            <p className="text-4xl sm:text-5xl font-black text-foreground leading-tight mb-6">
+            <TextGradient className="text-4xl sm:text-5xl font-black  mb-6 leading-20">
               What Our Customers Say
-            </p>
+            </TextGradient>
             <CommentStar className="mb-2 max-sm:size-[28px]" />
           </AnimateFlex>
           <motion.div

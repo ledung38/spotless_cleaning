@@ -108,9 +108,11 @@ const FeatureItem = ({
 export const WhyChooseUs = () => {
   return (
     <div className="relative mb-40">
-      <div className="relative w-full overflow-hidden bg-white py-8 sm:py-12 !pb-24">
-        {/* <div className="bg-[url('/bg_layer.webp')] bg-repeat w-64 h-64 absolute"></div> */}
-        <div className="absolute inset-0 bg-[url('/bg_layer.webp')] bg-repeat"></div>
+      <div className="relative w-full overflow-hidden bg-white py-10 sm:py-16 !pb-24">
+        {/* <div className="bg-[url('/bg_layer2.webp')] bg-repeat  absolute "></div> */}
+        <div className="absolute inset-0 bg-[url('/bg_layer.webp')] bg-repeat bg-[length:200px_133px]"></div>
+        {/* <div className="bg-[rgba(248,248,248,.3)] absolute inset-0" /> */}
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 relative">
           {/* Header */}
           {/* <motion.div
@@ -281,16 +283,15 @@ export const WhyChooseUs = () => {
       >
         {/* Background Image */}
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute top-0 left-0 w-full h-full bg-cover bg-center"
           style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1200&h=400&fit=crop')",
+            backgroundImage: "url('/cleaning.png')",
             filter: "brightness(0.6) contrast(1.1)",
           }}
         />
 
         {/* Overlay Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/70 via-blue-600/120 to-primary/70" />
+        {/* <div className="absolute inset-0 bg-gradient-to-r from-primary/70 via-blue-600/120 to-primary/70" /> */}
 
         {/* Content */}
         <div className="relative z-10 px-6 sm:px-8 lg:px-20 py-12 sm:py-16 lg:py-20">
