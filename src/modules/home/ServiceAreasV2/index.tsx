@@ -73,7 +73,7 @@ const HomeAreas = () => {
           {areas.map((area, index) => (
             <motion.div
               key={index}
-              variants={itemVariants}
+              variants={itemVariants as any}
               className="p-4 rounded-xl bg-white hover:scale-105 border border-border/50 hover:border-primary/50 flex items-center gap-3 transition-all duration-300 cursor-pointer group border-l-4 border-primary"
             >
               <MapPin className="w-5 h-5 text-primary flex-shrink-0 group-hover:scale-110 transition-transform" />
@@ -93,8 +93,8 @@ const HomeAreas = () => {
           className="mt-16 text-center"
         >
           <p className="text-foreground/60 max-w-2xl mx-auto">
-            Don't see your area listed? Contact us to discuss custom service
-            arrangements for your location.
+            {`Don't see your area listed? Contact us to discuss custom service
+            arrangements for your location.`}
           </p>
         </motion.div>
       </div>

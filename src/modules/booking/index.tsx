@@ -83,8 +83,8 @@ const ProgressBar: React.FC<{ currentStep: number; totalSteps: number }> = ({
               idx < currentStep
                 ? "bg-gradient-to-br from-primary to-blue-600 text-white shadow-lg shadow-primary/50"
                 : idx === currentStep
-                ? "bg-primary/20 border-2 border-primary text-primary"
-                : "bg-background border-2 border-border text-foreground"
+                  ? "bg-primary/20 border-2 border-primary text-primary"
+                  : "bg-background border-2 border-border text-foreground"
             }`}
           >
             {idx < currentStep ? <Check size={24} /> : <span>{idx + 1}</span>}
@@ -258,7 +258,7 @@ const Step1: React.FC<StepProps> = ({ data, setData, onNext }) => {
                     onClick={() =>
                       setData(
                         field.key as keyof FormData,
-                        Math.max(0, (data[field.key] as number) - 1)
+                        Math.max(0, (data[field.key] as number) - 1),
                       )
                     }
                     className="p-2 hover:bg-primary/10 transition"
@@ -272,7 +272,7 @@ const Step1: React.FC<StepProps> = ({ data, setData, onNext }) => {
                     onClick={() =>
                       setData(
                         field.key as keyof FormData,
-                        (data[field.key] as number) + 1
+                        (data[field.key] as number) + 1,
                       )
                     }
                     className="p-2 hover:bg-primary/10 transition"
@@ -331,7 +331,7 @@ const Step2: React.FC<StepProps> = ({ data, setData, onNext, onBack }) => {
         {services.map((service, idx) => {
           const Icon = service.icon;
           const isSelected = data.customServices.some(
-            (current) => current.id === service.id && !!current.count
+            (current) => current.id === service.id && !!current.count,
           );
 
           return (
@@ -372,8 +372,8 @@ const Step2: React.FC<StepProps> = ({ data, setData, onNext, onBack }) => {
                           `customServices.${idx}.count` as keyof FormData,
                           Math.max(
                             1,
-                            (data.customServices[idx]?.count as number) - 1
-                          )
+                            (data.customServices[idx]?.count as number) - 1,
+                          ),
                         );
                       }}
                       className="p-2 hover:bg-primary/10 transition"
@@ -388,7 +388,7 @@ const Step2: React.FC<StepProps> = ({ data, setData, onNext, onBack }) => {
                         e.stopPropagation();
                         setData(
                           `customServices.${idx}.count` as keyof FormData,
-                          (data.customServices[idx]?.count as number) + 1
+                          (data.customServices[idx]?.count as number) + 1,
                         );
                       }}
                       className="p-2 hover:bg-primary/10 transition"
@@ -912,13 +912,13 @@ export const BookingWizard: React.FC = () => {
       const data = await res.json();
       if (data?.success) {
         message.success(
-          "Your cleaning service booking has been successfully created!"
+          "Your cleaning service booking has been successfully created!",
         );
         setCurrentStep(currentStep + 1);
         form.reset();
       } else {
         message.error(
-          "Something went wrong. Please try again or contact support."
+          "Something went wrong. Please try again or contact support.",
         );
       }
     } catch (error: any) {

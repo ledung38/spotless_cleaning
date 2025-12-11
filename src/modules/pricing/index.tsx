@@ -447,8 +447,8 @@ export const Pricing: React.FC = () => {
 
           {/* Subtitle */}
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Choose the cleaning service that's right for you and get discounts
-            when you book a regular cleaning service.{" "}
+            {`Choose the cleaning service that's right for you and get discounts
+            when you book a regular cleaning service.`}
             <motion.span
               className="font-semibold text-primary"
               animate={{ scale: [1, 1.05, 1] }}

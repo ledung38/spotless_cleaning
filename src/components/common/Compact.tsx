@@ -25,7 +25,7 @@ export const CompactApp = ({
     <div
       className={cn(
         "relative w-full h-80 overflow-hidden bg-gradient-to-br from-primary via-blue-800 to-purple-900 flex items-center",
-        className
+        className,
       )}
       style={{
         backgroundImage: backgroundImage

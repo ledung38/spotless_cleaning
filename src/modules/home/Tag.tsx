@@ -14,7 +14,7 @@ const TagTitle = ({ children, className = "", isShowPulse = false }) => {
       transition={{ duration: 0.6 }}
       className={cn(
         "text-primary mb-4 text-base font-semibold inline-flex items-center gap-2 bg-gradient-to-r from-primary/20 via-white/10 to-primary/20 backdrop-blur-sm border border-primary rounded-full px-4 py-1.5 ",
-        className
+        className,
       )}
     >
       {isShowPulse && (

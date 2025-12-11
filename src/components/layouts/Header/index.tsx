@@ -95,7 +95,7 @@ export const Header = () => {
       navigate.push(key);
       setIsMobileMenuOpen(false);
     },
-    [navigate]
+    [navigate],
   );
 
   const toggleMobileMenu = useCallback(() => {

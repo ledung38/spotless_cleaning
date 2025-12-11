@@ -54,7 +54,7 @@ export const DateField = React.forwardRef<HTMLInputElement, DateFieldProps>(
             "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm shadow-sm outline-none",
             "focus-visible:ring-2 focus-visible:ring-ring/70 focus-visible:ring-offset-1",
             error && "border-destructive focus-visible:ring-destructive/50",
-            className
+            className,
           )}
           {...props}
         />
@@ -64,7 +64,7 @@ export const DateField = React.forwardRef<HTMLInputElement, DateFieldProps>(
         {error && <p className="text-[12px] text-destructive">{error}</p>}
       </div>
     );
-  }
+  },
 );
 DateField.displayName = "DateField";
 
@@ -116,7 +116,7 @@ export function DatePicker({
                 variant="outline"
                 className={cn(
                   "w-full justify-between gap-2 px-4 py-3.5 bg-background",
-                  !value && "text-muted-foreground"
+                  !value && "text-muted-foreground",
                 )}
                 disabled={disabled}
               >
@@ -205,7 +205,7 @@ export function DateRangePicker({
       ? `${format(value.from, formatString, { locale: vi })} → ${format(
           value.to,
           formatString,
-          { locale: vi }
+          { locale: vi },
         )}`
       : placeholder;
 
@@ -220,7 +220,9 @@ export function DateRangePicker({
               variant="outline"
               className={cn(
                 "w-full justify-between gap-2 mt-2 px-3 hover:text-black bg-white",
-                !value?.from || !value?.to ? "text-muted-foreground" : undefined
+                !value?.from || !value?.to
+                  ? "text-muted-foreground"
+                  : undefined,
               )}
               disabled={disabled}
             >
@@ -250,7 +252,7 @@ export function DateRangePicker({
               if (
                 isSameDay(
                   new Date(selectedRange?.from ?? ""),
-                  new Date(selectedRange?.to ?? "")
+                  new Date(selectedRange?.to ?? ""),
                 )
               )
                 selectedRange.to = undefined;

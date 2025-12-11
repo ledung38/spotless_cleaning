@@ -130,8 +130,8 @@ const ListComment = ({ data }: { data: any }) => {
                   totalSlides >= 3
                     ? "max-w-none lg:basis-1/3"
                     : totalSlides >= 2
-                    ? "lg:basis-1/2"
-                    : "lg:basis-full"
+                      ? "lg:basis-1/2"
+                      : "lg:basis-full"
                 } ${index == current ? "z-[1]" : "z-[0]"} `}
               >
                 {current === index && totalSlides >= 3 && (

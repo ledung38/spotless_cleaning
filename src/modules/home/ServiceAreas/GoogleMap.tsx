@@ -163,7 +163,7 @@ const GoogleMapComponent: React.FC<GoogleMapComponentProps> = ({
 
           script.onerror = () => {
             console.error(
-              "Failed to load Google Maps script. Check your API key."
+              "Failed to load Google Maps script. Check your API key.",
             );
           };
 

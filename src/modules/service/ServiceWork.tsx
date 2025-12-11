@@ -166,8 +166,8 @@ export const HowItWorks: React.FC = () => {
   const pathName = usePathname();
   const slug = pathName.split("/")[2];
 
-  const mainServices = listServiceIncludes[slug].mainServices;
-  const optionalExtras = listServiceIncludes[slug].optionalExtras;
+  const mainServices = listServiceIncludes[slug]?.mainServices || [];
+  const optionalExtras = listServiceIncludes[slug]?.optionalExtras || [];
 
   return (
     <section className="relative w-full py-8 lg:py-16 overflow-hidden bg-gradient-to-b from-white  to-primary/50">

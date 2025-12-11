@@ -15,7 +15,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       <div
         className={cn(
           "relative flex w-full text-black items-center",
-          containerClassName
+          containerClassName,
         )}
       >
         {prefix && (
@@ -34,7 +34,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             "aria-invalid:ring-destructive/20 aria-invalid:border-destructive transition-all duration-300 ease-in-out o",
             prefix && "pl-9",
             suffix && "pr-9",
-            className
+            className,
           )}
           {...props}
         />
@@ -46,7 +46,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         )}
       </div>
     );
-  }
+  },
 );
 
 Input.displayName = "Input";

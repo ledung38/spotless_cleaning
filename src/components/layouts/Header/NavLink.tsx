@@ -19,7 +19,7 @@ export const NavLink = ({
         // Active state
         isActive &&
           "text-secondary/90 after:w-full after:left-1/2 after:-translate-x-1/2 after:bg-secondary",
-        className
+        className,
       )}
     >
       {props.children}

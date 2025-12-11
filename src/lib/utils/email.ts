@@ -52,7 +52,7 @@ export function generateEmailHTML(order) {
       ${customServices
         .map(
           (service) =>
-            `<li>• ${toTitle(service?.id)} - ${service?.count} unit</li>  `
+            `<li>• ${toTitle(service?.id)} - ${service?.count} unit</li>  `,
         )
         .join("")}
     </ul>

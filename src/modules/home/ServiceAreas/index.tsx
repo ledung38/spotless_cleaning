@@ -229,7 +229,7 @@ export const ServiceAreas = () => {
               className="bg-gradient-to-br from-primary/10 to-blue-400/10 border border-primary/20 rounded-2xl p-6 text-center"
             >
               <p className="text-sm text-muted-foreground mb-4">
-                Don't see your area listed?
+                {`Don't see your area listed?`}
               </p>
               <motion.button
                 whileHover={{ scale: 1.05 }}

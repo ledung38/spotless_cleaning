@@ -329,11 +329,11 @@ const AboutUs = () => {
                   of satisfied customers across the region.
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  We believe that a clean space is more than just
+                  {`We believe that a clean space is more than just
                   aesthetics—it's about creating healthy, happy environments
                   where families and businesses can thrive. Our commitment to
                   excellence, sustainability, and customer satisfaction drives
-                  everything we do.
+                  everything we do.`}
                 </p>
               </div>
 
