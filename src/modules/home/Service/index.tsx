@@ -29,6 +29,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   description,
   color,
 }) => {
+  const link = `/service/${title.toLowerCase().replace(" ", "-")}`;
+  console.log("link", link);
   return (
     <motion.div
       variants={{
@@ -68,7 +70,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 
         {/* CTA link */}
         <Link
-          href="/about"
+          href={link}
           className="inline-flex items-center gap-2 text-primary font-medium text-sm  hover:ml-1 transition-all duration-300"
         >
           Learn more

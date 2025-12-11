@@ -200,7 +200,7 @@ const AboutUs = () => {
                 <p className="text-lg text-foreground leading-relaxed mb-6">
                   Founded with a vision to transform how people experience
                   cleanliness, Spotless Cleaning has been revolutionizing the
-                  cleaning industry for over 15 years. What started as a small
+                  cleaning industry for over 8 years. What started as a small
                   family business has grown into a trusted partner for thousands
                   of satisfied customers across the region.
                 </p>
@@ -223,7 +223,7 @@ const AboutUs = () => {
               >
                 <div className="text-center">
                   <div className="text-3xl font-black text-primary mb-2">
-                    15+
+                    8+
                   </div>
                   <p className="text-sm text-muted-foreground font-semibold">
                     Years in Business
@@ -231,7 +231,7 @@ const AboutUs = () => {
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-black text-primary mb-2">
-                    10k+
+                    2k+
                   </div>
                   <p className="text-sm text-muted-foreground font-semibold">
                     Happy Customers

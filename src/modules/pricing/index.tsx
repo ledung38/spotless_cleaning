@@ -458,7 +458,7 @@ export const Pricing: React.FC = () => {
                 ease: "easeInOut",
               }}
             >
-              Join 17,000+ happy customers!
+              Join 2,000+ happy customers!
             </motion.span>
           </p>
         </motion.div>

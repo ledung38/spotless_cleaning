@@ -36,7 +36,9 @@ export const CompactApp = ({
       }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
+      {!backgroundImage && (
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
+      )}
 
       {/* Animated Background */}
       <motion.div

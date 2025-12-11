@@ -268,10 +268,12 @@ export const Banner = ({
                 { number: "24/7", label: "Customer Support" },
               ].map((stat, idx) => (
                 <div key={idx} className="text-center">
-                  <p className="text-3xl font-black text-[#00cdb2]">
+                  <p className="text-3xl font-black text-primary">
                     {stat.number}
                   </p>
-                  <p className="text-sm text-[#014138] mt-1">{stat.label}</p>
+                  <p className="text-sm font-medium text-[#02385c] mt-1">
+                    {stat.label}
+                  </p>
                 </div>
               ))}
             </motion.div>
