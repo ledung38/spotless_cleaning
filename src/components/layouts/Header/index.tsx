@@ -1,3 +1,5 @@
+"use client";
+
 import { ModeToggle } from "@/components/common/ModeToggle";
 import { BellIcon, PhoneIcon } from "@/components/icons";
 import { MENU_ITEMS } from "@/components/layouts/contants";
@@ -5,154 +7,350 @@ import { NavLink } from "@/components/layouts/Header/NavLink";
 import {
   Button,
   NextAvatar,
-  Tabs,
-  TabsList,
-  TabsTrigger,
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui";
 import { useAppRouter } from "@/hooks/useAppRouter";
 import useDidUpdateEffect from "@/hooks/useDidUpdateEffect";
+import logo from "@/lib/assets/images/logo.webp";
 import { Routes } from "@/lib/enum/routes";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { useCallback, useEffect, useState } from "react";
 
-// 52A7FF
-// 0A84FF
-// F4F4F4
+import { ChevronDown, Menu, X } from "lucide-react";
+import { motion } from "motion/react";
+import { useCallback, useEffect, useState } from "react";
+
+// Mobile Menu Item Component
+const MobileMenuItem = ({
+  item,
+  onClose,
+}: {
+  item: (typeof MENU_ITEMS)[0];
+  onClose: () => void;
+}) => {
+  const hasSubTabs = item.children && item.children.length > 0;
+  const [openSubmenu, setOpenSubmenu] = useState(false);
+
+  return (
+    <div key={item.key} className="space-y-0">
+      {hasSubTabs ? (
+        <button
+          onClick={() => setOpenSubmenu(!openSubmenu)}
+          className="w-full flex items-center justify-between px-4 py-3.5 text-white font-semibold hover:bg-white/15 rounded-lg transition-all duration-200 group"
+        >
+          <span className="group-hover:translate-x-1 transition-transform duration-200">
+            {item.label}
+          </span>
+          <ChevronDown
+            size={16}
+            className={`transition-transform duration-300 ${
+              openSubmenu ? "rotate-180" : ""
+            }`}
+          />
+        </button>
+      ) : (
+        <Link
+          href={`${item.key}`}
+          onClick={onClose}
+          className="block px-4 py-3.5 text-white font-semibold hover:bg-white/15 hover:translate-x-1 rounded-lg transition-all duration-200"
+        >
+          {item.label}
+        </Link>
+      )}
+
+      {hasSubTabs && openSubmenu && (
+        <div className="pl-4 space-y-1 mt-1 animate-in fade-in slide-in-from-top-2 duration-200">
+          {item.children.map((subTab) => (
+            <Link
+              key={subTab.key}
+              href={`${subTab.key}`}
+              onClick={onClose}
+              className="block px-4 py-2.5 text-blue-100 font-medium hover:bg-white/15 hover:text-white hover:translate-x-1 rounded-lg transition-all duration-200 text-sm"
+            >
+              {subTab.label}
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
 export const Header = () => {
   const pathname = usePathname();
-
-  const getActiveTabFromPathname = useCallback((path: string) => {
-    const firstSegment = `/${path.split("/")[1]}`;
+  const [active, setActive] = useState(() => {
+    const firstSegment = `/${pathname.split("/")[1]}`;
     return firstSegment === "/" ? Routes.HOME : firstSegment;
-  }, []);
-
-  const [active, setActive] = useState(() =>
-    getActiveTabFromPathname(pathname)
-  );
+  });
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
+  const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useAppRouter();
+  const route = useAppRouter();
 
   const onChangeTab = useCallback(
     (key: string) => {
-      console.log("key", key);
       setActive(key);
       navigate.push(key);
       setIsMobileMenuOpen(false);
     },
-    [navigate]
-  );
-
-  const onNavigate = useCallback(
-    (key: string) => {
-      navigate.push(key);
-      setIsMobileMenuOpen(false);
-    },
-    [navigate]
+    [navigate],
   );
 
   const toggleMobileMenu = useCallback(() => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  }, [isMobileMenuOpen]);
+    setIsMobileMenuOpen((prev) => !prev);
+  }, []);
 
   useDidUpdateEffect(() => {
-    setActive(getActiveTabFromPathname(pathname));
-  }, [pathname, getActiveTabFromPathname]);
+    const firstSegment = `/${pathname.split("/")[1]}`;
+    setActive(firstSegment === "/" ? Routes.HOME : firstSegment);
+  }, [pathname]);
 
-  // Ngăn scroll khi menu mở
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-
-    // Cleanup khi component unmount
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "unset";
     return () => {
       document.body.style.overflow = "unset";
     };
   }, [isMobileMenuOpen]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <div className="text-2xl text-primary-foreground  h-20 flex bg-primary xl:px-40 sm:px-4 min-w-[1200px] fixed inset-0 z-10 shadow-sm justify-between">
-      <div className="flex text-primary-foreground flex-col items-center py-2">
-        <NextAvatar src="" alt="logo" />
-        <p>N&T Spotless Cleaning</p>
-      </div>
-      <div className="hidden lg:flex items-center">
-        <div className="flex gap-20 h-full text-xl">
-          {MENU_ITEMS.map((item) => {
-            const hasSubTabs = item.children && item.children.length > 0;
-            if (hasSubTabs)
-              return (
-                <Tooltip key={item.key}>
-                  <TooltipTrigger asChild>
+    <>
+      {/* Header */}
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          isScrolled
+            ? "bg-gradient-to-b from-primary/95 to-primary/90 backdrop-blur-xl shadow-2xl"
+            : "bg-gradient-to-b from-primary to-primary/98 shadow-lg"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-20">
+            {/* Logo - Premium Design */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              <Link
+                href={Routes.HOME}
+                className="flex items-center gap-3 flex-shrink-0 group"
+              >
+                <div className="relative transition-all duration-300 group-hover:scale-110">
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-300 to-secondary rounded-full blur-lg opacity-0 group-hover:opacity-75 transition-opacity duration-300" />
+                  <NextAvatar src={logo} alt="logo" className="relative" />
+                </div>
+                <div className="hidden sm:flex flex-col">
+                  <span className="text-lg font-black text-white leading-tight tracking-tight">
+                    N&T Spotless
+                  </span>
+                  <span className="text-xs text-blue-100 font-semibold tracking-wide uppercase">
+                    Cleaning
+                  </span>
+                </div>
+              </Link>
+            </motion.div>
+
+            {/* Desktop Navigation - Enhanced */}
+            <nav className="hidden lg:flex items-center gap-8">
+              {MENU_ITEMS.map((item, index) => {
+                const hasSubTabs = item.children && item.children.length > 0;
+
+                if (hasSubTabs) {
+                  return (
+                    <motion.div
+                      key={item.key}
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: 0.15 + index * 0.08 }}
+                    >
+                      <Tooltip delayDuration={100}>
+                        <TooltipTrigger asChild>
+                          <div className="relative">
+                            <NavLink
+                              href={`${item.key}`}
+                              isActive={active === item.key}
+                            >
+                              <span className="flex items-center gap-1">
+                                {item.label}
+                                <ChevronDown size={14} className="opacity-60" />
+                              </span>
+                            </NavLink>
+                          </div>
+                        </TooltipTrigger>
+                        <TooltipContent
+                          side="bottom"
+                          sideOffset={16}
+                          className="z-[1000] w-max rounded-xl bg-white shadow-2xl border border-blue-100 p-2 animate-in fade-in slide-in-from-top-2"
+                        >
+                          <div className="py-1 min-w-max">
+                            {item.children.map((subTab) => (
+                              <Link
+                                key={subTab.key}
+                                href={`${subTab.key}`}
+                                className="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-blue-100 hover:text-blue-700 transition-all duration-200 whitespace-nowrap first:rounded-t-lg last:rounded-b-lg hover:translate-x-1"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                              >
+                                {subTab.label}
+                              </Link>
+                            ))}
+                          </div>
+                        </TooltipContent>
+                      </Tooltip>
+                    </motion.div>
+                  );
+                }
+
+                return (
+                  <motion.div
+                    key={item.key}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.15 + index * 0.08 }}
+                  >
                     <NavLink
                       href={`${item.key}`}
                       isActive={active === item.key}
                     >
                       {item.label}
                     </NavLink>
-                  </TooltipTrigger>
-                  <TooltipContent
-                    side="bottom"
-                    sideOffset={8}
-                    className="z-[1000] w-max rounded-2xl bg-white p-0 shadow-2xl"
-                  >
-                    <div className="py-2">
-                      {item.children.map((subTab) => (
-                        <div
-                          key={subTab.key}
-                          className="w-full h-full  text-left text-sm text-gray-700 transition-colors"
-                        >
-                          <NavLink
-                            href={`${subTab.key}`}
-                            className="px-4 py-2 hover:text-secondary"
-                          >
-                            {subTab.label}
-                          </NavLink>
-                        </div>
-                      ))}
-                    </div>
-                  </TooltipContent>
-                </Tooltip>
-              );
-            return (
-              <NavLink
-                href={`${item.key}`}
-                isActive={active === item.key}
-                key={item.key}
+                  </motion.div>
+                );
+              })}
+            </nav>
+
+            {/* Right Actions - Premium Buttons */}
+            <div className="flex items-center gap-2 sm:gap-3">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: 0.4 }}
+                className="flex-1 group"
               >
-                {item.label}
-              </NavLink>
-            );
-          })}
+                <motion.button
+                  whileHover="hover"
+                  initial="initial"
+                  variants={{}} // cần để button có state để truyền xuống
+                  className="w-full hidden lg:flex  gap-2 items-center bg-white text-primary font-semibold hover:bg-blue-50 hover:shadow-2xl transition-transform duration-300 active:scale-95 hover:scale-105 px-4 py-1.5 text-sm sm:text-base rounded-lg"
+                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                  style={{ originX: 0.5, originY: 0.5 }}
+                >
+                  <motion.div
+                    variants={{
+                      initial: { rotate: 0 },
+                      hover: {
+                        rotate: [0, 15, -15, 10, -10, 0],
+                        transition: { duration: 0.5 },
+                      },
+                    }}
+                  >
+                    <PhoneIcon className="[&_path]:stroke-primary size-5 transition-all " />
+                  </motion.div>
+                  <span>0451210238</span>
+                </motion.button>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: 0.45 }}
+                className="group flex-1"
+              >
+                <motion.button
+                  whileHover="hover"
+                  initial="initial"
+                  variants={{}} // cần để button có state để truyền xuống
+                  className="w-full hidden lg:flex flex-1 gap-2 items-center bg-white  font-semibold hover:bg-blue-50 hover:shadow-2xl transition-transform duration-300 active:scale-95 hover:scale-105 px-4 py-1.5 text-sm sm:text-base rounded-lg group bg-gradient-to-r from-orange-500 to-red-500 text-white"
+                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                  style={{ originX: 0.5, originY: 0.5 }}
+                  onClick={() => {
+                    route.push(Routes.BOOKING);
+                  }}
+                >
+                  <motion.div
+                    variants={{
+                      initial: { rotate: 0 },
+                      hover: {
+                        rotate: [0, 15, -15, 10, -10, 0],
+                        transition: { duration: 0.5 },
+                      },
+                    }}
+                  >
+                    <BellIcon className="size-5" />
+                  </motion.div>
+                  <span>Book now</span>
+                </motion.button>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: 0.5 }}
+              >
+                <ModeToggle />
+              </motion.div>
+
+              {/* Mobile Menu Button - Premium Style */}
+              <motion.button
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: 0.55 }}
+                onClick={toggleMobileMenu}
+                className="lg:hidden inline-flex items-center justify-center p-2 rounded-lg text-white hover:bg-white/20 transition-all duration-200 active:bg-white/30"
+              >
+                {isMobileMenuOpen ? (
+                  <X className="h-6 w-6 transition-transform duration-300" />
+                ) : (
+                  <Menu className="h-6 w-6 transition-transform duration-300" />
+                )}
+              </motion.button>
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="flex gap-2  items-center ">
-        <Button
-          variant={"container"}
-          color="default"
-          className="flex gap-2 bg-white text-primary hover:bg-accent hover:text-primary p-5 text-lg"
-        >
-          <PhoneIcon className="[&_path]:stroke-primary size-6" />
-          <span>0968686868</span>
-        </Button>
-        <Button
-          variant={"container"}
-          color="secondary"
-          className="flex gap-2 p-5 text-lg"
-        >
-          <BellIcon className="size-6" />
-          <span>Booknow</span>
-        </Button>
-        <ModeToggle />
-      </div>
-      {/* <div className="flex align-middle"></div> */}
-    </div>
+
+        {/* Mobile Navigation - Premium Design */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden border-t border-white/20 bg-gradient-to-b from-primary/98 to-primary/95 backdrop-blur-xl animate-in slide-in-from-top-2 duration-300">
+            <div className="px-4 sm:px-6 py-6 space-y-1 max-h-[calc(100vh-80px)] overflow-y-auto">
+              {MENU_ITEMS.map((item) => (
+                <MobileMenuItem
+                  key={item.key}
+                  item={item}
+                  onClose={() => setIsMobileMenuOpen(false)}
+                />
+              ))}
+
+              {/* Mobile Action Buttons */}
+              <div className="pt-6 border-t border-white/20 space-y-3 mt-4">
+                <Button className="w-full flex gap-2 bg-white text-primary font-semibold hover:bg-blue-50 transition-all duration-200 py-3 rounded-lg shadow-md">
+                  <PhoneIcon className="[&_path]:stroke-primary size-5" />
+                  <span>0451210238</span>
+                </Button>
+                <Button
+                  onClick={() => {
+                    route.push(Routes.BOOKING);
+                  }}
+                  className="w-full flex gap-2 bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold hover:shadow-lg transition-all duration-200 py-3 rounded-lg"
+                >
+                  <BellIcon className="size-5" />
+                  <span>Book now</span>
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
+      </header>
+
+      {/* Spacing untuk fixed header */}
+      <div className="h-20" />
+    </>
   );
 };
