@@ -11,34 +11,124 @@ import {
 
 export const ratingsExample: TRatingDto[] = [
   {
-    customerName: "Emily Johnson",
+    customerName: "Sophie Williams",
     comment:
-      "They did an amazing job! My apartment looks spotless and smells fresh. Highly recommended!",
-    serviceName: "Standard Home Cleaning",
+      "Fantastic job! The apartment looks spotless and smells amazing. Would absolutely recommend.",
+    serviceName: "Regular Home Cleaning",
   },
   {
-    customerName: "Michael Carter",
+    customerName: "Jack Thompson",
     comment:
-      "Fast, professional, and very friendly staff. Will definitely book again.",
+      "The team was on time and super friendly. My carpets have never looked better!",
+    serviceName: "Carpet Steam Cleaning",
+  },
+  {
+    customerName: "Olivia Harris",
+    comment:
+      "Booked a bond clean before moving out — they did a brilliant job, got my full bond back.",
+    serviceName: "Bond Cleaning",
+  },
+  {
+    customerName: "Liam Anderson",
+    comment:
+      "Really happy with the service. Quick, efficient, and great attention to detail.",
+    serviceName: "End of Lease Cleaning",
+  },
+  {
+    customerName: "Charlotte Brown",
+    comment:
+      "Excellent service! The kitchen and bathrooms are spotless. Feels so fresh now.",
     serviceName: "Deep Cleaning",
   },
   {
-    customerName: "Sarah Nguyen",
+    customerName: "Noah Martin",
     comment:
-      "Great service! They cleaned every corner thoroughly. Worth every dollar.",
-    serviceName: "Move-in / Move-out Cleaning",
+      "Easy to book and great communication. They did a thorough clean after our renovation.",
+    serviceName: "Builders Cleaning",
   },
   {
-    customerName: "Jacob Wilson",
+    customerName: "Emily Johnson",
     comment:
-      "The team arrived on time and worked efficiently. My carpets look brand new!",
-    serviceName: "Carpet Cleaning",
+      "Lovely staff and top-quality work. My flat looks so tidy and bright!",
+    serviceName: "Regular Home Cleaning",
   },
   {
-    customerName: "Olivia Martinez",
+    customerName: "Benjamin White",
     comment:
-      "Excellent job! They paid attention to detail and left everything shining.",
+      "They showed up right on time and did a great job. The place looks brand new.",
+    serviceName: "Move-in Cleaning",
+  },
+  {
+    customerName: "Isla Clarke",
+    comment:
+      "Super professional team. Everything was sparkling — even the oven!",
+    serviceName: "Kitchen Cleaning",
+  },
+  {
+    customerName: "Ethan Hall",
+    comment:
+      "Affordable, reliable, and friendly. Definitely my go-to for fortnightly cleans.",
+    serviceName: "Regular Home Cleaning",
+  },
+  {
+    customerName: "Mia Roberts",
+    comment:
+      "Perfect clean before the inspection! The property manager was impressed.",
+    serviceName: "Bond Cleaning",
+  },
+  {
+    customerName: "Oliver King",
+    comment:
+      "The crew did a spot-on job with our office. Floors and desks look great.",
     serviceName: "Office Cleaning",
+  },
+  {
+    customerName: "Harper Evans",
+    comment:
+      "Highly professional and efficient. Loved that they used eco-friendly products too.",
+    serviceName: "Eco Cleaning",
+  },
+  {
+    customerName: "Charlie Adams",
+    comment:
+      "Easy process from start to finish. They did a top-notch job on the carpets.",
+    serviceName: "Carpet Steam Cleaning",
+  },
+  {
+    customerName: "Grace Lewis",
+    comment:
+      "Very happy with their end-of-lease service. Friendly staff and fair pricing.",
+    serviceName: "End of Lease Cleaning",
+  },
+  {
+    customerName: "Mason Wilson",
+    comment:
+      "Booked a same-day clean and they pulled it off perfectly. Super impressed!",
+    serviceName: "Emergency Cleaning",
+  },
+  {
+    customerName: "Ella Turner",
+    comment:
+      "The cleaners were polite and worked quickly. Everything looks spotless now.",
+    serviceName: "Office Cleaning",
+  },
+  {
+    customerName: "Henry Scott",
+    comment:
+      "Did a great job after our kitchen renovation — everything was dust-free and fresh.",
+    serviceName: "Post-Renovation Cleaning",
+  },
+  {
+    customerName: "Zoe Campbell",
+    comment:
+      "Lovely experience. The team was cheerful and thorough. Highly recommend them!",
+    serviceName: "Regular Home Cleaning",
+  },
+  {
+    customerName: "Lucas Davis",
+    comment:
+      "They went above and beyond! Even cleaned spots I didn’t notice before.",
+    serviceName: "Deep Cleaning",
   },
 ];
 
