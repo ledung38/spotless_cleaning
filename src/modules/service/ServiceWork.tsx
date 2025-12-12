@@ -4,6 +4,7 @@ import { CompactApp } from "@/components/common/Compact";
 import { TickIcon } from "@/components/icons";
 import TagTitle from "@/modules/home/Tag";
 import { listServiceIncludes } from "@/modules/service/contants";
+import services from "@/modules/service/contants";
 import {
   CheckCircle2,
   ClipboardList,
@@ -168,6 +169,45 @@ export const HowItWorks: React.FC = () => {
 
   const mainServices = listServiceIncludes[slug]?.mainServices || [];
   const optionalExtras = listServiceIncludes[slug]?.optionalExtras || [];
+  const serviceInfo = services[slug];
+
+  const getServiceTitle = (): string => {
+    switch (slug) {
+      case "end-of-lease-cleaning":
+        return "End of Lease (Bond) Cleaning";
+      case "regular-cleaning":
+        return "Regular Cleaning Service";
+      case "deep-cleaning":
+        return "Professional Deep Cleaning";
+      case "restaurant-cleaning":
+        return "Commercial Restaurant Cleaning";
+      case "airbnb-cleaning":
+        return "Airbnb & Rental Property Cleaning";
+      case "mould-cleaning":
+        return "Mould Cleaning & Treatment";
+      default:
+        return "Our Cleaning Service";
+    }
+  };
+
+  const getServiceSubtitle = (): string => {
+    switch (slug) {
+      case "end-of-lease-cleaning":
+        return "Our bond cleaning is an end of lease cleaning service will include the following. Get all the details that our agents expects, like cleaning your skirting boards, cornices, switches, power points, extractor fans, light fittings, door handles and more.";
+      case "regular-cleaning":
+        return "Maintain a fresh and tidy home with our flexible regular cleaning service. Choose your preferred schedule and let our professional team handle the rest.";
+      case "deep-cleaning":
+        return "Our comprehensive deep cleaning service reaches every corner of your space, removing hidden dirt, dust, and allergens for a spotless finish.";
+      case "restaurant-cleaning":
+        return "Specialized commercial cleaning for food service establishments. Our team is health code certified and experienced in maintaining sanitary kitchen and dining environments.";
+      case "airbnb-cleaning":
+        return "Ensure 5-star guest reviews with our rapid turnaround Airbnb cleaning service. We prepare your property to be guest-ready for every arrival.";
+      case "mould-cleaning":
+        return "Professional mould removal and treatment using state-of-the-art equipment. We eliminate mould at the source and prevent future growth.";
+      default:
+        return "Experience professional cleaning that exceeds expectations.";
+    }
+  };
 
   return (
     <section className="relative w-full py-8 lg:py-16 overflow-hidden bg-gradient-to-b from-white  to-primary/50">
@@ -220,15 +260,12 @@ export const HowItWorks: React.FC = () => {
 
           {/* Title */}
           <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-4 leading-tight">
-            End of Lease (Bond) Cleaning
+            {getServiceTitle()}
           </h2>
 
           {/* Subtitle */}
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Our bond cleaning is an end of lease cleaning service will include
-            the following. Get all the details that our agents expects, like
-            cleaning your skirting boards, cornices, switches, power points,
-            extractor fans, light fittings, door handles and more.
+            {getServiceSubtitle()}
           </p>
         </motion.div>
 

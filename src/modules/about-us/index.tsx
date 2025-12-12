@@ -14,6 +14,7 @@ import {
 import logo from "@/lib/assets/images/logo.webp";
 import TagTitle from "@/modules/home/Tag";
 import { TextGradient } from "@/components/common/TextGradient";
+import { useAppRouter } from "@/hooks/useAppRouter";
 
 // ============================================================================
 // COMPONENTS
@@ -136,6 +137,7 @@ const ValueCard = ({
 // ============================================================================
 
 const AboutUs = () => {
+  const router = useAppRouter();
   const teamMembers = [
     {
       name: "Sarah Johnson",
@@ -371,6 +373,7 @@ const AboutUs = () => {
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 bg-gradient-to-r from-primary to-blue-600 text-white font-bold rounded-xl hover:shadow-2xl transition-all duration-300"
+                onClick={() => router.push("/booking")}
               >
                 Book now
               </motion.button>
@@ -882,6 +885,7 @@ const AboutUs = () => {
                 whileHover={{ scale: 1.05, translateY: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 bg-white text-blue-700 font-bold rounded-xl shadow-xl hover:shadow-2xl hover:shadow-blue-600/40 transition-all duration-300 inline-flex items-center justify-center gap-2"
+                onClick={() => router.push("/booking")}
               >
                 Book Now
                 <ArrowRight size={20} />

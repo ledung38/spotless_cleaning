@@ -56,17 +56,18 @@ const FeatureBadge = ({
 }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1 }}
+      initial={{ opacity: 0, x: -20 }}
+      animate={{ opacity: 1, x: 0 }}
       transition={{
         duration: 0.5,
-        delay,
+        delay: 0.6 + delay,
+        ease: "easeOut",
       }}
-      whileHover={{ scale: 1.1, translateY: -5 }}
-      className="flex items-center gap-2 backdrop-blur-sm border border-primary rounded-full px-4 py-2 hover:bg-primary/12 transition-colors duration-300"
+      whileHover={{ scale: 1.05, translateY: -3 }}
+      className="flex items-center gap-2 backdrop-blur-sm border border-primary/40 rounded-full px-4 py-2 hover:bg-primary/10 hover:border-primary/60 transition-all duration-300"
     >
       <Icon size={18} className="text-primary" />
-      <span className=" font-semibold text-foreground">{text}</span>
+      <span className="font-semibold text-foreground text-sm">{text}</span>
     </motion.div>
   );
 };
@@ -82,23 +83,24 @@ const AnimatedText = ({
   return (
     <div className="overflow-hidden">
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
-          duration: 0.8,
+          duration: 0.6,
           delay,
-          ease: [0.34, 1.56, 0.64, 1],
+          ease: "easeOut",
         }}
       >
         {words.map((word, idx) => (
           <motion.span
             key={idx}
             className="inline-block mr-2"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
-              duration: 0.6,
-              delay: delay + idx * 0.1,
+              duration: 0.5,
+              delay: delay + idx * 0.08,
+              ease: "easeOut",
             }}
           >
             {word}
@@ -205,7 +207,7 @@ export const Banner = ({
                 2800+ Services Completed
               </span> */}
               <h1 className="text-4xl lg:text-5xl font-black  leading-tight bg-gradient-to-r from-[#0871eb] via-primary/80 to-[#1565C0] bg-clip-text  text-transparent">
-                <AnimatedText delay={0.2}>
+                <AnimatedText delay={0}>
                   Professional Cleaning Service in Sydney
                 </AnimatedText>
                 {/* <AnimatedText delay={0.5}>Spotless Care</AnimatedText> */}
@@ -225,20 +227,34 @@ export const Banner = ({
 
             {/* Feature Badges */}
             <div className="grid grid-cols-2 gap-3 pt-6">
-              <FeatureBadge icon={Sparkles} text="Professional Team" />
-              <FeatureBadge icon={Zap} text="Cleaning Supplies Provided" />
-              <FeatureBadge icon={Shield} text="100% Satisfaction" />
-              <FeatureBadge icon={Sparkles} text="On Time" />
+              <FeatureBadge
+                icon={Sparkles}
+                text="Professional Team"
+                delay={0}
+              />
+              <FeatureBadge
+                icon={Zap}
+                text="Cleaning Supplies Provided"
+                delay={0.1}
+              />
+              <FeatureBadge
+                icon={Shield}
+                text="100% Satisfaction"
+                delay={0.2}
+              />
+              <FeatureBadge icon={Sparkles} text="On Time" delay={0.3} />
             </div>
 
             {/* CTA Button */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
+              transition={{ duration: 0.6, delay: 1.2, ease: "easeOut" }}
               className="pt-6"
             >
-              <button
+              <motion.button
+                whileHover={{ scale: 1.05, translateY: -2 }}
+                whileTap={{ scale: 0.95 }}
                 onClick={onCtaClick}
                 className="relative px-8 py-4 bg-gradient-to-r from-primary to-blue-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 group overflow-hidden"
               >
@@ -246,35 +262,44 @@ export const Banner = ({
                 <span className="relative flex items-center gap-2">
                   {ctaText}
                   <motion.span
-                    animate={{ x: [0, 5, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
+                    animate={{ x: [0, 4, 0] }}
+                    transition={{
+                      duration: 1.2,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
                   >
                     <ArrowCircleRightIcon className="size-6" />
                   </motion.span>
                 </span>
-              </button>
+              </motion.button>
             </motion.div>
 
             {/* Trust Stats */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 1.8 }}
-              className="grid grid-cols-3 gap-4 pt-8 border-t border-white/20"
-            >
+            <motion.div className="grid grid-cols-3 gap-4 pt-8 border-t border-white/20">
               {[
                 { number: "2000+", label: "Happy Clients" },
                 { number: "8+", label: "Years Experience" },
                 { number: "24/7", label: "Customer Support" },
               ].map((stat, idx) => (
-                <div key={idx} className="text-center">
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 1.4 + idx * 0.1,
+                    ease: "easeOut",
+                  }}
+                  className="text-center"
+                >
                   <p className="text-3xl font-black text-primary">
                     {stat.number}
                   </p>
                   <p className="text-sm font-medium text-[#02385c] mt-1">
                     {stat.label}
                   </p>
-                </div>
+                </motion.div>
               ))}
             </motion.div>
           </motion.div>
@@ -284,7 +309,7 @@ export const Banner = ({
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="relative h-96 lg:h-[480px] rounded-3xl overflow-hidden"
           >
             <AnimateCarousel
@@ -343,21 +368,21 @@ export const Banner = ({
               </CarouselContent>
               <div className="absolute inset-0 flex items-center justify-between p-4 z-20 rounded-3xl">
                 <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1.15 }}
+                  whileTap={{ scale: 0.9 }}
                   onClick={() => api?.scrollPrev()}
-                  className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-primary hover:bg-white transition-all duration-300 shadow-lg"
+                  className="w-10 h-10 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center text-primary hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl"
                 >
-                  <ChevronLeft size={24} />
+                  <ChevronLeft size={20} />
                 </motion.button>
 
                 <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1.15 }}
+                  whileTap={{ scale: 0.9 }}
                   onClick={() => api?.scrollNext()}
-                  className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-primary hover:bg-white transition-all duration-300 shadow-lg"
+                  className="w-10 h-10 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center text-primary hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl"
                 >
-                  <ChevronRight size={24} />
+                  <ChevronRight size={20} />
                 </motion.button>
               </div>
             </AnimateCarousel>
