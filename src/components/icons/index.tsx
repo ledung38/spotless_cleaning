@@ -1,5 +1,3 @@
-import { cn } from "@/lib/utils";
-
 export const EmptyIcon = (props: React.ComponentProps<"svg">) => {
   return (
     <svg

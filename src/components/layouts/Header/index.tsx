@@ -20,7 +20,7 @@ import { usePathname } from "next/navigation";
 
 import { ChevronDown, Menu, X } from "lucide-react";
 import { motion } from "motion/react";
-import { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 // Mobile Menu Item Component
 const MobileMenuItem = ({
@@ -86,6 +86,7 @@ export const Header = () => {
   });
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const ref = React.useRef<HTMLDivElement>(null);
   const navigate = useAppRouter();
   const route = useAppRouter();
 
@@ -116,7 +117,7 @@ export const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled(window.scrollY > window.innerHeight - 150);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -129,8 +130,9 @@ export const Header = () => {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
             ? "bg-gradient-to-b from-primary/95 to-primary/90 backdrop-blur-xl shadow-2xl"
-            : "bg-gradient-to-b from-primary to-primary/98 shadow-lg"
+            : " bg-transparent"
         }`}
+        ref={ref}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
@@ -146,16 +148,15 @@ export const Header = () => {
               >
                 <div className="relative transition-all duration-300 group-hover:scale-110">
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-300 to-secondary rounded-full blur-lg opacity-0 group-hover:opacity-75 transition-opacity duration-300" />
-                  <NextAvatar src={logo} alt="logo" className="relative" />
                 </div>
-                <div className="hidden sm:flex flex-col">
+                {/* <div className="hidden sm:flex flex-col">
                   <span className="text-lg font-black text-white leading-tight tracking-tight">
                     N&T Spotless
                   </span>
                   <span className="text-xs text-blue-100 font-semibold tracking-wide uppercase">
                     Cleaning
                   </span>
-                </div>
+                </div> */}
               </Link>
             </motion.div>
 

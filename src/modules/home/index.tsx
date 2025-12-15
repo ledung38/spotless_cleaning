@@ -10,7 +10,7 @@ import { WhyChooseUs } from "@/modules/home/WhyChooseUs";
 
 const Home = () => {
   return (
-    <div className="w-full -mt-10">
+    <div className="w-full -mt-20">
       <Banner />
       <Service />
       <CompactApp
