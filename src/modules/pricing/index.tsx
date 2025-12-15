@@ -3,6 +3,8 @@
 import { CompactApp } from "@/components/common/Compact";
 import { TextGradient } from "@/components/common/TextGradient";
 import { TickIcon } from "@/components/icons";
+import { useAppRouter } from "@/hooks/useAppRouter";
+import { Routes } from "@/lib/enum/routes";
 import {
   ArrowRight,
   Award,
@@ -48,7 +50,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
   isPopular = false,
 }) => {
   //   const [isHovered, setIsHovered] = useState(false);
-
+  const router = useAppRouter();
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -207,6 +209,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
                 ? "bg-gradient-to-r from-primary to-blue-600 text-primary-foreground shadow-lg shadow-primary/40 hover:shadow-xl hover:shadow-primary/50"
                 : "bg-primary/10 text-primary hover:bg-primary/20 border border-primary/30 hover:border-primary/50"
             }`}
+            onClick={() => router.push(Routes.BOOKING)}
           >
             <span className="relative z-10 flex items-center gap-2">
               QUOTE ME

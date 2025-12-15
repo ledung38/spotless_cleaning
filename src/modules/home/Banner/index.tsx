@@ -197,7 +197,7 @@ export const Banner = ({
       {/* <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/10 to-transparent" /> */}
 
       {/* Main Content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-25">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
 

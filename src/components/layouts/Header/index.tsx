@@ -89,6 +89,7 @@ export const Header = () => {
   const ref = React.useRef<HTMLDivElement>(null);
   const navigate = useAppRouter();
   const route = useAppRouter();
+  const isHome = pathname === "/";
 
   const onChangeTab = useCallback(
     (key: string) => {
@@ -117,7 +118,7 @@ export const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > window.innerHeight - 150);
+      setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -127,10 +128,12 @@ export const Header = () => {
     <>
       {/* Header */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all bg-white  duration-500 ${
           isScrolled
-            ? "bg-gradient-to-b from-primary/95 to-primary/90 backdrop-blur-xl shadow-2xl"
-            : " bg-transparent"
+            ? "bg-white backdrop-blur-xl shadow-2xl"
+            : isHome
+              ? "!bg-transparent"
+              : ""
         }`}
         ref={ref}
       >
@@ -148,6 +151,8 @@ export const Header = () => {
               >
                 <div className="relative transition-all duration-300 group-hover:scale-110">
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-300 to-secondary rounded-full blur-lg opacity-0 group-hover:opacity-75 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-300 to-secondary rounded-full blur-lg opacity-50 transition-opacity duration-300  group-hover:opacity-0" />
+                  <img src="/logo_header_v3.png" className="relative h-18 " />
                 </div>
                 {/* <div className="hidden sm:flex flex-col">
                   <span className="text-lg font-black text-white leading-tight tracking-tight">
@@ -179,6 +184,7 @@ export const Header = () => {
                             <NavLink
                               href={`${item.key}`}
                               isActive={active === item.key}
+                              isTextBlack={isHome ? !!isScrolled : true}
                             >
                               <span className="flex items-center gap-1">
                                 {item.label}
@@ -220,6 +226,7 @@ export const Header = () => {
                     <NavLink
                       href={`${item.key}`}
                       isActive={active === item.key}
+                      isTextBlack={isHome ? !!isScrolled : true}
                     >
                       {item.label}
                     </NavLink>
@@ -236,27 +243,29 @@ export const Header = () => {
                 transition={{ duration: 0.4, delay: 0.4 }}
                 className="flex-1 group"
               >
-                <motion.button
-                  whileHover="hover"
-                  initial="initial"
-                  variants={{}} // cần để button có state để truyền xuống
-                  className="w-full hidden lg:flex  gap-2 items-center bg-white text-primary font-semibold hover:bg-blue-50 hover:shadow-2xl transition-transform duration-300 active:scale-95 hover:scale-105 px-4 py-1.5 text-sm sm:text-base rounded-lg"
-                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                  style={{ originX: 0.5, originY: 0.5 }}
-                >
-                  <motion.div
-                    variants={{
-                      initial: { rotate: 0 },
-                      hover: {
-                        rotate: [0, 15, -15, 10, -10, 0],
-                        transition: { duration: 0.5 },
-                      },
-                    }}
+                <a href="tel:0451210238">
+                  <motion.button
+                    whileHover="hover"
+                    initial="initial"
+                    variants={{}} // cần để button có state để truyền xuống
+                    className="w-full hidden lg:flex  gap-2 items-center bg-white text-primary font-semibold hover:bg-blue-50 hover:shadow-2xl transition-transform duration-300 active:scale-95 hover:scale-105 px-4 py-1.5 text-sm sm:text-base rounded-lg"
+                    transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                    style={{ originX: 0.5, originY: 0.5 }}
                   >
-                    <PhoneIcon className="[&_path]:stroke-primary size-5 transition-all " />
-                  </motion.div>
-                  <span>0451210238</span>
-                </motion.button>
+                    <motion.div
+                      variants={{
+                        initial: { rotate: 0 },
+                        hover: {
+                          rotate: [0, 15, -15, 10, -10, 0],
+                          transition: { duration: 0.5 },
+                        },
+                      }}
+                    >
+                      <PhoneIcon className="[&_path]:stroke-primary size-5 transition-all " />
+                    </motion.div>
+                    <span>0451210238</span>
+                  </motion.button>
+                </a>
               </motion.div>
 
               <motion.div
@@ -331,10 +340,12 @@ export const Header = () => {
 
               {/* Mobile Action Buttons */}
               <div className="pt-6 border-t border-white/20 space-y-3 mt-4">
-                <Button className="w-full flex gap-2 bg-white text-primary font-semibold hover:bg-blue-50 transition-all duration-200 py-3 rounded-lg shadow-md">
-                  <PhoneIcon className="[&_path]:stroke-primary size-5" />
-                  <span>0451210238</span>
-                </Button>
+                <a href="tel:0451210238">
+                  <Button className="w-full flex gap-2 bg-white text-primary font-semibold hover:bg-blue-50 transition-all duration-200 py-3 rounded-lg shadow-md">
+                    <PhoneIcon className="[&_path]:stroke-primary size-5" />
+                    <span>0451210238</span>
+                  </Button>
+                </a>
                 <Button
                   onClick={() => {
                     route.push(Routes.BOOKING);
