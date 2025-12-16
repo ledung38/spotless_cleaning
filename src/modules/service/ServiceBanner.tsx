@@ -43,7 +43,7 @@ export const ServiceBanner = ({
   const IconComponent = icons[icon];
   const router = useAppRouter();
   return (
-    <div className="relative w-full min-h-[400px] overflow-hidden bg-gradient-to-br from-primary via-blue-800 to-purple-900">
+    <div className="relative w-full min-h-[400px] overflow-hidden bg-gradient-to-br from-primary via-blue-800 to-purple-900 dark:bg-none ">
       {/* Animated Background Gradient */}
       <motion.div
         className="absolute inset-0"

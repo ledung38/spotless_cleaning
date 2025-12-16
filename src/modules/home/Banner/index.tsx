@@ -11,7 +11,14 @@ import {
   PaginationLink,
 } from "@/components/ui";
 import Autoplay from "embla-carousel-autoplay";
-import { ChevronLeft, ChevronRight, Shield, Sparkles, Zap } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  HandCoins,
+  Shield,
+  Sparkles,
+  Zap,
+} from "lucide-react";
 import { motion } from "motion/react";
 import React, { useEffect, useState } from "react";
 const AnimateCarousel = motion(Carousel);
@@ -65,12 +72,10 @@ const FeatureBadge = ({
         ease: "easeOut",
       }}
       whileHover={{ scale: 1.05, translateY: -3 }}
-      className="flex items-center gap-2 rounded-full px-4 py-2 transition-all duration-300 bg-[#c8d4e0] hover:brightness-110"
+      className="flex justify-start items-center gap-2 rounded-full px-2.5 sm:px-4  lg:pr-10  py-2 transition-all duration-300 bg-[#c8d4e0] hover:brightness-110"
     >
-      <Icon size={18} className="text-[#6b7d94] font-black" />
-      <span className="font-semibold text-[#6b7d94] text font-black">
-        {text}
-      </span>
+      <Icon size={18} className="text-[#6b7d94] font-bold" />
+      <span className="font-bold text-[#6b7d94] text ">{text}</span>
     </motion.div>
   );
 };
@@ -233,23 +238,23 @@ export const Banner = ({
             </div>
 
             {/* Feature Badges */}
-            <div className="grid grid-cols-2 gap-3 pt-6">
+            <div className="grid grid-cols-2 gap-3 pt-6 w-fit">
               <FeatureBadge
                 icon={Sparkles}
                 text="Professional Team"
                 delay={0}
               />
-              <FeatureBadge
-                icon={Zap}
-                text="Cleaning Supplies Provided"
-                delay={0.1}
-              />
+              <FeatureBadge icon={Zap} text="On Time" delay={0.1} />
               <FeatureBadge
                 icon={Shield}
                 text="100% Satisfaction"
                 delay={0.2}
               />
-              <FeatureBadge icon={Sparkles} text="On Time" delay={0.3} />
+              <FeatureBadge
+                icon={HandCoins}
+                text="Affordable Rates"
+                delay={0.3}
+              />
             </div>
 
             {/* CTA Button */}

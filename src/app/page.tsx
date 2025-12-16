@@ -25,7 +25,7 @@ import Home from "@/modules/home";
 export const metadata: Metadata = {
   title: "Professional Cleaning Services in Sydney",
   description:
-    "Spotless Cleaning provides professional house, office, and commercial cleaning services in Sydney. Deep cleaning, regular maintenance, end of lease cleaning. 2000+ happy clients.",
+    "Spotless Cleaning provides professional house, restaurant, and commercial cleaning services in Sydney. Deep cleaning, regular maintenance, end of lease cleaning. 2000+ happy clients.",
   keywords: [
     "cleaning services Sydney",
     "house cleaning",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Professional Cleaning Services in Sydney",
     description:
-      "Spotless Cleaning provides professional house, office, and commercial cleaning services in Sydney.",
+      "Spotless Cleaning provides professional house, restaurant, and commercial cleaning services in Sydney.",
     url: "https://spotlesscleaning.com.au",
     type: "website",
     images: [

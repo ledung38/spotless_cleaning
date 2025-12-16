@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 const baseUrl = "https://spotlesscleaning.com.au";
 const siteName = "Spotless Cleaning";
 const description =
-  "Professional cleaning services in Sydney. Deep cleaning, regular maintenance, end of lease cleaning, office and window cleaning. 2000+ happy clients, 8+ years experience.";
+  "Professional cleaning services in Sydney. Deep cleaning, regular maintenance, end of lease cleaning, restaurant and mould cleaning. 2000+ happy clients, 8+ years experience.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     "cleaning services Sydney",
     "house cleaning",
     "deep cleaning",
-    "office cleaning",
+    "restaurant cleaning",
     "end of lease cleaning",
     "professional cleaners",
     "residential cleaning",
@@ -175,8 +175,8 @@ export default function RootLayout({
               image: `${baseUrl}/og-image.jpg`,
               description,
               url: baseUrl,
-              telephone: "+61-2-XXXX-XXXX",
-              email: "info@spotlesscleaning.com.au",
+              telephone: "+61-451 210 238",
+              email: "cleaningsydney102@gmail.com",
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "Sydney, NSW",
@@ -191,8 +191,8 @@ export default function RootLayout({
                 longitude: "151.2093",
               },
               sameAs: [
-                "https://www.facebook.com/spotlesscleaning",
-                "https://www.instagram.com/spotlesscleaning",
+                "https://www.facebook.com/sydney.spotlesscleaning",
+                "https://www.instagram.com/sydney.spotlesscleaning",
                 "https://www.google.com/maps/place/Spotless+Cleaning",
               ],
               priceRange: "$$",
@@ -227,8 +227,8 @@ export default function RootLayout({
               logo: `${baseUrl}/logo.png`,
               description,
               sameAs: [
-                "https://www.facebook.com/spotlesscleaning",
-                "https://www.instagram.com/spotlesscleaning",
+                "https://www.facebook.com/sydney.spotlesscleaning",
+                "https://www.instagram.com/sydney.spotlesscleaning",
                 "https://www.google.com/maps/place/Spotless+Cleaning",
               ],
             }),
@@ -260,6 +260,18 @@ export default function RootLayout({
                   position: 3,
                   name: "Booking",
                   item: `${baseUrl}/booking`,
+                },
+                {
+                  "@type": "ListItem",
+                  position: 4,
+                  name: "About Us",
+                  item: `${baseUrl}/about-us`,
+                },
+                {
+                  "@type": "ListItem",
+                  position: 5,
+                  name: "Pricing",
+                  item: `${baseUrl}/pricing`,
                 },
               ],
             }),

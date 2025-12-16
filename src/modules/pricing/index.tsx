@@ -521,7 +521,7 @@ export const Pricing: React.FC = () => {
                     "End of Lease",
                     "Deep Cleaning",
                     "Regular",
-                    "Office",
+                    "Mould",
                     "Restaurant",
                     "Airbnb",
                   ].map((name, idx) => (
@@ -601,13 +601,20 @@ export const Pricing: React.FC = () => {
           </motion.button>
         </motion.div> */}
 
-        <CompactApp
-          title="Ready to get started?"
-          subtitle="Pick the perfect cleaning plan for your needs and experience the N&T
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          <CompactApp
+            title="Ready to get started?"
+            subtitle="Pick the perfect cleaning plan for your needs and experience the N&T
             Spotless Cleaning difference today."
-          textButton="Get Your Free Quote"
-          className="rounded-3xl"
-        />
+            textButton="Get Your Free Quote"
+            className="rounded-3xl"
+          />
+        </motion.div>
       </div>
     </section>
   );

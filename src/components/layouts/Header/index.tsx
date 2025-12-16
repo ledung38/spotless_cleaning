@@ -21,6 +21,7 @@ import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { motion } from "motion/react";
 import React, { useCallback, useEffect, useState } from "react";
+import { cn } from "@/lib/utils/index";
 
 // Mobile Menu Item Component
 const MobileMenuItem = ({
@@ -128,7 +129,7 @@ export const Header = () => {
     <>
       {/* Header */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all bg-white  duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all bg-white dark:bg-white/50  duration-500 ${
           isScrolled
             ? "bg-white backdrop-blur-xl shadow-2xl"
             : isHome
@@ -314,7 +315,9 @@ export const Header = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, delay: 0.55 }}
                 onClick={toggleMobileMenu}
-                className="lg:hidden inline-flex items-center justify-center p-2 rounded-lg text-white hover:bg-white/20 transition-all duration-200 active:bg-white/30"
+                className={
+                  "lg:hidden inline-flex items-center justify-center p-2 rounded-lg text-secondary hover:bg-secondary/20 transition-all duration-200 active:bg-secondary/30"
+                }
               >
                 {isMobileMenuOpen ? (
                   <X className="h-6 w-6 transition-transform duration-300" />
@@ -340,7 +343,7 @@ export const Header = () => {
 
               {/* Mobile Action Buttons */}
               <div className="pt-6 border-t border-white/20 space-y-3 mt-4">
-                <a href="tel:0451210238">
+                <a href="tel:0451210238" className="block">
                   <Button className="w-full flex gap-2 bg-white text-primary font-semibold hover:bg-blue-50 transition-all duration-200 py-3 rounded-lg shadow-md">
                     <PhoneIcon className="[&_path]:stroke-primary size-5" />
                     <span>0451210238</span>

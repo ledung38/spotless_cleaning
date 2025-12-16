@@ -6,14 +6,17 @@ import services from "@/modules/service/contants";
 export const metadata: Metadata = {
   title: "Our Services - Spotless Cleaning",
   description:
-    "Explore our comprehensive cleaning services: deep cleaning, regular maintenance, end of lease, office, window, and specialized cleaning.",
+    "Explore our comprehensive cleaning services: Deep cleaning, Regular maintenance, End of lease, Restaurant, Mould, Airbnb and specialized cleaning.",
   keywords: [
     "cleaning services",
     "deep cleaning",
     "regular cleaning",
-    "office cleaning",
+    "restaurant cleaning",
     "end of lease cleaning",
     "window cleaning",
+    "mould cleaning",
+    "airbnb cleaning",
+    "cleaning services in sydney",
   ],
   openGraph: {
     title: "Our Services - Spotless Cleaning",

@@ -74,7 +74,7 @@ const HomeAreas = () => {
             <motion.div
               key={index}
               variants={itemVariants as any}
-              className="p-4 rounded-xl bg-white hover:scale-105 border border-border/50 hover:border-primary/50 flex items-center gap-3 transition-all duration-300 cursor-pointer group border-l-4 border-primary"
+              className="p-4 rounded-xl bg-white hover:scale-105 border border-border/50 hover:border-primary/50 flex items-center gap-3 transition-all duration-300 cursor-pointer group border-l-4 border-primary dark:border-primary/30 dark:bg-card"
             >
               <MapPin className="w-5 h-5 text-primary flex-shrink-0 group-hover:scale-110 transition-transform" />
               <span className="text-foreground/70 group-hover:text-primary ">

@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     "schedule cleaning",
     "cleaning booking",
     "get cleaning quote",
+    "book cleaning service in sydney",
   ],
   openGraph: {
     title: "Book Cleaning Service - Spotless Cleaning",

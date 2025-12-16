@@ -364,8 +364,9 @@ const AboutUs = () => {
 
               {/* Mission Description */}
               <p className="text-foreground leading-relaxed text-lg max-w-lg">
-                We transform homes and offices into spotless sanctuaries where
-                cleanliness meets comfort. Your space deserves exceptional care.
+                We transform homes and restaurants into spotless sanctuaries
+                where cleanliness meets comfort. Your space deserves exceptional
+                care.
               </p>
 
               {/* CTA Button */}
@@ -609,7 +610,7 @@ const AboutUs = () => {
                 className="group relative"
               >
                 {/* Card background */}
-                <div className="absolute inset-0 bg-white rounded-3xl border-2 border-primary/40 group-hover:border-primary/70 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-primary/30" />
+                <div className="absolute inset-0 bg-white dark:bg-card rounded-3xl border-2 border-primary/40 group-hover:border-primary/70 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-primary/30" />
 
                 {/* Content */}
                 <div className="relative z-10 p-8">
@@ -846,10 +847,10 @@ const AboutUs = () => {
       </section> */}
 
       {/* ========== CTA SECTION ========== */}
-      <section className="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-r from-blue-600 via-blue-700 to-cyan-600">
+      <section className="relative py-8 lg:py-16 overflow-hidden bg-gradient-to-r from-blue-600 via-blue-700 to-cyan-600 ">
         {/* Animated background blobs */}
         <motion.div
-          className="absolute inset-0 opacity-30"
+          className="absolute inset-0 opacity-30 "
           animate={{
             backgroundPosition: ["0% 0%", "100% 100%"],
           }}
@@ -861,7 +862,7 @@ const AboutUs = () => {
           }}
         />
 
-        <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 ">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -890,13 +891,13 @@ const AboutUs = () => {
                 Book Now
                 <ArrowRight size={20} />
               </motion.button>
-              <motion.button
+              {/* <motion.button
                 whileHover={{ scale: 1.05, translateY: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 border-2 border-white text-white font-bold rounded-xl hover:bg-white/10 backdrop-blur-sm transition-all duration-300"
               >
                 Learn More
-              </motion.button>
+              </motion.button> */}
             </motion.div>
           </motion.div>
         </div>

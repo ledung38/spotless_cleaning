@@ -22,7 +22,10 @@ export default function SmoothLoopVideo({ src, ...props }) {
       muted
       playsInline
       onEnded={handleEnded}
-      className={cn("w-full h-auto shadow", props?.className)}
+      className={cn(
+        "w-full h-full object-cover object-left-top shadow top-0 left-0",
+        props?.className,
+      )}
     />
   );
 }

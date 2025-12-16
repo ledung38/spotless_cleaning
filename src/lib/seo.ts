@@ -6,7 +6,7 @@ export const SITE_CONFIG = {
   name: "Spotless Cleaning",
   url: "https://spotlesscleaning.com.au",
   description:
-    "Professional cleaning services in Sydney. Deep cleaning, regular maintenance, end of lease cleaning, office and window cleaning. 2000+ happy clients, 8+ years experience.",
+    "Professional cleaning services in Sydney. Deep cleaning, regular maintenance, end of lease cleaning, restaurant and mould cleaning. 2000+ happy clients, 8+ years experience.",
   email: "info@spotlesscleaning.com.au",
   phone: "+61-2-XXXX-XXXX",
   address: {

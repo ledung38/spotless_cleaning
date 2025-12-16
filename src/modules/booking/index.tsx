@@ -182,8 +182,9 @@ const Step1: React.FC<StepProps> = ({ data, setData, onNext }) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1 }}
+              type="button"
               onClick={() => setData("cleanType", type.id)}
-              className={`relative p-6 rounded-2xl border-2 transition-all ${
+              className={`relative p-6 rounded-2xl border-2 transition-all bg-card  ${
                 data.cleanType === type.id
                   ? "border-primary bg-primary/10"
                   : "border-border hover:border-primary/50"
@@ -214,7 +215,7 @@ const Step1: React.FC<StepProps> = ({ data, setData, onNext }) => {
       </div>
 
       {/* Property Details */}
-      <div className="bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl p-6 space-y-6">
+      <div className="bg-card backdrop-blur-sm border border-border/50 rounded-2xl p-6 space-y-6">
         <h3 className="font-bold text-lg">Tell Us About Your Home</h3>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
@@ -255,6 +256,7 @@ const Step1: React.FC<StepProps> = ({ data, setData, onNext }) => {
                 </label>
                 <div className="flex items-center gap-2 bg-background border border-border rounded-lg">
                   <button
+                    type="button"
                     onClick={() =>
                       setData(
                         field.key as keyof FormData,
@@ -269,6 +271,7 @@ const Step1: React.FC<StepProps> = ({ data, setData, onNext }) => {
                     {(data[field.key as keyof FormData] as number) || 0}
                   </span>
                   <button
+                    type="button"
                     onClick={() =>
                       setData(
                         field.key as keyof FormData,
@@ -290,6 +293,7 @@ const Step1: React.FC<StepProps> = ({ data, setData, onNext }) => {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={onNext}
+        type="button"
         disabled={!data.cleanType}
         className="w-full py-4 px-6 bg-gradient-to-r from-primary to-blue-600 text-white font-bold rounded-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-primary/40 transition-all"
       >
@@ -340,6 +344,7 @@ const Step2: React.FC<StepProps> = ({ data, setData, onNext, onBack }) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.05 }}
+              type="button"
               onClick={() => {
                 if (isSelected) {
                   setData(`customServices.${idx}.count` as keyof FormData, 0);
@@ -347,7 +352,7 @@ const Step2: React.FC<StepProps> = ({ data, setData, onNext, onBack }) => {
                   setData(`customServices.${idx}.count` as keyof FormData, 1);
                 }
               }}
-              className={`relative p-5 rounded-xl border-2 transition-all flex items-center gap-3 ${
+              className={`relative bg-card p-5 rounded-xl border-2 transition-all flex items-center gap-3 ${
                 isSelected
                   ? "border-primary bg-primary/10"
                   : "border-border hover:border-primary/50"
@@ -415,6 +420,7 @@ const Step2: React.FC<StepProps> = ({ data, setData, onNext, onBack }) => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={onBack}
+          type="button"
           className="flex-1 py-4 px-6 border-2 border-primary text-primary font-bold rounded-xl hover:bg-primary/10 transition-all flex items-center justify-center gap-2"
         >
           <ArrowLeft size={20} />
@@ -424,6 +430,7 @@ const Step2: React.FC<StepProps> = ({ data, setData, onNext, onBack }) => {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          type="button"
           onClick={onNext}
           className="flex-1 py-4 px-6 bg-gradient-to-r from-primary to-blue-600 text-white font-bold rounded-xl flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-primary/40 transition-all"
         >
@@ -488,11 +495,12 @@ const Step3: React.FC<StepProps> = ({ data, setData, onNext, onBack }) => {
         {frequencies.map((freq, idx) => (
           <motion.button
             key={freq.id}
+            type="button"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: idx * 0.1 }}
             onClick={() => setData("frequency", freq.id)}
-            className={`relative p-6 rounded-2xl border-2 transition-all text-left ${
+            className={`relative p-6 bg-card rounded-2xl border-2 transition-all text-left ${
               data.frequency === freq.id
                 ? "border-primary bg-primary/10"
                 : "border-border hover:border-primary/50"
@@ -530,6 +538,7 @@ const Step3: React.FC<StepProps> = ({ data, setData, onNext, onBack }) => {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          type="button"
           onClick={onBack}
           className="flex-1 py-4 px-6 border-2 border-primary text-primary font-bold rounded-xl hover:bg-primary/10 transition-all flex items-center justify-center gap-2"
         >
@@ -540,6 +549,7 @@ const Step3: React.FC<StepProps> = ({ data, setData, onNext, onBack }) => {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          type="button"
           onClick={onNext}
           disabled={!data.frequency}
           className="flex-1 py-4 px-6 bg-gradient-to-r from-primary to-blue-600 text-white font-bold rounded-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-primary/40 transition-all"
@@ -883,9 +893,11 @@ export const BookingWizard: React.FC = () => {
       phone: "",
       fullName: "",
     },
+    mode: "onSubmit",
     reValidateMode: "onSubmit",
   });
 
+  console.log("error", form.formState);
   const steps = [
     { title: "Service Type", component: Step1 },
     { title: "Customization", component: Step2 },

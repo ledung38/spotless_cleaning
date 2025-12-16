@@ -5,11 +5,11 @@ import Pricing from "@/modules/pricing";
 export const metadata: Metadata = {
   title: "Pricing - Spotless Cleaning Services",
   description:
-    "Transparent, affordable pricing for all cleaning services. House cleaning, deep cleaning, office cleaning. Free quotes available.",
+    "Transparent, affordable pricing for all cleaning services. Regular cleaning, End of lease cleaning, House cleaning, Deep cleaning . Free quotes available.",
   keywords: [
     "cleaning prices Sydney",
     "house cleaning cost",
-    "office cleaning pricing",
+    "regular cleaning pricing",
     "affordable cleaning services",
   ],
   openGraph: {

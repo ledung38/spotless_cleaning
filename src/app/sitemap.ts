@@ -41,11 +41,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "deep-cleaning",
     "regular-cleaning",
     "end-of-lease-cleaning",
-    "office-cleaning",
-    "window-cleaning",
+    "mould-cleaning",
     "airbnb-cleaning",
     "restaurant-cleaning",
-    "house-cleaning",
   ];
 
   const serviceRoutes = services.map((service) => ({

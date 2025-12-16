@@ -18,7 +18,7 @@ import { memo, useEffect, useRef, useState } from "react";
 
 const Item = ({ item }: { item: any }) => {
   return (
-    <div className="h-full w-full rounded-3xl bg-white px-6 py-4 sm:py-8">
+    <div className="h-full w-full rounded-3xl bg-white dark:bg-card px-6 py-4 sm:py-8">
       <Flex
         vertical={true}
         align={"center"}
@@ -88,14 +88,9 @@ const ListComment = ({ data }: { data: any }) => {
       <Flex vertical={true} align={"center"} gap={24}>
         <Flex align={"center"} justify={"center"} className="mb-2">
           <div className="relative w-fit">
-            <Text
-              as="h2"
-              size="large"
-              weight={700}
-              className="relative z-[1] text-center max-sm:text-[17px] max-sm:leading-[25px]"
-            >
+            <p className="text-lg text-foreground/60 max-w-2xl mx-auto">
               Real feedback from satisfied clients across Sydney
-            </Text>
+            </p>
             <DecorQuote
               mainColor={"#FFEDA7"}
               className="absolute top-4 right-[100px] z-0 max-sm:top-12 max-sm:right-[-16px] max-sm:size-[60px]"

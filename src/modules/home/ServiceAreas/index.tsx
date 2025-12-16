@@ -98,7 +98,7 @@ export const ServiceAreas = () => {
     {
       name: "Business District",
       description:
-        "Professional office cleaning and commercial property maintenance services.",
+        "Professional restaurant cleaning and commercial property maintenance services.",
       coverage: "10km radius",
       coordinates: [10.7614, 106.6816] as [number, number],
     },

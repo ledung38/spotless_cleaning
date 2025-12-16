@@ -24,7 +24,7 @@ export const CompactApp = ({
   return (
     <div
       className={cn(
-        "relative w-full h-80 overflow-hidden bg-gradient-to-br from-primary via-blue-800 to-purple-900 flex items-center",
+        "relative w-full h-80 overflow-hidden bg-gradient-to-br from-primary via-blue-800 to-purple-900 flex items-center dark:brightness-90",
         className,
       )}
       style={{
@@ -32,7 +32,7 @@ export const CompactApp = ({
           ? `url(${backgroundImage})`
           : undefined,
         backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundPosition: "left center",
       }}
     >
       {/* Overlay */}
@@ -60,7 +60,7 @@ export const CompactApp = ({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-5xl sm:text-6xl font-black text-white mb-4 tracking-tight"
+            className="text-4xl sm:text-5xl font-black text-white mb-4 tracking-tight"
           >
             {title}
           </motion.h1>
@@ -71,7 +71,7 @@ export const CompactApp = ({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-blue-100 max-w-2xl mx-auto"
+            className="text-lg sm:text-xl text-blue-100 max-w-2xl mx-auto"
           >
             {subtitle}
           </motion.p>
