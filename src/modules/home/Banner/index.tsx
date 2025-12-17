@@ -305,7 +305,7 @@ export const Banner = ({
                   }}
                   className="text-center"
                 >
-                  <p className="text-3xl font-black text-[#e8e3da]">
+                  <p className="text-3xl font-black text-[#c8d4e0]">
                     {stat.number}
                   </p>
                   <p className="text-sm font-medium text-[#c8d4e0] mt-1">

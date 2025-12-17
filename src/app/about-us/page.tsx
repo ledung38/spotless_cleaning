@@ -20,12 +20,15 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://spotless-cleaning-psi.vercel.app/og-about.jpg",
+        url: "https://spotless-cleaning-psi.vercel.app/og-about.png",
         width: 1200,
         height: 630,
         alt: "About Spotless Cleaning",
       },
     ],
+  },
+  alternates: {
+    canonical: "https://spotless-cleaning-psi.vercel.app/about-us",
   },
 };
 

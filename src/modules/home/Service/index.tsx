@@ -146,9 +146,7 @@ const FloatingShape: React.FC<{
         repeat: Infinity,
         ease: "easeInOut",
       }}
-    >
-      1312312
-    </motion.div>
+    ></motion.div>
   );
 };
 

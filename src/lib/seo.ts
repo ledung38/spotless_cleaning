@@ -34,9 +34,9 @@ export const SITE_CONFIG = {
 export const getOGImage = (type: "home" | "about" | "pricing" | "booking") => {
   const images = {
     home: "/screenshot-wide.png",
-    about: "/og-about.jpg",
-    pricing: "/shortcut-pricing.png",
-    booking: "/shortcut-booking.png",
+    about: "/og-about.png",
+    pricing: "/og-pricing.png",
+    booking: "/og-booking.png",
   };
 
   return `${SITE_CONFIG.url}${images[type]}`;
