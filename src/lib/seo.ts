@@ -4,11 +4,11 @@
 
 export const SITE_CONFIG = {
   name: "Spotless Cleaning",
-  url: "https://spotlesscleaning.com.au",
+  url: "https://spotless-cleaning-psi.vercel.app",
   description:
     "Professional cleaning services in Sydney. Deep cleaning, regular maintenance, end of lease cleaning, restaurant and mould cleaning. 2000+ happy clients, 8+ years experience.",
-  email: "info@spotlesscleaning.com.au",
-  phone: "+61-2-XXXX-XXXX",
+  email: "cleaningsydney102@gmail.com",
+  phone: "+61-451-210-238",
   address: {
     street: "Sydney, NSW",
     city: "Sydney",
@@ -31,15 +31,12 @@ export const SITE_CONFIG = {
 /**
  * Generate Open Graph image URL
  */
-export const getOGImage = (
-  type: "home" | "about" | "pricing" | "services" | "booking",
-) => {
+export const getOGImage = (type: "home" | "about" | "pricing" | "booking") => {
   const images = {
-    home: "/og-home.jpg",
+    home: "/screenshot-wide.png",
     about: "/og-about.jpg",
-    pricing: "/og-pricing.jpg",
-    services: "/og-services.jpg",
-    booking: "/og-booking.jpg",
+    pricing: "/shortcut-pricing.png",
+    booking: "/shortcut-booking.png",
   };
 
   return `${SITE_CONFIG.url}${images[type]}`;

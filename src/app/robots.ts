@@ -22,6 +22,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/"],
       },
     ],
-    sitemap: "https://spotlesscleaning.com.au/sitemap.xml",
+    sitemap: "https://spotless-cleaning-psi.vercel.app/sitemap.xml",
   };
 }

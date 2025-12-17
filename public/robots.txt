@@ -17,8 +17,8 @@ Disallow: /*?*filter=
 Crawl-delay: 1
 
 # Sitemaps
-Sitemap: https://spotlesscleaning.com.au/sitemap.xml
-Sitemap: https://spotlesscleaning.com.au/sitemap-services.xml
+Sitemap: https://spotless-cleaning-psi.vercel.app/sitemap.xml
+Sitemap: https://spotless-cleaning-psi.vercel.app/sitemap-services.xml
 
 # Specific rules for different crawlers
 User-agent: Googlebot

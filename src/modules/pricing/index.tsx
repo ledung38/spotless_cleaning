@@ -306,6 +306,23 @@ const ComparisonRow: React.FC<{
 export const Pricing: React.FC = () => {
   const pricingPlans = [
     {
+      title: "Regular Cleaning",
+      price: 100,
+      description: "Same cleaners every time with equipment provided",
+      icon: Sparkles,
+      color: "from-green-500 to-emerald-500",
+      isPopular: true,
+      features: [
+        { text: "Consistent cleaner assignment" },
+        { text: "All supplies and equipment included" },
+        { text: "Flexible scheduling options" },
+        { text: "Free cancellation 24 hours prior" },
+        { text: "20% savings on weekly plans", highlight: true },
+        { text: "15% savings on fortnightly plans", highlight: true },
+        { text: "Priority booking advantage", highlight: true },
+      ],
+    },
+    {
       title: "End of Lease Cleaning",
       price: 320,
       description: "Perfect for bond cleans and move in/out cleaning",

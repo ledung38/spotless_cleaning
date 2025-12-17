@@ -1,26 +1,6 @@
-import { Metadata } from "next";
-import {
-  BannerExample,
-  CompactBannerAboutExample,
-  CompactBannerPricingExample,
-  ServiceBannerAirbnbCleaningExample,
-  ServiceBannerDeepCleaningExample,
-  ServiceBannerEndOfLeaseExample,
-  ServiceBannerRegularCleaningExample,
-  ServiceBannerRestaurantCleaningExample,
-} from "@/components/layouts/Banner/EXAMPLES";
-import ExampleServicePage, {
-  BannerWithNavigation,
-  DeepCleaningPage,
-  EndOfLeaseCleaningPage,
-  HouseCleaningPage,
-  ManualCarouselExample,
-  OfficeCleaningPage,
-  WindowCleaningPage,
-} from "@/components/layouts/Banner/REAL_WORLD_EXAMPLES";
 import LayoutComponents from "@/components/layouts/LayoutComponents";
-import AboutUs from "@/modules/about-us";
 import Home from "@/modules/home";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Professional Cleaning Services in Sydney",
@@ -36,11 +16,11 @@ export const metadata: Metadata = {
     title: "Professional Cleaning Services in Sydney",
     description:
       "Spotless Cleaning provides professional house, restaurant, and commercial cleaning services in Sydney.",
-    url: "https://spotlesscleaning.com.au",
+    url: "https://spotless-cleaning-psi.vercel.app",
     type: "website",
     images: [
       {
-        url: "https://spotlesscleaning.com.au/og-home.jpg",
+        url: "https://spotless-cleaning-psi.vercel.app/og-home.jpg",
         width: 1200,
         height: 630,
         alt: "Spotless Cleaning - Sydney",
