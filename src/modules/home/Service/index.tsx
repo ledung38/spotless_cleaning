@@ -63,7 +63,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           href={link}
           className="inline-flex items-center gap-2 text-primary font-medium text-sm  hover:ml-1 transition-all duration-300"
         >
-          Learn more
+          <span className="sr-only">Learn more about {title}</span>
+          <span aria-hidden="true">Learn more</span>
           <ArrowRightIcon className="w-5 h-5 [&_path]:stroke-primary" />
         </Link>
       </div>

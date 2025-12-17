@@ -152,12 +152,16 @@ export const Header = () => {
                 className="flex items-center gap-3 flex-shrink-0 group"
               >
                 <div className="relative transition-all duration-300 group-hover:scale-110">
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-300 to-secondary rounded-full blur-lg opacity-0 group-hover:opacity-75 transition-opacity duration-300" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-300 to-secondary rounded-full blur-lg opacity-50 transition-opacity duration-300  group-hover:opacity-0" />
+                  {isHome && !isScrolled && (
+                    <>
+                      <div className="absolute inset-0 bg-gradient-to-r from-blue-300 to-secondary rounded-full blur-lg opacity-0 group-hover:opacity-75 transition-opacity duration-300" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-blue-300 to-secondary rounded-full blur-lg opacity-50 transition-opacity duration-300  group-hover:opacity-0" />
+                    </>
+                  )}
                   <img
                     src="/logo_header_v3.png"
                     alt="Logo"
-                    className="relative h-18 "
+                    className="relative h-15 sm:h-18 "
                   />
                 </div>
                 {/* <div className="hidden sm:flex flex-col">
@@ -258,7 +262,7 @@ export const Header = () => {
                     transition={{ type: "spring", stiffness: 300, damping: 15 }}
                     style={{ originX: 0.5, originY: 0.5 }}
                   >
-                    <Button className="rounded-lg">
+                    <Button className="rounded-lg hidden lg:flex hover:shadow-2xl transition-transform duration-300 active:scale-95 hover:scale-105">
                       <motion.div
                         variants={{
                           initial: { rotate: 0 },
