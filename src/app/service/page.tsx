@@ -26,15 +26,18 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://spotless-cleaning-psi.vercel.app/og-services.jpg",
+        url: "https://spotless-cleaning-psi.vercel.app/og-services.png",
         width: 1200,
         height: 630,
         alt: "Spotless Cleaning - Services",
       },
     ],
   },
+  alternates: {
+    canonical: "https://spotless-cleaning-psi.vercel.app/service",
+  },
 };
 
 export default function ServicePage() {
-  return <ServiceComponent data={services[Routes.SERVICE_REGULAR_CLEANING]} />;
+  return <ServiceComponent data={services["regular-cleaning"]} />;
 }

@@ -74,7 +74,7 @@
   --primary-foreground: oklch(0.99 0.01 250);
 
   /* 💜 Secondary (một chút tím nhẹ để phối cùng) */
-  --secondary: oklch(0.88 0.27 85); /* vàng ấm */
+  --secondary: oklch(0.78 0.19 75); /* vàng ấm */
   --secondary-foreground: oklch(0.98 0.01 85); /* text sáng trên vàng */
 
   /* 💚 Success / ⚠️ Warning / 🔥 Error / ℹ️ Info */

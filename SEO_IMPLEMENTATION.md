@@ -100,10 +100,10 @@ public/
 ├── logo-maskable.png
 ├── og-image.jpg (default)
 ├── og-home.jpg
-├── og-about.jpg
-├── og-pricing.jpg
-├── og-services.jpg
-├── og-booking.jpg
+├── og-about.png
+├── og-pricing.png
+├── og-services.png
+├── og-booking.png
 ├── screenshot-narrow.png
 ├── screenshot-wide.png
 ├── site.webmanifest

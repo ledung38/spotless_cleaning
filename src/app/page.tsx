@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://spotless-cleaning-psi.vercel.app/og-home.jpg",
+        url: "https://spotless-cleaning-psi.vercel.app/screenshot-wide.png",
         width: 1200,
         height: 630,
         alt: "Spotless Cleaning - Sydney",

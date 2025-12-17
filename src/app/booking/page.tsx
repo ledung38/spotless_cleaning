@@ -21,12 +21,15 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://spotless-cleaning-psi.vercel.app/og-booking.jpg",
+        url: "https://spotless-cleaning-psi.vercel.app/og-booking.png",
         width: 1200,
         height: 630,
         alt: "Spotless Cleaning - Booking",
       },
     ],
+  },
+  alternates: {
+    canonical: "https://spotless-cleaning-psi.vercel.app/booking",
   },
 };
 

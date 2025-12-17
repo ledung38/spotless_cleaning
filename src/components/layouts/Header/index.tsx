@@ -148,12 +148,17 @@ export const Header = () => {
             >
               <Link
                 href={Routes.HOME}
+                aria-label="Trở về trang chủ"
                 className="flex items-center gap-3 flex-shrink-0 group"
               >
                 <div className="relative transition-all duration-300 group-hover:scale-110">
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-300 to-secondary rounded-full blur-lg opacity-0 group-hover:opacity-75 transition-opacity duration-300" />
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-300 to-secondary rounded-full blur-lg opacity-50 transition-opacity duration-300  group-hover:opacity-0" />
-                  <img src="/logo_header_v3.png" className="relative h-18 " />
+                  <img
+                    src="/logo_header_v3.png"
+                    alt="Logo"
+                    className="relative h-18 "
+                  />
                 </div>
                 {/* <div className="hidden sm:flex flex-col">
                   <span className="text-lg font-black text-white leading-tight tracking-tight">
@@ -245,27 +250,29 @@ export const Header = () => {
                 className="flex-1 group"
               >
                 <a href="tel:0451210238">
-                  <motion.button
+                  <motion.div
                     whileHover="hover"
                     initial="initial"
                     variants={{}} // cần để button có state để truyền xuống
-                    className="w-full hidden lg:flex  gap-2 items-center bg-white text-primary font-semibold hover:bg-blue-50 hover:shadow-2xl transition-transform duration-300 active:scale-95 hover:scale-105 px-4 py-1.5 text-sm sm:text-base rounded-lg"
+                    // className="w-full hidden lg:flex  gap-2 items-center bg-white text-primary font-semibold hover:bg-blue-50 hover:shadow-2xl transition-transform duration-300 active:scale-95 hover:scale-105 px-4 py-1.5 text-sm sm:text-base rounded-lg"
                     transition={{ type: "spring", stiffness: 300, damping: 15 }}
                     style={{ originX: 0.5, originY: 0.5 }}
                   >
-                    <motion.div
-                      variants={{
-                        initial: { rotate: 0 },
-                        hover: {
-                          rotate: [0, 15, -15, 10, -10, 0],
-                          transition: { duration: 0.5 },
-                        },
-                      }}
-                    >
-                      <PhoneIcon className="[&_path]:stroke-primary size-5 transition-all " />
-                    </motion.div>
-                    <span>0451210238</span>
-                  </motion.button>
+                    <Button className="rounded-lg">
+                      <motion.div
+                        variants={{
+                          initial: { rotate: 0 },
+                          hover: {
+                            rotate: [0, 15, -15, 10, -10, 0],
+                            transition: { duration: 0.5 },
+                          },
+                        }}
+                      >
+                        <PhoneIcon className="[&_path]:stroke-white size-5 transition-all " />
+                      </motion.div>
+                      <span>0451210238</span>
+                    </Button>
+                  </motion.div>
                 </a>
               </motion.div>
 
