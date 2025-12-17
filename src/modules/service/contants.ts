@@ -1,10 +1,7 @@
 import { ServiceBannerProps } from "@/modules/service/ServiceBanner";
 import {
-  Award,
   CheckCircle2,
   ClipboardList,
-  Heart,
-  Shield,
   Sparkles,
   Users,
   Wind,

@@ -16,11 +16,11 @@ export const metadata: Metadata = {
     title: "About Us - Spotless Cleaning",
     description:
       "Learn about Spotless Cleaning, Sydney's trusted cleaning company with 8+ years of experience.",
-    url: "https://spotlesscleaning.com.au/about-us",
+    url: "https://spotless-cleaning-psi.vercel.app/about-us",
     type: "website",
     images: [
       {
-        url: "https://spotlesscleaning.com.au/og-about.jpg",
+        url: "https://spotless-cleaning-psi.vercel.app/og-about.jpg",
         width: 1200,
         height: 630,
         alt: "About Spotless Cleaning",

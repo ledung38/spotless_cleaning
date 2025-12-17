@@ -1,19 +1,14 @@
 "use client";
+import PageFlip from "@/components/common/PageFlip";
 import Footer from "@/components/layouts/Footer";
 import { Header } from "@/components/layouts/Header";
-import { Container } from "@/components/ui";
-import React, { PropsWithChildren } from "react";
-import { motion } from "framer-motion";
-import PageFlip from "@/components/common/PageFlip";
+import { PropsWithChildren } from "react";
 
 const LayoutComponents = ({ children }: PropsWithChildren) => {
   return (
     <div className="flex flex-col min-h-screen relative">
       <Header />
-      <div className="min-h-screen">
-        {/* <SideBar /> */}
-        {children}
-      </div>
+      <div className="min-h-screen">{children}</div>
       <Footer />
       <PageFlip />
     </div>

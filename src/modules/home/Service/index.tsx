@@ -1,16 +1,7 @@
 import { TextGradient } from "@/components/common/TextGradient";
 import { ArrowRightIcon } from "@/components/icons";
-import { CompactBannerAboutExample } from "@/components/layouts/Banner/EXAMPLES";
 import { services } from "@/modules/home/contants";
 import TagTitle from "@/modules/home/Tag";
-import {
-  Briefcase,
-  Building2,
-  Droplets,
-  Home,
-  UtensilsCrossed,
-  Wind,
-} from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
 import React from "react";

@@ -14,19 +14,17 @@ export const ratingsExample: TRatingDto[] = [
     customerName: "Sophie Williams",
     comment:
       "Fantastic job! The apartment looks spotless and smells amazing. Would absolutely recommend.",
-    serviceName: "Regular Home Cleaning",
+    serviceName: "Regular Cleaning",
   },
   {
     customerName: "Jack Thompson",
-    comment:
-      "The team was on time and super friendly. My carpets have never looked better!",
-    serviceName: "Carpet Steam Cleaning",
+    comment: "Thorough end of lease cleaning that met agent requirements.",
+    serviceName: "End of Lease Cleaning",
   },
   {
     customerName: "Olivia Harris",
-    comment:
-      "Booked a bond clean before moving out — they did a brilliant job, got my full bond back.",
-    serviceName: "Bond Cleaning",
+    comment: "A very thorough deep clean with great attention to detail.",
+    serviceName: "Deep Cleaning",
   },
   {
     customerName: "Liam Anderson",
@@ -43,38 +41,38 @@ export const ratingsExample: TRatingDto[] = [
   {
     customerName: "Noah Martin",
     comment:
-      "Easy to book and great communication. They did a thorough clean after our renovation.",
-    serviceName: "Builders Cleaning",
+      "Outstanding Airbnb cleaning. The home was immaculate and ready on arrival.",
+    serviceName: "Airbnb Cleaning",
   },
   {
     customerName: "Emily Johnson",
     comment:
       "Lovely staff and top-quality work. My flat looks so tidy and bright!",
-    serviceName: "Regular Home Cleaning",
+    serviceName: "Regular Cleaning",
   },
   {
     customerName: "Benjamin White",
     comment:
-      "They showed up right on time and did a great job. The place looks brand new.",
-    serviceName: "Move-in Cleaning",
+      "End of lease cleaning done perfectly – we got our full bond back.",
+    serviceName: "End of Lease Cleaning",
   },
   {
     customerName: "Isla Clarke",
     comment:
-      "Super professional team. Everything was sparkling — even the oven!",
-    serviceName: "Kitchen Cleaning",
+      "Professional cleaning service that helps us maintain food safety standards.",
+    serviceName: "Restaurant Cleaning",
   },
   {
     customerName: "Ethan Hall",
     comment:
       "Affordable, reliable, and friendly. Definitely my go-to for fortnightly cleans.",
-    serviceName: "Regular Home Cleaning",
+    serviceName: "Regular Cleaning",
   },
   {
     customerName: "Mia Roberts",
     comment:
-      "Perfect clean before the inspection! The property manager was impressed.",
-    serviceName: "Bond Cleaning",
+      "The team was friendly and efficient. My house looks fresh and clean.",
+    serviceName: "Mould Cleaning",
   },
   {
     customerName: "Oliver King",
@@ -85,14 +83,13 @@ export const ratingsExample: TRatingDto[] = [
   {
     customerName: "Harper Evans",
     comment:
-      "Highly professional and efficient. Loved that they used eco-friendly products too.",
-    serviceName: "Eco Cleaning",
+      "Very clean, fresh, and well organised – exactly what we expect from an Airbnb.",
+    serviceName: "Airbnb Cleaning",
   },
   {
     customerName: "Charlie Adams",
-    comment:
-      "Easy process from start to finish. They did a top-notch job on the carpets.",
-    serviceName: "Carpet Steam Cleaning",
+    comment: "Mould issues were handled quickly and effectively.",
+    serviceName: "Mould Cleaning",
   },
   {
     customerName: "Grace Lewis",
@@ -102,9 +99,8 @@ export const ratingsExample: TRatingDto[] = [
   },
   {
     customerName: "Mason Wilson",
-    comment:
-      "Booked a same-day clean and they pulled it off perfectly. Super impressed!",
-    serviceName: "Emergency Cleaning",
+    comment: "A trustworthy regular cleaning service we rely on.",
+    serviceName: "Regular Cleaning",
   },
   {
     customerName: "Ella Turner",
@@ -115,14 +111,14 @@ export const ratingsExample: TRatingDto[] = [
   {
     customerName: "Henry Scott",
     comment:
-      "Did a great job after our kitchen renovation — everything was dust-free and fresh.",
-    serviceName: "Post-Renovation Cleaning",
+      "The mould was completely removed and the place feels much healthier now.",
+    serviceName: "Mould Cleaning",
   },
   {
     customerName: "Zoe Campbell",
     comment:
       "Lovely experience. The team was cheerful and thorough. Highly recommend them!",
-    serviceName: "Regular Home Cleaning",
+    serviceName: "Regular  Cleaning",
   },
   {
     customerName: "Lucas Davis",
