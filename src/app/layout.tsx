@@ -170,7 +170,7 @@ export default function RootLayout({
               "@type": "LocalBusiness",
               "@id": baseUrl,
               name: "Spotless Cleaning",
-              image: `${baseUrl}/og-image.jpg`,
+              image: `${baseUrl}/screenshot-wide.png`,
               description,
               url: baseUrl,
               telephone: "+61-451 210 238",
@@ -222,7 +222,7 @@ export default function RootLayout({
               "@type": "Organization",
               name: "Spotless Cleaning",
               url: baseUrl,
-              logo: `${baseUrl}/logo.png`,
+              logo: `${baseUrl}/favicon-16x16.png`,
               description,
               sameAs: [
                 "https://www.facebook.com/sydney.spotlesscleaning",
