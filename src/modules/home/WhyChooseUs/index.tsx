@@ -15,6 +15,7 @@ import {
 import { TickIcon } from "@/components/icons";
 import TagTitle from "@/modules/home/Tag";
 import { featuresData, statsData } from "@/modules/home/contants";
+import { useInView } from "framer-motion";
 
 const CounterStat = ({
   number,
@@ -27,13 +28,19 @@ const CounterStat = ({
   label: string;
   delay: number;
 }) => {
+  const ref = React.useRef<HTMLDivElement | null>(null);
+  const isInView = useInView(ref, { once: true });
+
   const [count, setCount] = React.useState(0);
 
   React.useEffect(() => {
+    if (!isInView) return; // ⛔ chưa scroll tới thì không chạy
+
     let start = 0;
     const end = number;
-    const duration = 2;
-    const increment = end / (duration * 60);
+    const duration = 2; // giây
+    const fps = 60;
+    const increment = end / (duration * fps);
 
     const timer = setInterval(() => {
       start += increment;
@@ -43,23 +50,24 @@ const CounterStat = ({
       } else {
         setCount(Math.floor(start));
       }
-    }, 1000 / 60);
+    }, 1000 / fps);
 
     return () => clearInterval(timer);
-  }, [number]);
+  }, [isInView, number]);
 
   return (
     <motion.div
+      ref={ref}
       initial={{ opacity: 0, scale: 0.5 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, delay }}
       viewport={{ once: true }}
       className="text-center"
     >
-      <motion.div className="text-3xl sm:text-4xl font-black text-white drop-shadow-lg">
+      <div className="text-3xl sm:text-4xl font-black text-white drop-shadow-lg">
         {count}
         <span className="text-xl sm:text-2xl ml-1">{suffix}</span>
-      </motion.div>
+      </div>
       <p className="text-md sm:text-lg text-white/90 font-semibold mt-2 drop-shadow-md">
         {label}
       </p>
@@ -110,7 +118,7 @@ export const WhyChooseUs = () => {
     <div className="relative mb-40">
       <div className="relative w-full overflow-hidden bg-white py-10 sm:py-16 !pb-24">
         {/* <div className="bg-[url('/bg_layer2.webp')] bg-repeat  absolute "></div> */}
-        <div className="absolute inset-0 bg-[url('/bg_layer.webp')] bg-repeat bg-[length:200px_133px]"></div>
+        <div className="absolute inset-0 bg-[url('/bg_layer.webp')] bg-repeat bg-[length:200px_133px] dark:brightness-40 contrast-110"></div>
         {/* <div className="bg-[rgba(248,248,248,.3)] absolute inset-0" /> */}
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 relative">
@@ -283,12 +291,17 @@ export const WhyChooseUs = () => {
       >
         {/* Background Image */}
         <div
-          className="absolute top-0 left-0 w-full h-full bg-cover bg-center"
+          className="absolute top-0 left-0 w-full h-full bg-cover bg-top"
           style={{
             backgroundImage: "url('/cleaning.png')",
             filter: "brightness(0.6) contrast(1.1)",
           }}
         />
+        {/* <img
+          src="/cleaning.png"
+          alt="Background"
+          className="absolute inset-0 w-full h-full object-cover object-left-top"
+        /> */}
 
         {/* Overlay Gradient */}
         {/* <div className="absolute inset-0 bg-gradient-to-r from-primary/70 via-blue-600/120 to-primary/70" /> */}

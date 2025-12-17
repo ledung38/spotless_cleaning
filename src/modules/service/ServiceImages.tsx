@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 export const ServiceImages = () => {
   return (
     <div className="relative">
-      <div className="relative w-full overflow-hidden bg-white py-16 sm:py-24 lg:py-24 !pb-24">
+      <div className="relative w-full overflow-hidden bg-white py-16 sm:py-24 lg:py-24 !pb-24 dark:bg-gradient-to-b dark:from-background dark:to-background dark:via-primary/60">
         {/* <div className="bg-[url('/bg_layer.webp')] bg-repeat w-64 h-64 absolute"></div> */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 relative">
           <motion.div

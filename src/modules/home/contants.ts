@@ -79,8 +79,8 @@ export const ratingsExample: TRatingDto[] = [
   {
     customerName: "Oliver King",
     comment:
-      "The crew did a spot-on job with our office. Floors and desks look great.",
-    serviceName: "Office Cleaning",
+      "The crew did a spot-on job with our Restaurant. Floors and desks look great.",
+    serviceName: "Restaurant Cleaning",
   },
   {
     customerName: "Harper Evans",
@@ -110,7 +110,7 @@ export const ratingsExample: TRatingDto[] = [
     customerName: "Ella Turner",
     comment:
       "The cleaners were polite and worked quickly. Everything looks spotless now.",
-    serviceName: "Office Cleaning",
+    serviceName: "Restaurant Cleaning",
   },
   {
     customerName: "Henry Scott",

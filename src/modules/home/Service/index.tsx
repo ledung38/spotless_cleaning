@@ -30,7 +30,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   color,
 }) => {
   const link = `/service/${title.toLowerCase().replace(" ", "-")}`;
-  console.log("link", link);
   return (
     <motion.div
       variants={{
@@ -164,7 +163,7 @@ const FloatingShape: React.FC<{
 
 export const Service: React.FC = () => {
   return (
-    <section className="bg-white relative w-full py-10 lg:py-16 overflow-hidden bg-gradient-to-b from-background via-primary/2 to-background">
+    <section className="bg-white relative w-full py-10 lg:py-16 overflow-hidden dark:bg-gradient-to-b dark:from-background dark:to-background dark:via-primary/60">
       {/* Animated background shapes */}
       <FloatingShape
         delay={0}

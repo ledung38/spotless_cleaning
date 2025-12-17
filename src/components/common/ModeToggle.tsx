@@ -37,7 +37,7 @@ export function ModeToggle() {
         onClick={() => setIsOpen(!isOpen)}
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.95 }}
-        className="relative inline-flex items-center justify-center w-10 h-10 rounded-xl bg-white/10 hover:bg-white/20 transition-all duration-300 group border border-white/20 hover:border-white/40"
+        className="relative inline-flex items-center justify-center w-10 h-10 rounded-xl bg-white/10 hover:bg-white/20 transition-all duration-300 group border border-secondary/60 hover:border-secondary/80"
         aria-label="Toggle theme"
       >
         <AnimatePresence mode="wait">
@@ -47,12 +47,9 @@ export function ModeToggle() {
             animate={{ rotate: 0, opacity: 1 }}
             exit={{ rotate: 180, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="text-white"
+            className={"text-secondary"}
           >
-            <CurrentIcon
-              size={20}
-              className="group-hover:text-blue-200 transition-colors"
-            />
+            <CurrentIcon size={20} className=" transition-colors" />
           </motion.div>
         </AnimatePresence>
       </motion.button>

@@ -138,7 +138,7 @@ export function DatePicker({
               </span>
             )}
           </div>
-          <PopoverContent className="w-auto p-0" align="start">
+          <PopoverContent className="w-auto p-0 bg-card" align="start">
             <Calendar
               mode="single"
               selected={value ?? undefined}
@@ -214,7 +214,7 @@ export function DateRangePicker({
       {label && <FormLabel>{label}</FormLabel>}
 
       <Popover open={open} onOpenChange={setOpen}>
-        <div className="flex gap-2 items-center">
+        <div className="flex gap-2 items-center bg-red">
           <PopoverTrigger asChild>
             <Button
               variant="outline"
@@ -242,7 +242,7 @@ export function DateRangePicker({
             />
           )}
         </div>
-        <PopoverContent className="w-auto p-0" align="start">
+        <PopoverContent className="w-auto p-2 bg-card" align="start">
           <Calendar
             mode="range"
             selected={value}

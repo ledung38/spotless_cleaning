@@ -10,6 +10,9 @@ import {
   Heart,
   Droplets,
 } from "lucide-react";
+import { ArrowRightIcon } from "@/components/icons";
+import { Routes } from "@/lib/enum/routes";
+import { useAppRouter } from "@/hooks/useAppRouter";
 
 const icons = {
   Award,
@@ -38,9 +41,9 @@ export const ServiceBanner = ({
   onCtaClick,
 }: ServiceBannerProps) => {
   const IconComponent = icons[icon];
-
+  const router = useAppRouter();
   return (
-    <div className="relative w-full min-h-[400px] overflow-hidden bg-gradient-to-br from-primary via-blue-800 to-purple-900">
+    <div className="relative w-full min-h-[400px] overflow-hidden bg-gradient-to-br from-primary via-blue-800 to-purple-900 dark:bg-none ">
       {/* Animated Background Gradient */}
       <motion.div
         className="absolute inset-0"
@@ -146,7 +149,7 @@ export const ServiceBanner = ({
               className="pt-4"
             >
               <button
-                onClick={onCtaClick}
+                onClick={() => router.push(Routes.BOOKING)}
                 className="relative px-8 py-4 bg-gradient-to-r from-cyan-400 to-blue-500 text-white font-bold rounded-xl shadow-2xl hover:shadow-cyan-500/50 transition-all duration-300 group overflow-hidden"
               >
                 <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
@@ -156,7 +159,7 @@ export const ServiceBanner = ({
                     animate={{ x: [0, 5, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
                   >
-                    →
+                    <ArrowRightIcon className="w-6 h-6" />
                   </motion.span>
                 </span>
               </button>

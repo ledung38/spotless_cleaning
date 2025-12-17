@@ -38,10 +38,10 @@ const Comment = (props: Props) => {
             animate={isSecondInView ? "visible" : "hidden"}
             transition={{ type: "spring", delay: 0.1 }}
           >
-            <TextGradient className="text-4xl sm:text-5xl font-black  mb-6 leading-20">
+            <TextGradient className="text-4xl sm:text-5xl font-black  mb-6 inline-block">
               What Our Customers Say
+              <CommentStar className="mb-2 max-sm:size-[28px] inline-block ml-3" />
             </TextGradient>
-            <CommentStar className="mb-2 max-sm:size-[28px]" />
           </AnimateFlex>
           <motion.div
             variants={{

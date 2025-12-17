@@ -81,7 +81,7 @@ const Footer = () => {
     },
     {
       icon: Instagram,
-      href: "instagram.com/sydney.spotlesscleaning",
+      href: "https://www.instagram.com/sydney.spotlesscleaning/",
       label: "Instagram",
     },
     { icon: TikTokIcon, href: "https://linkedin.com", label: "TikTok" },
@@ -109,14 +109,14 @@ const Footer = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-12"
           >
             {/* Brand section */}
             <motion.div variants={itemVariants} className="lg:col-span-1">
-              <div className="flex items-center gap-2 mb-4">
+              <div className="flex items-center gap-2 mb-4 max-sm:justify-center">
                 <Link
                   href={Routes.HOME}
-                  className="flex flex-col items-center gap-1  flex-shrink-0 group"
+                  className="flex flex-col items-center gap-1   flex-shrink-0 group"
                 >
                   <div className="relative transition-all duration-300 group-hover:scale-110">
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-300 to-secondary rounded-full blur-lg opacity-0 group-hover:opacity-75 transition-opacity duration-300" />
@@ -131,6 +131,11 @@ const Footer = () => {
                       N&T Spotless Cleaning
                     </span>
                   </div>
+                  {/* <div className="relative transition-all duration-300 group-hover:scale-110">
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-300 to-secondary rounded-full blur-lg opacity-0 group-hover:opacity-75 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-300 to-secondary rounded-full blur-lg opacity-50 transition-opacity duration-300  group-hover:opacity-0" />
+                    <img src="/logo_header_v3.png" className="relative h-18 " />
+                  </div> */}
                 </Link>
               </div>
 

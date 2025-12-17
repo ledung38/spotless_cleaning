@@ -210,7 +210,7 @@ export const HowItWorks: React.FC = () => {
   };
 
   return (
-    <section className="relative w-full py-8 lg:py-16 overflow-hidden bg-gradient-to-b from-white  to-primary/50">
+    <section className="relative w-full py-8 lg:py-16 overflow-hidden bg-gradient-to-b from-white  to-primary/50 dark:from-background">
       {/* Animated background shapes */}
       <FloatingShape
         delay={0}
@@ -366,12 +366,20 @@ export const HowItWorks: React.FC = () => {
             </span>
           </motion.button>
         </motion.div> */}
-        <CompactApp
-          title="Ready for a spotless clean?"
-          subtitle="Our professional team is ready to handle your end of lease cleaning with precision and care. Get your bond back and move with confidence."
-          textButton="Book Your Free Quote"
-          className="rounded-3xl"
-        />
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.9, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          <CompactApp
+            title="Ready for a spotless clean?"
+            subtitle="Our professional team is ready to handle your end of lease cleaning with precision and care. Get your bond back and move with confidence."
+            textButton="Book Your Free Quote"
+            className="rounded-3xl"
+          />
+        </motion.div>
       </div>
     </section>
   );
