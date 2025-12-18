@@ -16,11 +16,11 @@ export const metadata: Metadata = {
     title: "Pricing - Spotless Cleaning Services",
     description:
       "Transparent, affordable pricing for all cleaning services. Free quotes available.",
-    url: "https://spotless-cleaning-psi.vercel.app/pricing",
+    url: "https://spotlesscleaningsydney.com/pricing",
     type: "website",
     images: [
       {
-        url: "https://spotless-cleaning-psi.vercel.app/og-pricing.png",
+        url: "https://spotlesscleaningsydney.com/og-pricing.png",
         width: 1200,
         height: 630,
         alt: "Spotless Cleaning - Pricing",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: "https://spotless-cleaning-psi.vercel.app/pricing",
+    canonical: "https://spotlesscleaningsydney.com/pricing",
   },
 };
 

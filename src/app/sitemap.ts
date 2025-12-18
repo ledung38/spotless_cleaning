@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://spotless-cleaning-psi.vercel.app";
+  const baseUrl = "https://spotlesscleaningsydney.com";
 
   const routes = [
     {

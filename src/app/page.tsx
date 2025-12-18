@@ -16,11 +16,11 @@ export const metadata: Metadata = {
     title: "Professional Cleaning Services in Sydney",
     description:
       "Spotless Cleaning provides professional house, restaurant, and commercial cleaning services in Sydney.",
-    url: "https://spotless-cleaning-psi.vercel.app",
+    url: "https://spotlesscleaningsydney.com",
     type: "website",
     images: [
       {
-        url: "https://spotless-cleaning-psi.vercel.app/screenshot-wide.png",
+        url: "https://spotlesscleaningsydney.com/screenshot-wide.png",
         width: 1200,
         height: 630,
         alt: "Spotless Cleaning - Sydney",

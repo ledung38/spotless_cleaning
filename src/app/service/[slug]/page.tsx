@@ -5,8 +5,7 @@ import services from "@/modules/service/contants";
 
 export function generateMetadata({ params }) {
   const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ||
-    "https://spotless-cleaning-psi.vercel.app";
+    process.env.NEXT_PUBLIC_SITE_URL || "https://spotlesscleaningsydney.com";
   const service = services[params.slug];
 
   // Nếu slug không tồn tại -> fallback metadata an toàn

@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 // Base metadata
-const baseUrl = "https://spotless-cleaning-psi.vercel.app";
+const baseUrl = "https://spotlesscleaningsydney.com";
 const siteName = "Spotless Cleaning";
 const description =
   "Professional cleaning services in Sydney. Deep cleaning, regular maintenance, end of lease cleaning, restaurant and mould cleaning. 2000+ happy clients, 8+ years experience.";
