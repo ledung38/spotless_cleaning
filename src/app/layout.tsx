@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
+import NextTopLoader from "nextjs-toploader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -291,6 +292,14 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <NextTopLoader
+            color="var(--primary)"
+            zIndex={100000}
+            showSpinner={false}
+            crawlSpeed={200}
+            crawl={true}
+            height={3}
+          />
           {children}
         </ThemeProvider>
       </body>
