@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
+import NextTopLoader from "nextjs-toploader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 // Base metadata
-const baseUrl = "https://spotless-cleaning-psi.vercel.app";
+const baseUrl = "https://spotlesscleaningsydney.com";
 const siteName = "Spotless Cleaning";
 const description =
   "Professional cleaning services in Sydney. Deep cleaning, regular maintenance, end of lease cleaning, restaurant and mould cleaning. 2000+ happy clients, 8+ years experience.";
@@ -291,6 +292,14 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <NextTopLoader
+            color="var(--primary)"
+            zIndex={100000}
+            showSpinner={false}
+            crawlSpeed={200}
+            crawl={true}
+            height={3}
+          />
           {children}
         </ThemeProvider>
       </body>

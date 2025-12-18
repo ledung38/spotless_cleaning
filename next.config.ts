@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   images: {
     domains: [
       "images.unsplash.com",
-      "spotless-cleaning-psi.vercel.app",
+      "spotlesscleaningsydney.com",
       "via.placeholder.com",
     ],
     formats: ["image/avif", "image/webp"],
@@ -78,10 +78,10 @@ const nextConfig: NextConfig = {
         has: [
           {
             type: "host",
-            value: "www.spotless-cleaning-psi.vercel.app",
+            value: "www.spotlesscleaningsydney.com",
           },
         ],
-        destination: "https://spotless-cleaning-psi.vercel.app/:path*",
+        destination: "https://spotlesscleaningsydney.com/:path*",
         permanent: true,
       },
       // Redirect trailing slashes
@@ -123,8 +123,7 @@ const nextConfig: NextConfig = {
   // Environment variables
   env: {
     NEXT_PUBLIC_SITE_URL:
-      process.env.NEXT_PUBLIC_SITE_URL ||
-      "https://spotless-cleaning-psi.vercel.app",
+      process.env.NEXT_PUBLIC_SITE_URL || "https://spotlesscleaningsydney.com",
   },
 
   // Turbopack for faster builds

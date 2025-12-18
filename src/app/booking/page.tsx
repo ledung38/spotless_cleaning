@@ -17,11 +17,11 @@ export const metadata: Metadata = {
     title: "Book Cleaning Service - Spotless Cleaning",
     description:
       "Easy online booking for professional cleaning services in Sydney.",
-    url: "https://spotless-cleaning-psi.vercel.app/booking",
+    url: "https://spotlesscleaningsydney.com/booking",
     type: "website",
     images: [
       {
-        url: "https://spotless-cleaning-psi.vercel.app/og-booking.png",
+        url: "https://spotlesscleaningsydney.com/og-booking.png",
         width: 1200,
         height: 630,
         alt: "Spotless Cleaning - Booking",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: "https://spotless-cleaning-psi.vercel.app/booking",
+    canonical: "https://spotlesscleaningsydney.com/booking",
   },
 };
 
