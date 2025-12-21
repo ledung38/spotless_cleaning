@@ -3,17 +3,18 @@
 import ServiceComponent from "@/modules/service";
 import services from "@/modules/service/contants";
 
-export function generateMetadata({ params }) {
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
   const siteUrl =
     process.env.NEXT_PUBLIC_SITE_URL || "https://spotlesscleaningsydney.com";
-  const service = services[params.slug];
+  const service = services[slug];
 
   // Nếu slug không tồn tại -> fallback metadata an toàn
   if (!service) {
     return {
       title: "Service not found | Spotless Cleaning",
       description: "Sorry, this service is not available.",
-      alternates: { canonical: `${siteUrl}/service/${params.slug}` },
+      alternates: { canonical: `${siteUrl}/service/${slug}` },
     };
   }
 
@@ -32,11 +33,11 @@ export function generateMetadata({ params }) {
           alt: service.title,
         },
       ],
-      url: `${siteUrl}/service/${params.slug}`,
+      url: `${siteUrl}/service/${slug}`,
       siteName: "Spotless Cleaning",
     },
     alternates: {
-      canonical: `${siteUrl}/service/${params.slug}`,
+      canonical: `${siteUrl}/service/${slug}`,
     },
   };
 }
@@ -54,5 +55,5 @@ export default async function ServiceDetails({ params }) {
     return <div>Service not found</div>;
   }
 
-  return <ServiceComponent data={service} />;
+  return <ServiceComponent data={service} slug={slug} />;
 }

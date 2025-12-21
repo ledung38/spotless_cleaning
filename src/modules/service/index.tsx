@@ -3,11 +3,11 @@ import { ServiceImages } from "@/modules/service/ServiceImages";
 import { HowItWorks } from "@/modules/service/ServiceWork";
 import React from "react";
 
-const ServiceComponent = ({ data }) => {
+const ServiceComponent = ({ data, slug }) => {
   return (
     <div>
       <ServiceBanner {...data} />
-      <ServiceImages />
+      <ServiceImages slug={slug} />
       <HowItWorks />
     </div>
   );

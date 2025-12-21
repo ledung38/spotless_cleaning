@@ -129,7 +129,7 @@ export const Header = () => {
     <>
       {/* Header */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all bg-white dark:bg-white/50  duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all bg-white dark:bg-[#0B1220]  duration-500 ${
           isScrolled
             ? "bg-white backdrop-blur-xl shadow-2xl"
             : isHome
@@ -274,7 +274,7 @@ export const Header = () => {
                       >
                         <PhoneIcon className="[&_path]:stroke-white size-5 transition-all " />
                       </motion.div>
-                      <span>0451210238</span>
+                      <span className="text-white">0451210238</span>
                     </Button>
                   </motion.div>
                 </a>
@@ -357,7 +357,7 @@ export const Header = () => {
                 <a href="tel:0451210238" className="block">
                   <Button className="w-full flex gap-2 bg-white text-primary font-semibold hover:bg-blue-50 transition-all duration-200 py-3 rounded-lg shadow-md">
                     <PhoneIcon className="[&_path]:stroke-primary size-5" />
-                    <span>0451210238</span>
+                    <span className="text-white">0451210238</span>
                   </Button>
                 </a>
                 <Button

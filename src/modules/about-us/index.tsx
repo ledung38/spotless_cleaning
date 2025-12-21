@@ -15,6 +15,7 @@ import logo from "@/lib/assets/images/logo.webp";
 import TagTitle from "@/modules/home/Tag";
 import { TextGradient } from "@/components/common/TextGradient";
 import { useAppRouter } from "@/hooks/useAppRouter";
+import SmoothLoopVideo from "@/components/common/BannerVideo";
 
 // ============================================================================
 // COMPONENTS
@@ -182,9 +183,15 @@ const AboutUs = () => {
   return (
     <div className="w-full">
       {/* ========== ABOUT COMPANY SECTION ========== */}
-      <section className="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-b from-white via-primary/5 to-white ">
-        <div className="bg-[url('/about.png')] absolute inset-0" />
-        <div className="bg-[rgba(248,248,248,.79)] absolute inset-0" />
+      <section className="relative py-8 lg:py-16 overflow-hidden  ">
+        {/* <div className="bg-[url('/about.png')] absolute inset-0" /> */}
+        {/* <div className="bg-[rgba(248,248,248,.69)] absolute inset-0" /> */}
+        {/* <div className="bg-[rgba(37,37,37,0.49)] absolute inset-0" /> */}
+
+        <div className="absolute inset-0">
+          <div className="bg-[rgba(37,37,37,0.49)] absolute inset-0" />
+          <SmoothLoopVideo src="/banner_about_us.mp4" />
+        </div>
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left content */}
@@ -196,17 +203,17 @@ const AboutUs = () => {
               className="space-y-8"
             >
               <div>
-                <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-6 leading-tight">
+                <h2 className="text-4xl lg:text-5xl font-black text-[#e8e3da] mb-6 leading-tight">
                   Who We Are
                 </h2>
-                <p className="text-lg text-foreground leading-relaxed mb-6">
+                <p className="text-lg text-[#e8e3da] leading-relaxed mb-6">
                   Founded with a vision to transform how people experience
                   cleanliness, Spotless Cleaning has been revolutionizing the
                   cleaning industry for over 8 years. What started as a small
                   family business has grown into a trusted partner for thousands
                   of satisfied customers across the region.
                 </p>
-                <p className="text-lg text-foreground leading-relaxed">
+                <p className="text-lg text-[#e8e3da] leading-relaxed">
                   {`We believe that a clean space is more than just
                   aesthetics—it's about creating healthy, happy environments
                   where families and businesses can thrive. Our commitment to
@@ -224,26 +231,26 @@ const AboutUs = () => {
                 className="grid grid-cols-3 gap-6 p-6 rounded-2xl border-2 border-primary/20 bg-gradient-to-br from-primary/10 to-blue-100/60"
               >
                 <div className="text-center">
-                  <div className="text-3xl font-black text-primary mb-2">
+                  <div className="text-3xl font-black text-secondary mb-2">
                     8+
                   </div>
-                  <p className="text-sm text-muted-foreground font-semibold">
+                  <p className="text-sm text-[#e8e3da] font-semibold">
                     Years in Business
                   </p>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-black text-primary mb-2">
+                  <div className="text-3xl font-black text-secondary mb-2">
                     2k+
                   </div>
-                  <p className="text-sm text-muted-foreground font-semibold">
+                  <p className="text-sm text-[#e8e3da] font-semibold">
                     Happy Customers
                   </p>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-black text-primary mb-2">
+                  <div className="text-3xl font-black text-secondary mb-2">
                     98%
                   </div>
-                  <p className="text-sm text-muted-foreground font-semibold">
+                  <p className="text-sm text-[#e8e3da] font-semibold">
                     Satisfaction
                   </p>
                 </div>
@@ -259,10 +266,11 @@ const AboutUs = () => {
             >
               <div className="relative overflow-hidden rounded-3xl h-96 lg:h-full min-h-96 shadow-2xl">
                 {/* Image placeholder with gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-blue-100/30 to-primary/20 flex items-center justify-center border-2 border-primary/30">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-blue-100/30 to-primary/20 flex items-center justify-center">
+                  <div className="bg-[rgba(37,37,37,0.19)] absolute inset-0" />
                   <div className="text-center space-y-4 h-full">
                     <img
-                      src={"/about.png"}
+                      src={"/cleaning.png"}
                       className="w-full h-full object-cover"
                     />
                   </div>
