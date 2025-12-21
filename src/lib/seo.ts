@@ -19,7 +19,7 @@ export const SITE_CONFIG = {
   socialLinks: {
     facebook: "https://www.facebook.com/spotlesscleaning",
     instagram: "https://www.instagram.com/spotlesscleaning",
-    google: "https://www.google.com/maps/place/Spotless+Cleaning",
+    google: `https://www.google.com/maps/place/Bankstown+New+South+Wales+2200/@-33.9199261,151.0211691,3790m/data=!3m2!1e3!4b1!4m6!3m5!1s0x6b12bc1b89bc8969:0x5017d681632ad00!8m2!3d-33.9177861!4d151.0263741!16zL20vMDJwcXho?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D\ `,
   },
   location: {
     latitude: -33.8688,
@@ -50,7 +50,7 @@ export const getOrganizationSchema = () => ({
   "@type": "Organization",
   name: SITE_CONFIG.name,
   url: SITE_CONFIG.url,
-  logo: `${SITE_CONFIG.url}/logo.png`,
+  logo: `${SITE_CONFIG.url}/favicon-32x32.png`,
   description: SITE_CONFIG.description,
   email: SITE_CONFIG.email,
   telephone: SITE_CONFIG.phone,
@@ -81,7 +81,7 @@ export const getLocalBusinessSchema = () => ({
   "@type": "LocalBusiness",
   "@id": SITE_CONFIG.url,
   name: SITE_CONFIG.name,
-  image: `${SITE_CONFIG.url}/og-image.jpg`,
+  image: `${SITE_CONFIG.url}/favicon-32x32.png`,
   description: SITE_CONFIG.description,
   url: SITE_CONFIG.url,
   telephone: SITE_CONFIG.phone,

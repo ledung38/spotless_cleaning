@@ -3,11 +3,12 @@ import { ArrowRightIcon } from "@/components/icons";
 import { services } from "@/modules/home/contants";
 import TagTitle from "@/modules/home/Tag";
 import { motion } from "motion/react";
+import { StaticImageData } from "next/image";
 import Link from "next/link";
 import React from "react";
 
 interface ServiceCardProps {
-  icon: React.ComponentType<any>;
+  icon: StaticImageData;
   title: string;
   description: string;
   delay: number;
@@ -32,7 +33,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         },
       }}
       whileHover={{ y: -8, transition: { duration: 0.2 } }}
-      className="group relative p-6 rounded-2xl bg-card border border-border/50 hover:border-primary/50 transition-all duration-300 overflow-hidden"
+      className="group relative rounded-2xl bg-card border border-border/50 hover:border-primary/50 transition-all duration-300 overflow-hidden"
     >
       {/* Background gradient on hover */}
       <motion.div
@@ -40,33 +41,39 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       />
 
       {/* Content */}
-      <div className="relative z-10">
-        {/* Icon */}
-        <motion.div
+      <div>
+        <img src={Icon.src} alt={title} className="w-full h-full" />
+
+        <div className="relative z-10 p-6">
+          {/* Icon */}
+          {/* <motion.div
           whileHover={{ rotate: 0, scale: 1.2 }}
           transition={{ duration: 0.3 }}
           className={`w-12 h-12 rounded-xl bg-gradient-to-br ${color} group-hover:scale-110 flex items-center justify-center mb-4 text-white transition-all duration-300`}
         >
           <Icon className="w-6 h-6" />
-        </motion.div>
+        </motion.div> */}
 
-        {/* Title */}
-        <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
-          {title}
-        </h3>
+          {/* Title */}
+          <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
+            {title}
+          </h3>
 
-        {/* Description */}
-        <p className="text-foreground/60 leading-relaxed mb-4">{description}</p>
+          {/* Description */}
+          <p className="text-foreground/60 leading-relaxed mb-4">
+            {description}
+          </p>
 
-        {/* CTA link */}
-        <Link
-          href={link}
-          className="inline-flex items-center gap-2 text-primary font-medium text-sm  hover:ml-1 transition-all duration-300"
-        >
-          <span className="sr-only">Learn more about {title}</span>
-          <span aria-hidden="true">Learn more</span>
-          <ArrowRightIcon className="w-5 h-5 [&_path]:stroke-primary" />
-        </Link>
+          {/* CTA link */}
+          <Link
+            href={link}
+            className="inline-flex items-center gap-2 text-primary font-medium text-sm  hover:ml-1 transition-all duration-300"
+          >
+            <span className="sr-only">Learn more about {title}</span>
+            <span aria-hidden="true">Learn more</span>
+            <ArrowRightIcon className="w-5 h-5 [&_path]:stroke-primary" />
+          </Link>
+        </div>
       </div>
 
       {/* Shine effect */}

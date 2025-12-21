@@ -10,6 +10,7 @@ import {
   PaginationItem,
   PaginationLink,
 } from "@/components/ui";
+import { imageImages } from "@/modules/home/Banner/contants";
 import Autoplay from "embla-carousel-autoplay";
 import {
   ChevronLeft,
@@ -20,6 +21,7 @@ import {
   Zap,
 } from "lucide-react";
 import { motion } from "motion/react";
+import { StaticImageData } from "next/image";
 import React, { useEffect, useState } from "react";
 const AnimateCarousel = motion(Carousel);
 
@@ -126,7 +128,7 @@ interface ServiceBannerV2Props {
   highlights?: string[];
   ctaText?: string;
   onCtaClick?: () => void;
-  images?: string[];
+  images?: string[] | StaticImageData[];
   autoPlay?: boolean;
   autoPlayInterval?: number;
 }
@@ -137,12 +139,7 @@ export const Banner = ({
                   pristine with premium attention to detail.`,
   ctaText = "GET AN INSTANT QUOTE",
   onCtaClick,
-  images = [
-    "https://images.unsplash.com/photo-1581578731548-c64695c952952?w=600&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1557804506-669714d2e9d8?w=600&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1628840042765-356cda07f4ee?w=600&h=600&fit=crop",
-  ],
+  images = imageImages,
   autoPlay = true,
   autoPlayInterval = 3000,
 }: ServiceBannerV2Props) => {
@@ -305,7 +302,7 @@ export const Banner = ({
                   }}
                   className="text-center"
                 >
-                  <p className="text-3xl font-black text-[#c8d4e0]">
+                  <p className="text-3xl font-black text-secondary">
                     {stat.number}
                   </p>
                   <p className="text-sm font-medium text-[#c8d4e0] mt-1">
@@ -348,8 +345,8 @@ export const Banner = ({
                   ? [
                       Autoplay({
                         delay: autoPlayInterval, // thời gian chuyển slide
-                        stopOnInteraction: false,
-                        stopOnMouseEnter: true,
+                        stopOnMouseEnter: true, // 👈 hover là STOP
+                        stopOnInteraction: false, // 👈 rời chuột chạy lại
                       }),
                     ]
                   : []
@@ -363,7 +360,7 @@ export const Banner = ({
                   >
                     <motion.img
                       key={index}
-                      src={images[2]}
+                      src={item.src}
                       alt={`Slide ${index + 1}`}
                       variants={slideVariants}
                       initial="enter"
@@ -373,7 +370,7 @@ export const Banner = ({
                         x: { type: "spring", stiffness: 300, damping: 30 },
                         opacity: { duration: 0.5 },
                       }}
-                      className="absolute inset-0 w-full h-[450px] object-cover"
+                      className="absolute inset-0 w-full h-[450px] object-fill "
                     />
                   </CarouselItem>
                 ))}

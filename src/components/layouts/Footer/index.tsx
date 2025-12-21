@@ -38,8 +38,8 @@ const Footer = () => {
       links: [
         { label: "Home", href: "/" },
         { label: "About Us", href: Routes.ABOUT_US },
-        { label: "Services", href: "/#services" },
-        { label: "Contact", href: "/#contact" },
+        { label: "Pricing", href: Routes.PRICING },
+        { label: "Booking", href: Routes.BOOKING },
       ],
     },
     {
@@ -84,7 +84,7 @@ const Footer = () => {
       href: "https://www.instagram.com/sydney.spotlesscleaning/",
       label: "Instagram",
     },
-    { icon: TikTokIcon, href: "https://linkedin.com", label: "TikTok" },
+    // { icon: TikTokIcon, href: "https://linkedin.com", label: "TikTok" },
   ];
 
   return (

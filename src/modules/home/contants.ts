@@ -9,6 +9,13 @@ import {
   Wind,
 } from "lucide-react";
 
+import ImageEndOfLeaseCleaning from "@/lib/assets/images/home/end-of-lease.png";
+import RegularCleaning from "@/lib/assets/images/home/regular-cleaning1.png";
+import DeepCleaning from "@/lib/assets/images/home/deep.png";
+import MouldCleaning from "@/lib/assets/images/home/mould.png";
+import RestaurantCleaning from "@/lib/assets/images/home/restaurant.png";
+import AirbnbCleaning from "@/lib/assets/images/home/airbnb.png";
+
 export const ratingsExample: TRatingDto[] = [
   {
     customerName: "Sophie Williams",
@@ -130,42 +137,42 @@ export const ratingsExample: TRatingDto[] = [
 
 export const services = [
   {
-    icon: Home,
+    icon: ImageEndOfLeaseCleaning,
     title: "End of Lease Cleaning",
     description:
       "Professional end of lease cleaning services to ensure you get your full deposit back.",
     color: "from-blue-500 to-cyan-500",
   },
   {
-    icon: Sparkles,
+    icon: RegularCleaning,
     title: "Regular Cleaning",
     description:
       "Scheduled cleaning services to keep your space clean and fresh every week or month.",
     color: "from-purple-500 to-pink-500",
   },
   {
-    icon: Wind,
+    icon: DeepCleaning,
     title: "Deep Cleaning",
     description:
       "Comprehensive deep cleaning that tackles every corner and surface thoroughly.",
     color: "from-green-500 to-emerald-500",
   },
   {
-    icon: UtensilsCrossed,
+    icon: RestaurantCleaning,
     title: "Restaurant Cleaning",
     description:
       "Specialized cleaning services for restaurants, meeting health and safety standards.",
     color: "from-yellow-500 to-orange-500",
   },
   {
-    icon: Building2,
+    icon: AirbnbCleaning,
     title: "Airbnb Cleaning",
     description:
       "Quick turnaround cleaning services for Airbnb properties between guest stays.",
     color: "from-indigo-500 to-blue-500",
   },
   {
-    icon: Droplets,
+    icon: MouldCleaning,
     title: "Mould Cleaning",
     description:
       "Professional mould cleaning services to remove mold and mildew from your home.",
