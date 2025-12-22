@@ -8,7 +8,7 @@ const ServiceComponent = ({ data, slug }) => {
     <div>
       <ServiceBanner {...data} />
       <ServiceImages slug={slug} />
-      <HowItWorks />
+      <HowItWorks slug={slug} />
     </div>
   );
 };
