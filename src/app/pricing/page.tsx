@@ -3,7 +3,7 @@ import LayoutComponents from "@/components/layouts/LayoutComponents";
 import Pricing from "@/modules/pricing";
 
 export const metadata: Metadata = {
-  title: "Pricing - Spotless Cleaning Services",
+  title: "Pricing - N&T Spotless Cleaning Services",
   description:
     "Transparent, affordable pricing for all cleaning services. Regular cleaning, End of lease cleaning, House cleaning, Deep cleaning . Free quotes available.",
   keywords: [
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "affordable cleaning services",
   ],
   openGraph: {
-    title: "Pricing - Spotless Cleaning Services",
+    title: "Pricing - N&T Spotless Cleaning Services",
     description:
       "Transparent, affordable pricing for all cleaning services. Free quotes available.",
     url: "https://spotlesscleaningsydney.com/pricing",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
         url: "https://spotlesscleaningsydney.com/og-pricing.png",
         width: 1200,
         height: 630,
-        alt: "Spotless Cleaning - Pricing",
+        alt: "N&T Spotless Cleaning - Pricing",
       },
     ],
   },

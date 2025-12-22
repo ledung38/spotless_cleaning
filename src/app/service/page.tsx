@@ -4,7 +4,7 @@ import ServiceComponent from "@/modules/service";
 import services from "@/modules/service/contants";
 
 export const metadata: Metadata = {
-  title: "Our Services - Spotless Cleaning",
+  title: "Our Services - N&T Spotless Cleaning",
   description:
     "Explore our comprehensive cleaning services: Deep cleaning, Regular maintenance, End of lease, Restaurant, Mould, Airbnb and specialized cleaning.",
   keywords: [
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "cleaning services in sydney",
   ],
   openGraph: {
-    title: "Our Services - Spotless Cleaning",
+    title: "Our Services - N&T Spotless Cleaning",
     description:
       "Explore our comprehensive cleaning services for homes and businesses in Sydney.",
     url: "https://spotlesscleaningsydney.com/service",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
         url: "https://spotlesscleaningsydney.com/og-services.png",
         width: 1200,
         height: 630,
-        alt: "Spotless Cleaning - Services",
+        alt: "N&T Spotless Cleaning - Services",
       },
     ],
   },

@@ -897,7 +897,6 @@ export const BookingWizard: React.FC = () => {
     reValidateMode: "onSubmit",
   });
 
-  console.log("error", form.formState);
   const steps = [
     { title: "Service Type", component: Step1 },
     { title: "Customization", component: Step2 },

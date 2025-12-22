@@ -1,8 +1,8 @@
+import { AnimateDiv } from "@/components/common/Animate";
 import { TextGradient } from "@/components/common/TextGradient";
 import { ArrowRightIcon } from "@/components/icons";
 import { services } from "@/modules/home/contants";
 import TagTitle from "@/modules/home/Tag";
-import { motion } from "motion/react";
 import { StaticImageData } from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -23,7 +23,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 }) => {
   const link = `/service/${title.toLowerCase().replace(" ", "-")}`;
   return (
-    <motion.div
+    <AnimateDiv
       variants={{
         hidden: { opacity: 0, y: 20 },
         visible: {
@@ -36,7 +36,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       className="group relative rounded-2xl bg-card border border-border/50 hover:border-primary/50 transition-all duration-300 overflow-hidden"
     >
       {/* Background gradient on hover */}
-      <motion.div
+      <AnimateDiv
         className={`absolute inset-0 bg-gradient-to-br ${color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
       />
 
@@ -46,13 +46,13 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 
         <div className="relative z-10 p-6">
           {/* Icon */}
-          {/* <motion.div
+          {/* <AnimateDiv
           whileHover={{ rotate: 0, scale: 1.2 }}
           transition={{ duration: 0.3 }}
           className={`w-12 h-12 rounded-xl bg-gradient-to-br ${color} group-hover:scale-110 flex items-center justify-center mb-4 text-white transition-all duration-300`}
         >
           <Icon className="w-6 h-6" />
-        </motion.div> */}
+        </AnimateDiv> */}
 
           {/* Title */}
           <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
@@ -77,19 +77,19 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       </div>
 
       {/* Shine effect */}
-      <motion.div
+      <AnimateDiv
         className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-10"
         initial={{ x: "-100%" }}
         whileHover={{ x: "100%" }}
         transition={{ duration: 0.5 }}
       />
-    </motion.div>
+    </AnimateDiv>
   );
 };
 
 const SectionTitle: React.FC<{ delay: number }> = ({ delay }) => {
   return (
-    <motion.div
+    <AnimateDiv
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{
@@ -101,7 +101,7 @@ const SectionTitle: React.FC<{ delay: number }> = ({ delay }) => {
       className="text-center mb-16"
     >
       {/* Badge */}
-      {/* <motion.div
+      {/* <AnimateDiv
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: delay - 0.1 }}
@@ -110,7 +110,7 @@ const SectionTitle: React.FC<{ delay: number }> = ({ delay }) => {
       >
         <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
         <span className="text-sm font-semibold text-primary">Our Services</span>
-      </motion.div>*/}
+        </AnimateDiv>*/}
       <TagTitle isShowPulse={true}>Our Services</TagTitle>
 
       {/* Main Title */}
@@ -126,7 +126,7 @@ const SectionTitle: React.FC<{ delay: number }> = ({ delay }) => {
         We provide comprehensive cleaning solutions with professional expertise,
         modern techniques, and outstanding customer satisfaction.
       </p>
-    </motion.div>
+    </AnimateDiv>
   );
 };
 
@@ -137,7 +137,7 @@ const FloatingShape: React.FC<{
   opacity: number;
 }> = ({ delay, position, size, opacity }) => {
   return (
-    <motion.div
+    <AnimateDiv
       className={`absolute ${position} rounded-full bg-primary/10 blur-3xl`}
       style={{
         width: size,
@@ -154,7 +154,7 @@ const FloatingShape: React.FC<{
         repeat: Infinity,
         ease: "easeInOut",
       }}
-    ></motion.div>
+    ></AnimateDiv>
   );
 };
 
@@ -190,7 +190,7 @@ export const Service: React.FC = () => {
         <SectionTitle delay={0} />
 
         {/* Services grid */}
-        <motion.div
+        <AnimateDiv
           variants={{
             hidden: { opacity: 0 },
             visible: {
@@ -218,7 +218,7 @@ export const Service: React.FC = () => {
               />
             );
           })}
-        </motion.div>
+        </AnimateDiv>
 
         {/* CTA Section */}
 

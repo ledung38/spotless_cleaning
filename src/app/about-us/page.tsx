@@ -3,19 +3,19 @@ import LayoutComponents from "@/components/layouts/LayoutComponents";
 import AboutUs from "@/modules/about-us";
 
 export const metadata: Metadata = {
-  title: "About Us - Spotless Cleaning",
+  title: "About Us - N&T Spotless Cleaning",
   description:
-    "Learn about Spotless Cleaning, Sydney's trusted cleaning company. 8+ years of experience, 2000+ happy clients, certified professionals.",
+    "Learn about N&T Spotless Cleaning, Sydney's trusted cleaning company. 8+ years of experience, 2000+ happy clients, certified professionals.",
   keywords: [
-    "about spotless cleaning",
+    "about N&T spotless cleaning",
     "cleaning company Sydney",
     "professional cleaners",
     "cleaning services experience",
   ],
   openGraph: {
-    title: "About Us - Spotless Cleaning",
+    title: "About Us - N&T Spotless Cleaning",
     description:
-      "Learn about Spotless Cleaning, Sydney's trusted cleaning company with 8+ years of experience.",
+      "Learn about N&T Spotless Cleaning, Sydney's trusted cleaning company with 8+ years of experience.",
     url: "https://spotlesscleaningsydney.com/about-us",
     type: "website",
     images: [
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
         url: "https://spotlesscleaningsydney.com/og-about.png",
         width: 1200,
         height: 630,
-        alt: "About Spotless Cleaning",
+        alt: "About N&T Spotless Cleaning",
       },
     ],
   },

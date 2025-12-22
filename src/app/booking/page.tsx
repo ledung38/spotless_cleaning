@@ -3,10 +3,11 @@ import LayoutComponents from "@/components/layouts/LayoutComponents";
 import BookingWizard from "@/modules/booking";
 
 export const metadata: Metadata = {
-  title: "Book Cleaning Service - Spotless Cleaning",
+  title: "Book Cleaning Service - N&T Spotless Cleaning",
   description:
     "Book your cleaning service in Sydney. Easy online booking, instant quotes, flexible scheduling.",
   keywords: [
+    "book N&T cleaning service",
     "book cleaning service",
     "schedule cleaning",
     "cleaning booking",
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
     "book cleaning service in sydney",
   ],
   openGraph: {
-    title: "Book Cleaning Service - Spotless Cleaning",
+    title: "Book Cleaning Service - N&T Spotless Cleaning",
     description:
       "Easy online booking for professional cleaning services in Sydney.",
     url: "https://spotlesscleaningsydney.com/booking",
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
         url: "https://spotlesscleaningsydney.com/og-booking.png",
         width: 1200,
         height: 630,
-        alt: "Spotless Cleaning - Booking",
+        alt: "N&T Spotless Cleaning - Booking",
       },
     ],
   },

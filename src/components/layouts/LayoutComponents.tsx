@@ -1,4 +1,3 @@
-"use client";
 import PageFlip from "@/components/common/PageFlip";
 import Footer from "@/components/layouts/Footer";
 import { Header } from "@/components/layouts/Header";
