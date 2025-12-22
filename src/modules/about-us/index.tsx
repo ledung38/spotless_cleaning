@@ -1,76 +1,18 @@
-"use client";
-
-import React from "react";
-import { motion } from "motion/react";
-import Image from "next/image";
 import {
-  Target,
-  Heart,
-  Zap,
-  Shield,
-  CheckCircle2,
-  ArrowRight,
-} from "lucide-react";
-import logo from "@/lib/assets/images/logo.webp";
-import TagTitle from "@/modules/home/Tag";
-import { TextGradient } from "@/components/common/TextGradient";
-import { useAppRouter } from "@/hooks/useAppRouter";
+  AnimateButton,
+  AnimateDiv,
+  AnimateLink,
+} from "@/components/common/Animate";
 import SmoothLoopVideo from "@/components/common/BannerVideo";
+import { TextGradient } from "@/components/common/TextGradient";
+import { Routes } from "@/lib/enum/routes";
+import TagTitle from "@/modules/home/Tag";
+import { ArrowRight } from "lucide-react";
+import React from "react";
 
 // ============================================================================
 // COMPONENTS
 // ============================================================================
-
-const AnimatedCounter = ({
-  number,
-  suffix,
-  label,
-  delay,
-}: {
-  number: number;
-  suffix: string;
-  label: string;
-  delay: number;
-}) => {
-  const [count, setCount] = React.useState(0);
-
-  React.useEffect(() => {
-    const target = number;
-    const duration = 2;
-    const incrementPerFrame = target / (duration * 60);
-    let current = 0;
-
-    const interval = setInterval(() => {
-      current += incrementPerFrame;
-      if (current >= target) {
-        setCount(target);
-        clearInterval(interval);
-      } else {
-        setCount(Math.floor(current));
-      }
-    }, 1000 / 60);
-
-    return () => clearInterval(interval);
-  }, [number]);
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.8 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.6, delay }}
-      viewport={{ once: true, margin: "-100px" }}
-      className="text-center"
-    >
-      <div className="text-4xl lg:text-5xl font-black text-primary mb-2">
-        {count}
-        <span className="text-2xl lg:text-3xl ml-1">{suffix}</span>
-      </div>
-      <p className="text-muted-foreground font-semibold text-sm lg:text-base">
-        {label}
-      </p>
-    </motion.div>
-  );
-};
 
 const ValueCard = ({
   icon: Icon,
@@ -86,7 +28,7 @@ const ValueCard = ({
   colorClass: string;
 }) => {
   return (
-    <motion.div
+    <AnimateDiv
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay }}
@@ -95,7 +37,7 @@ const ValueCard = ({
       className={`group relative h-full overflow-hidden rounded-3xl p-8 border-2 backdrop-blur-sm ${colorClass} transition-all duration-300 cursor-pointer`}
     >
       {/* Animated gradient overlay */}
-      <motion.div
+      <AnimateDiv
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         initial={false}
         animate={{
@@ -107,13 +49,13 @@ const ValueCard = ({
       {/* Content */}
       <div className="relative z-10 space-y-4">
         {/* Icon */}
-        <motion.div
+        <AnimateDiv
           whileHover={{ rotate: 360, scale: 1.15 }}
           transition={{ duration: 0.8 }}
           className="w-20 h-20 rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20 group-hover:bg-white/20 transition-all duration-300"
         >
           <Icon className="w-10 h-10 text-white" />
-        </motion.div>
+        </AnimateDiv>
 
         {/* Title */}
         <h3 className="text-2xl font-bold text-white">{title}</h3>
@@ -122,7 +64,7 @@ const ValueCard = ({
         <p className="text-white/80 leading-relaxed text-sm">{description}</p>
 
         {/* Bottom accent */}
-        <motion.div
+        <AnimateDiv
           initial={{ width: 0 }}
           whileInView={{ width: 40 }}
           transition={{ duration: 0.8, delay: delay + 0.2 }}
@@ -130,7 +72,7 @@ const ValueCard = ({
           className="h-1 bg-white/40 rounded-full mt-6"
         />
       </div>
-    </motion.div>
+    </AnimateDiv>
   );
 };
 
@@ -138,25 +80,6 @@ const ValueCard = ({
 // ============================================================================
 
 const AboutUs = () => {
-  const router = useAppRouter();
-  const teamMembers = [
-    {
-      name: "Sarah Johnson",
-      role: "Founder & Director",
-      image: logo,
-    },
-    {
-      name: "Michael Chen",
-      role: "Operations Manager",
-      image: logo,
-    },
-    {
-      name: "Emma Davis",
-      role: "Quality Lead",
-      image: logo,
-    },
-  ];
-
   const processSteps = [
     {
       title: "Consultation",
@@ -195,7 +118,7 @@ const AboutUs = () => {
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left content */}
-            <motion.div
+            <AnimateDiv
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -223,7 +146,7 @@ const AboutUs = () => {
               </div>
 
               {/* Stats highlight */}
-              <motion.div
+              <AnimateDiv
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -254,10 +177,10 @@ const AboutUs = () => {
                     Satisfaction
                   </p>
                 </div>
-              </motion.div>
-            </motion.div>
+              </AnimateDiv>
+            </AnimateDiv>
             {/* Right - Image placeholder */}
-            <motion.div
+            <AnimateDiv
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -271,12 +194,13 @@ const AboutUs = () => {
                   <div className="text-center space-y-4 h-full">
                     <img
                       src={"/cleaning.png"}
+                      alt="image about us"
                       className="w-full h-full object-cover"
                     />
                   </div>
                 </div>
                 {/* Animated decorative elements */}
-                <motion.div
+                <AnimateDiv
                   className="absolute -top-10 -right-10 w-40 h-40 rounded-full border-2 border-primary/20"
                   animate={{ rotate: 360 }}
                   transition={{
@@ -285,7 +209,7 @@ const AboutUs = () => {
                     ease: "linear",
                   }}
                 />
-                <motion.div
+                <AnimateDiv
                   className="absolute -bottom-5 -left-5 w-32 h-32 rounded-full border-2 border-primary/15"
                   animate={{ rotate: -360 }}
                   transition={{
@@ -295,7 +219,7 @@ const AboutUs = () => {
                   }}
                 />
               </div>
-            </motion.div>
+            </AnimateDiv>
           </div>
         </div>
       </section>
@@ -306,17 +230,17 @@ const AboutUs = () => {
         {/* <div className="absolute inset-0 bg-gradient-to-br from-primary/75 via-blue-600/70 to-cyan-700/75" /> */}
 
         {/* Animated decorative elements */}
-        <motion.div
+        <AnimateDiv
           className="absolute top-10 right-1/3 w-96 h-96 rounded-full bg-blue-400/15 blur-3xl"
           animate={{ y: [0, -60, 0], x: [0, 40, 0] }}
           transition={{ duration: 10, repeat: Infinity }}
         />
-        <motion.div
+        <AnimateDiv
           className="absolute -bottom-20 left-1/4 w-80 h-80 rounded-full bg-primary/20 blur-3xl"
           animate={{ y: [0, 60, 0], x: [0, -30, 0] }}
           transition={{ duration: 12, delay: 1, repeat: Infinity }}
         />
-        <motion.div
+        <AnimateDiv
           className="absolute top-1/2 -right-40 w-96 h-96 rounded-full bg-white/10 blur-3xl"
           animate={{ rotate: 360 }}
           transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
@@ -324,7 +248,7 @@ const AboutUs = () => {
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
-          <motion.div
+          <AnimateDiv
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -332,12 +256,12 @@ const AboutUs = () => {
             className="text-center mb-10"
           >
             <TagTitle isShowPulse={true}>Our Foundation</TagTitle>
-          </motion.div>
+          </AnimateDiv>
 
           {/* Main Grid - Mission left, Values right */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* LEFT - MISSION SECTION */}
-            <motion.div
+            <AnimateDiv
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
@@ -345,7 +269,7 @@ const AboutUs = () => {
               className="space-y-6"
             >
               {/* Mission badge */}
-              <motion.div
+              <AnimateDiv
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
@@ -355,7 +279,7 @@ const AboutUs = () => {
                 <span className="text-primary text-sm font-bold">
                   Our Mission
                 </span>
-              </motion.div>
+              </AnimateDiv>
 
               {/* Main Mission Title */}
               <div>
@@ -378,18 +302,18 @@ const AboutUs = () => {
               </p>
 
               {/* CTA Button */}
-              <motion.button
+              <AnimateLink
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 bg-gradient-to-r from-primary to-blue-600 text-white font-bold rounded-xl hover:shadow-2xl transition-all duration-300"
-                onClick={() => router.push("/booking")}
+                href={Routes.BOOKING}
               >
                 Book now
-              </motion.button>
-            </motion.div>
+              </AnimateLink>
+            </AnimateDiv>
 
             {/* Core Values - Grid Layout */}
-            <motion.div
+            <AnimateDiv
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -397,7 +321,7 @@ const AboutUs = () => {
               className="space-y-6 relative p-4"
             >
               {/* Values header */}
-              <motion.div
+              <AnimateDiv
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
@@ -405,7 +329,7 @@ const AboutUs = () => {
                 className="inline-flex items-center gap-2"
               >
                 <span className="text-white text-sm font-bold">Our Values</span>
-              </motion.div>
+              </AnimateDiv>
 
               <h3 className="text-4xl font-black text-white">
                 Our Core Values
@@ -435,7 +359,7 @@ const AboutUs = () => {
                       "Passionate about creating spotless spaces for our clients.",
                   },
                 ].map((value, index) => (
-                  <motion.div
+                  <AnimateDiv
                     key={index}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -457,50 +381,50 @@ const AboutUs = () => {
                     </div>
 
                     {/* Corner accent */}
-                    <motion.div
+                    <AnimateDiv
                       className="absolute top-0 right-0 w-12 h-12 bg-white/20 rounded-bl-full"
                       whileHover={{ scale: 1.3 }}
                       transition={{ duration: 0.3 }}
                     />
-                  </motion.div>
+                  </AnimateDiv>
                 ))}
               </div>
 
               {/* Border accent */}
-              <motion.div
+              <AnimateDiv
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
                 viewport={{ once: true }}
                 className="absolute -inset-1  rounded-3xl pointer-events-none bg-gradient-to-b from-primary/95 via-primary/90 to-primary/95 -z-1"
               />
-            </motion.div>
+            </AnimateDiv>
           </div>
         </div>
       </section>
 
       {/* ========== VALUES SECTION ========== */}
       {/* <section className="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-b from-primary/95 via-primary/90 to-primary/95">
-        <motion.div
+        <AnimateDiv
           className="absolute top-0 -right-40 w-80 h-80 rounded-full bg-blue-400/20 blur-3xl"
           animate={{ y: [0, -50, 0], x: [0, 30, 0] }}
           transition={{ duration: 8, repeat: Infinity }}
         />
-        <motion.div
+        <AnimateDiv
           className="absolute bottom-0 -left-40 w-96 h-96 rounded-full bg-primary/20 blur-3xl"
           animate={{ y: [0, 50, 0], x: [0, -20, 0] }}
           transition={{ duration: 10, delay: 1, repeat: Infinity }}
         />
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
+          <AnimateDiv
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <motion.div
+            <AnimateDiv
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
@@ -511,7 +435,7 @@ const AboutUs = () => {
               <span className="text-sm font-semibold text-white">
                 Core Values
               </span>
-            </motion.div>
+            </AnimateDiv>
 
             <h2 className="text-4xl lg:text-5xl font-black text-white mb-4 leading-tight">
               What Drives Us Forward
@@ -520,7 +444,7 @@ const AboutUs = () => {
               Our core values shape everything we do, from how we treat our
               customers to the quality standards we maintain.
             </p>
-          </motion.div>
+          </AnimateDiv>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
             <ValueCard
@@ -561,35 +485,35 @@ const AboutUs = () => {
         <div className="absolute inset-0 bg-grid-primary/20 bg-[size:40px_40px] [mask-image:linear-gradient(to_bottom,transparent,black,black,transparent)]" />
 
         {/* Decorative shapes */}
-        <motion.div
+        <AnimateDiv
           className="absolute top-10 right-20 w-40 h-40 rounded-full border-2 border-primary/30"
           // animate={{ rotate: 360 }}
           // transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
         />
-        <motion.div
+        <AnimateDiv
           className="absolute bottom-20 left-10 w-32 h-32 rounded-full border-2 border-primary/25"
           // animate={{ rotate: -360 }}
           // transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
         />
 
-        <motion.div
+        <AnimateDiv
           className="absolute top-20 right-1/3 w-96 h-96 rounded-full bg-blue-400/15 blur-3xl"
           // animate={{ y: [0, -60, 0], x: [0, 40, 0] }}
           // transition={{ duration: 10, repeat: Infinity }}
         />
-        <motion.div
+        <AnimateDiv
           className="absolute -top-55 left-1/4 w-80 h-80 rounded-full bg-primary/20 blur-3xl"
           // animate={{ y: [0, 60, 0], x: [0, -30, 0] }}
           // transition={{ duration: 12, delay: 1, repeat: Infinity }}
         />
-        <motion.div
+        <AnimateDiv
           className="absolute top-1/2 -right-40 w-96 h-96 rounded-full bg-white/10 blur-3xl"
           // animate={{ rotate: 360 }}
           // transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
         />
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
+          <AnimateDiv
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -605,11 +529,11 @@ const AboutUs = () => {
               From initial consultation to final follow-up, we ensure a seamless
               experience tailored to your needs.
             </p>
-          </motion.div>
+          </AnimateDiv>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {processSteps.map((step, index) => (
-              <motion.div
+              <AnimateDiv
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -623,7 +547,7 @@ const AboutUs = () => {
                 {/* Content */}
                 <div className="relative z-10 p-8">
                   {/* Number badge */}
-                  <motion.div
+                  <AnimateDiv
                     whileHover={{ scale: 1.15, rotate: 360 }}
                     transition={{ duration: 0.8 }}
                     className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center border-2 border-primary/50 mb-6 shadow-lg"
@@ -631,7 +555,7 @@ const AboutUs = () => {
                     <span className="text-3xl font-black text-white">
                       {index + 1}
                     </span>
-                  </motion.div>
+                  </AnimateDiv>
 
                   {/* Title */}
                   <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
@@ -645,7 +569,7 @@ const AboutUs = () => {
 
                   {/* Connector line */}
                   {index < 3 && (
-                    <motion.div
+                    <AnimateDiv
                       initial={{ scaleY: 0 }}
                       whileInView={{ scaleY: 1 }}
                       transition={{ duration: 0.8, delay: 0.15 * index + 0.2 }}
@@ -654,7 +578,7 @@ const AboutUs = () => {
                     />
                   )}
                 </div>
-              </motion.div>
+              </AnimateDiv>
             ))}
           </div>
         </div>
@@ -662,26 +586,26 @@ const AboutUs = () => {
 
       {/* ========== TEAM SECTION ========== */}
       {/* <section className="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-primary/90 via-primary/85 to-blue-700/90">
-        <motion.div
+        <AnimateDiv
           className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-blue-400/20 blur-3xl"
           animate={{ y: [0, 50, 0], x: [0, -30, 0] }}
           transition={{ duration: 12, repeat: Infinity }}
         />
-        <motion.div
+        <AnimateDiv
           className="absolute bottom-0 right-1/4 w-80 h-80 rounded-full bg-primary/25 blur-3xl"
           animate={{ y: [0, -50, 0], x: [0, 20, 0] }}
           transition={{ duration: 14, delay: 1, repeat: Infinity }}
         />
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
+          <AnimateDiv
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <motion.div
+            <AnimateDiv
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
@@ -692,7 +616,7 @@ const AboutUs = () => {
               <span className="text-sm font-semibold text-white">
                 Meet The Team
               </span>
-            </motion.div>
+            </AnimateDiv>
 
             <h2 className="text-4xl lg:text-5xl font-black text-white mb-4 leading-tight">
               Expert Professionals 1
@@ -701,11 +625,11 @@ const AboutUs = () => {
               Our dedicated team of cleaning experts is passionate about
               delivering excellence and customer satisfaction.
             </p>
-          </motion.div>
+          </AnimateDiv>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {teamMembers.map((member, index) => (
-              <motion.div
+              <AnimateDiv
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -721,7 +645,7 @@ const AboutUs = () => {
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  <motion.div
+                  <AnimateDiv
                     initial={{ opacity: 0 }}
                     whileHover={{ opacity: 1 }}
                     transition={{ duration: 0.3 }}
@@ -736,7 +660,7 @@ const AboutUs = () => {
                         our valued clients.
                       </p>
                     </div>
-                  </motion.div>
+                  </AnimateDiv>
                 </div>
 
                 <h3 className="text-2xl font-bold text-white mb-1 group-hover:text-blue-100 transition-colors">
@@ -745,7 +669,7 @@ const AboutUs = () => {
                 <p className="text-blue-100/70 font-semibold text-sm">
                   {member.role}
                 </p>
-              </motion.div>
+              </AnimateDiv>
             ))}
           </div>
         </div>
@@ -753,26 +677,26 @@ const AboutUs = () => {
 
       {/* ========== WHY CHOOSE US SECTION ========== */}
       {/* <section className="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-b from-white via-primary/8 to-white">
-        <motion.div
+        <AnimateDiv
           className="absolute top-20 -right-32 w-80 h-80 rounded-full border-2 border-primary/30"
           animate={{ rotate: 360 }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
         />
-        <motion.div
+        <AnimateDiv
           className="absolute -bottom-32 left-1/3 w-96 h-96 rounded-full border-2 border-primary/25"
           animate={{ rotate: -360 }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
         />
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
+          <AnimateDiv
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <motion.div
+            <AnimateDiv
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
@@ -783,7 +707,7 @@ const AboutUs = () => {
               <span className="text-sm font-semibold text-primary">
                 Why Choose Us
               </span>
-            </motion.div>
+            </AnimateDiv>
 
             <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-4 leading-tight">
               Excellence in Every Detail
@@ -792,7 +716,7 @@ const AboutUs = () => {
               Discover why thousands of customers trust us with their cleaning
               needs and experience the difference.
             </p>
-          </motion.div>
+          </AnimateDiv>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
@@ -821,7 +745,7 @@ const AboutUs = () => {
                 desc: "State-of-the-art cleaning equipment for superior results",
               },
             ].map((item, index) => (
-              <motion.div
+              <AnimateDiv
                 key={index}
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -830,7 +754,7 @@ const AboutUs = () => {
                 className="group relative p-6 rounded-2xl border-2 border-primary/30 bg-gradient-to-br from-primary/10 to-blue-100/60 hover:border-primary/60 hover:bg-gradient-to-br hover:from-primary/15 hover:to-blue-200/60 transition-all duration-300 hover:shadow-lg hover:shadow-primary/30"
               >
                 <div className="flex items-start gap-4">
-                  <motion.div
+                  <AnimateDiv
                     whileHover={{ scale: 1.2, rotate: 360 }}
                     transition={{ duration: 0.8 }}
                     className="flex-shrink-0"
@@ -838,7 +762,7 @@ const AboutUs = () => {
                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center shadow-lg group-hover:shadow-primary/50">
                       <CheckCircle2 className="w-6 h-6 text-white" />
                     </div>
-                  </motion.div>
+                  </AnimateDiv>
                   <div className="flex-1">
                     <h3 className="text-lg font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
                       {item.title}
@@ -848,7 +772,7 @@ const AboutUs = () => {
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </AnimateDiv>
             ))}
           </div>
         </div>
@@ -857,7 +781,7 @@ const AboutUs = () => {
       {/* ========== CTA SECTION ========== */}
       <section className="relative py-8 lg:py-16 overflow-hidden bg-gradient-to-r from-blue-600 via-blue-700 to-cyan-600 ">
         {/* Animated background blobs */}
-        <motion.div
+        <AnimateDiv
           className="absolute inset-0 opacity-30 "
           animate={{
             backgroundPosition: ["0% 0%", "100% 100%"],
@@ -871,7 +795,7 @@ const AboutUs = () => {
         />
 
         <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 ">
-          <motion.div
+          <AnimateDiv
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -889,25 +813,18 @@ const AboutUs = () => {
               </p>
             </div>
 
-            <motion.div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <motion.button
+            <AnimateDiv className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+              <AnimateLink
                 whileHover={{ scale: 1.05, translateY: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 bg-white text-blue-700 font-bold rounded-xl shadow-xl hover:shadow-2xl hover:shadow-blue-600/40 transition-all duration-300 inline-flex items-center justify-center gap-2"
-                onClick={() => router.push("/booking")}
+                href={Routes.BOOKING}
               >
                 Book Now
                 <ArrowRight size={20} />
-              </motion.button>
-              {/* <motion.button
-                whileHover={{ scale: 1.05, translateY: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 border-2 border-white text-white font-bold rounded-xl hover:bg-white/10 backdrop-blur-sm transition-all duration-300"
-              >
-                Learn More
-              </motion.button> */}
-            </motion.div>
-          </motion.div>
+              </AnimateLink>
+            </AnimateDiv>
+          </AnimateDiv>
         </div>
       </section>
     </div>

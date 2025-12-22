@@ -1,20 +1,9 @@
-"use client";
-
+import { AnimateDiv, AnimateLi } from "@/components/common/Animate";
 import { CompactApp } from "@/components/common/Compact";
 import { TickIcon } from "@/components/icons";
 import TagTitle from "@/modules/home/Tag";
 import { listServiceIncludes } from "@/modules/service/contants";
-import services from "@/modules/service/contants";
-import {
-  CheckCircle2,
-  ClipboardList,
-  Sparkles,
-  Users,
-  Wind,
-  Zap,
-} from "lucide-react";
-import { motion } from "motion/react";
-import { usePathname } from "next/navigation";
+import { Sparkles } from "lucide-react";
 import React from "react";
 
 interface ServiceItemProps {
@@ -33,7 +22,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
   color,
 }) => {
   return (
-    <motion.div
+    <AnimateDiv
       initial={{ opacity: 0, x: -20 }}
       whileInView={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.6, delay, ease: "easeOut" }}
@@ -41,7 +30,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
       className="relative group"
     >
       <div className="absolute -left-3 top-2 w-6 h-6 rounded-full bg-primary/20 ring-2 ring-primary/40 flex items-center justify-center">
-        <motion.div
+        <AnimateDiv
           className="w-2 h-2 rounded-full bg-primary"
           animate={{ scale: [1, 1.5, 1] }}
           transition={{ duration: 2, delay, repeat: Infinity }}
@@ -64,7 +53,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
 
         <ul className="space-y-2">
           {items.map((item, idx) => (
-            <motion.li
+            <AnimateLi
               key={idx}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -77,11 +66,11 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
             >
               <TickIcon className={"size-5"} />
               <span>{item}</span>
-            </motion.li>
+            </AnimateLi>
           ))}
         </ul>
       </div>
-    </motion.div>
+    </AnimateDiv>
   );
 };
 
@@ -93,7 +82,7 @@ const OptionalExtraCard: React.FC<{
   color: string;
 }> = ({ title, description, icon: Icon, delay, color }) => {
   return (
-    <motion.div
+    <AnimateDiv
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay, ease: "easeOut" }}
@@ -102,12 +91,12 @@ const OptionalExtraCard: React.FC<{
       className="group relative p-5 rounded-2xl bg-gradient-to-br from-card to-card/50 border border-border/50 hover:border-primary/50 transition-all duration-300 overflow-hidden"
     >
       {/* Background gradient on hover */}
-      <motion.div
+      <AnimateDiv
         className={`absolute inset-0 bg-gradient-to-br ${color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
       />
 
       {/* Shine effect */}
-      <motion.div
+      <AnimateDiv
         className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-0 group-hover:opacity-10"
         initial={{ x: "-100%" }}
         whileHover={{ x: "100%" }}
@@ -116,13 +105,13 @@ const OptionalExtraCard: React.FC<{
 
       {/* Content */}
       <div className="relative z-10">
-        <motion.div
+        <AnimateDiv
           whileHover={{ rotate: 12, scale: 1.15 }}
           transition={{ duration: 0.3 }}
           className={`w-12 h-12 rounded-xl bg-gradient-to-br ${color} flex items-center justify-center mb-3 text-white shadow-lg`}
         >
           <Icon size={24} />
-        </motion.div>
+        </AnimateDiv>
 
         <h4 className="font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
           {title}
@@ -131,7 +120,7 @@ const OptionalExtraCard: React.FC<{
           {description}
         </p>
       </div>
-    </motion.div>
+    </AnimateDiv>
   );
 };
 
@@ -142,7 +131,7 @@ const FloatingShape: React.FC<{
   opacity: number;
 }> = ({ delay, position, size, opacity }) => {
   return (
-    <motion.div
+    <AnimateDiv
       className={`absolute ${position} rounded-full bg-primary/10 blur-3xl pointer-events-none`}
       style={{
         width: size,
@@ -163,13 +152,9 @@ const FloatingShape: React.FC<{
   );
 };
 
-export const HowItWorks: React.FC = () => {
-  const pathName = usePathname();
-  const slug = pathName.split("/")[2];
-
+export const HowItWorks = ({ slug }) => {
   const mainServices = listServiceIncludes[slug]?.mainServices || [];
   const optionalExtras = listServiceIncludes[slug]?.optionalExtras || [];
-  const serviceInfo = services[slug];
 
   const getServiceTitle = (): string => {
     switch (slug) {
@@ -236,7 +221,7 @@ export const HowItWorks: React.FC = () => {
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <motion.div
+        <AnimateDiv
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
@@ -244,7 +229,7 @@ export const HowItWorks: React.FC = () => {
           className="text-center mb-16"
         >
           {/* Badge */}
-          {/* <motion.div
+          {/* <AnimateDiv
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0 }}
@@ -255,7 +240,7 @@ export const HowItWorks: React.FC = () => {
             <span className="text-sm font-semibold text-primary">
               How it works ?
             </span>
-          </motion.div> */}
+          </AnimateDiv> */}
           <TagTitle isShowPulse>How it works ?</TagTitle>
 
           {/* Title */}
@@ -267,7 +252,7 @@ export const HowItWorks: React.FC = () => {
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             {getServiceSubtitle()}
           </p>
-        </motion.div>
+        </AnimateDiv>
 
         {/* Main Services Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
@@ -284,7 +269,7 @@ export const HowItWorks: React.FC = () => {
         </div>
 
         {/* Optional Extras Section */}
-        <motion.div
+        <AnimateDiv
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
@@ -292,13 +277,13 @@ export const HowItWorks: React.FC = () => {
           className="mb-16"
         >
           <div className="flex items-center gap-3 mb-8">
-            <motion.div
+            <AnimateDiv
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
               className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center text-white"
             >
               <Sparkles size={20} />
-            </motion.div>
+            </AnimateDiv>
             <h3 className="text-2xl lg:text-3xl font-bold text-foreground">
               Optional Extras
             </h3>
@@ -308,7 +293,7 @@ export const HowItWorks: React.FC = () => {
             your needs:
           </p>
 
-          <motion.div
+          <AnimateDiv
             variants={{
               hidden: { opacity: 0 },
               visible: {
@@ -334,11 +319,11 @@ export const HowItWorks: React.FC = () => {
                 color={extra.color}
               />
             ))}
-          </motion.div>
-        </motion.div>
+          </AnimateDiv>
+        </AnimateDiv>
 
         {/* CTA Section */}
-        {/* <motion.div
+        {/* <AnimateDiv
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.9, ease: "easeOut" }}
@@ -365,9 +350,9 @@ export const HowItWorks: React.FC = () => {
               </motion.span>
             </span>
           </motion.button>
-        </motion.div> */}
+        </AnimateDiv> */}
 
-        <motion.div
+        <AnimateDiv
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.9, ease: "easeOut" }}
@@ -379,7 +364,7 @@ export const HowItWorks: React.FC = () => {
             textButton="Book Your Free Quote"
             className="rounded-3xl"
           />
-        </motion.div>
+        </AnimateDiv>
       </div>
     </section>
   );
