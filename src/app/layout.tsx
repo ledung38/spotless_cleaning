@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import NextTopLoader from "nextjs-toploader";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,7 +17,7 @@ const geistMono = Geist_Mono({
 
 // Base metadata
 const baseUrl = "https://spotlesscleaningsydney.com";
-const siteName = "Spotless Cleaning";
+const siteName = "N&T Spotless Cleaning";
 const description =
   "Professional cleaning services in Sydney. Deep cleaning, regular maintenance, end of lease cleaning, restaurant and mould cleaning. 2000+ happy clients, 8+ years experience.";
 
@@ -28,6 +29,7 @@ export const metadata: Metadata = {
   },
   description,
   keywords: [
+    "N&T Spotless Cleaning",
     "cleaning services Sydney",
     "house cleaning",
     "deep cleaning",
@@ -41,12 +43,12 @@ export const metadata: Metadata = {
   ],
   authors: [
     {
-      name: "Spotless Cleaning",
+      name: "N&T Spotless Cleaning",
       url: baseUrl,
     },
   ],
-  creator: "Spotless Cleaning",
-  publisher: "Spotless Cleaning",
+  creator: "N&T Spotless Cleaning",
+  publisher: "N&T Spotless Cleaning",
 
   // Open Graph
   openGraph: {
@@ -72,7 +74,7 @@ export const metadata: Metadata = {
     title: `${siteName} - Professional Cleaning Services Sydney`,
     description,
     images: [`/screenshot-wide.png`],
-    creator: "@spotlesscleaning",
+    creator: "@N&Tspotlesscleaning",
   },
 
   // Additional SEO
@@ -158,6 +160,23 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
 
+        {/* Google tag (gtag.js) */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-HWPMP7DHGW"
+        ></script>
+        <Script
+          id="ga4-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-HWPMP7DHGW');
+            `,
+          }}
+        />
         {/* DNS Prefetch */}
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
@@ -170,11 +189,11 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               "@id": baseUrl,
-              name: "Spotless Cleaning",
+              name: "N&T Spotless Cleaning",
               image: `${baseUrl}/screenshot-wide.png`,
               description,
               url: baseUrl,
-              telephone: "+61-451 210 238",
+              telephone: "+61 451 210 238",
               email: "cleaningsydney102@gmail.com",
               address: {
                 "@type": "PostalAddress",
@@ -192,7 +211,7 @@ export default function RootLayout({
               sameAs: [
                 "https://www.facebook.com/sydney.spotlesscleaning",
                 "https://www.instagram.com/sydney.spotlesscleaning",
-                "https://www.google.com/maps/place/Spotless+Cleaning",
+                "https://maps.app.goo.gl/Zj9SkChrEE7eZX8T9",
               ],
               priceRange: "$$",
               areaServed: "Sydney, NSW, Australia",
@@ -207,8 +226,8 @@ export default function RootLayout({
               },
               aggregateRating: {
                 "@type": "AggregateRating",
-                ratingValue: "4.9",
-                reviewCount: "2000",
+                ratingValue: "5",
+                reviewCount: "10",
               },
             }),
           }}
@@ -221,14 +240,14 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              name: "Spotless Cleaning",
+              name: "N&T Spotless Cleaning",
               url: baseUrl,
               logo: `${baseUrl}/favicon-16x16.png`,
               description,
               sameAs: [
                 "https://www.facebook.com/sydney.spotlesscleaning",
                 "https://www.instagram.com/sydney.spotlesscleaning",
-                "https://www.google.com/maps/place/Spotless+Cleaning",
+                "https://maps.app.goo.gl/Zj9SkChrEE7eZX8T9",
               ],
             }),
           }}

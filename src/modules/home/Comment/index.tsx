@@ -1,9 +1,9 @@
+"use client";
 import { useRef } from "react";
 
 import { motion, useInView } from "motion/react";
 
 import ListComment from "@/modules/home/components/ListComment";
-import { Container, Text } from "@/components/ui";
 import Flex from "@/components/ui/Flex";
 import { AnimateFlex } from "@/components/common/Animate";
 import { CommentStar } from "@/components/icons/home";

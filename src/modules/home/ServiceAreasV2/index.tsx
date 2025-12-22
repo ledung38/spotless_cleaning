@@ -1,5 +1,4 @@
-"use client";
-
+import { AnimateDiv } from "@/components/common/Animate";
 import { TextGradient } from "@/components/common/TextGradient";
 import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
@@ -44,7 +43,7 @@ const HomeAreas = () => {
     <section className="relative w-full py-8 md:py-16 bg-background overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <motion.div
+        <AnimateDiv
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -60,10 +59,10 @@ const HomeAreas = () => {
           <p className="text-lg text-foreground/60 max-w-2xl mx-auto">
             We proudly serve all of Sydney and surrounding areas
           </p>
-        </motion.div>
+        </AnimateDiv>
 
         {/* Areas grid */}
-        <motion.div
+        <AnimateDiv
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -71,7 +70,7 @@ const HomeAreas = () => {
           className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
         >
           {areas.map((area, index) => (
-            <motion.div
+            <AnimateDiv
               key={index}
               variants={itemVariants as any}
               className="p-4 rounded-xl bg-white hover:scale-105 border border-border/50 hover:border-primary/50 flex items-center gap-3 transition-all duration-300 cursor-pointer group border-l-4 border-primary dark:border-primary/30 dark:bg-card"
@@ -80,12 +79,12 @@ const HomeAreas = () => {
               <span className="text-foreground/70 group-hover:text-primary ">
                 {area}
               </span>
-            </motion.div>
+            </AnimateDiv>
           ))}
-        </motion.div>
+        </AnimateDiv>
 
         {/* Additional info */}
-        <motion.div
+        <AnimateDiv
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -96,7 +95,7 @@ const HomeAreas = () => {
             {`Don't see your area listed? Contact us to discuss custom service
             arrangements for your location.`}
           </p>
-        </motion.div>
+        </AnimateDiv>
       </div>
     </section>
   );

@@ -1,3 +1,4 @@
+"use client";
 import { Text } from "@/components/ui";
 import { cn } from "@/lib/utils/index";
 import React from "react";

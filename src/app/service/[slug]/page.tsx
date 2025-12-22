@@ -12,7 +12,7 @@ export async function generateMetadata({ params }) {
   // Nếu slug không tồn tại -> fallback metadata an toàn
   if (!service) {
     return {
-      title: "Service not found | Spotless Cleaning",
+      title: "Service not found | N&T Spotless Cleaning",
       description: "Sorry, this service is not available.",
       alternates: { canonical: `${siteUrl}/service/${slug}` },
     };
@@ -20,7 +20,7 @@ export async function generateMetadata({ params }) {
 
   // Metadata SEO thật cho từng slug
   return {
-    title: `${service.title} | Spotless Cleaning`,
+    title: `${service.title} | N&T Spotless Cleaning`,
     description: service.description,
     openGraph: {
       title: service.title,
@@ -34,7 +34,7 @@ export async function generateMetadata({ params }) {
         },
       ],
       url: `${siteUrl}/service/${slug}`,
-      siteName: "Spotless Cleaning",
+      siteName: "N&T Spotless Cleaning",
     },
     alternates: {
       canonical: `${siteUrl}/service/${slug}`,

@@ -3,7 +3,7 @@
  */
 
 export const SITE_CONFIG = {
-  name: "Spotless Cleaning",
+  name: "N&T Spotless Cleaning",
   url: "https://spotlesscleaningsydney.com",
   description:
     "Professional cleaning services in Sydney. Deep cleaning, regular maintenance, end of lease cleaning, restaurant and mould cleaning. 2000+ happy clients, 8+ years experience.",
@@ -19,7 +19,7 @@ export const SITE_CONFIG = {
   socialLinks: {
     facebook: "https://www.facebook.com/spotlesscleaning",
     instagram: "https://www.instagram.com/spotlesscleaning",
-    google: `https://www.google.com/maps/place/Bankstown+New+South+Wales+2200/@-33.9199261,151.0211691,3790m/data=!3m2!1e3!4b1!4m6!3m5!1s0x6b12bc1b89bc8969:0x5017d681632ad00!8m2!3d-33.9177861!4d151.0263741!16zL20vMDJwcXho?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D\ `,
+    google: `https://maps.app.goo.gl/Zj9SkChrEE7eZX8T9`,
   },
   location: {
     latitude: -33.8688,

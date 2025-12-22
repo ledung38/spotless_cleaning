@@ -208,10 +208,10 @@ const AboutUs = () => {
                 </h2>
                 <p className="text-lg text-[#e8e3da] leading-relaxed mb-6">
                   Founded with a vision to transform how people experience
-                  cleanliness, Spotless Cleaning has been revolutionizing the
-                  cleaning industry for over 8 years. What started as a small
-                  family business has grown into a trusted partner for thousands
-                  of satisfied customers across the region.
+                  cleanliness, N&T Spotless Cleaning has been revolutionizing
+                  the cleaning industry for over 8 years. What started as a
+                  small family business has grown into a trusted partner for
+                  thousands of satisfied customers across the region.
                 </p>
                 <p className="text-lg text-[#e8e3da] leading-relaxed">
                   {`We believe that a clean space is more than just
@@ -885,7 +885,7 @@ const AboutUs = () => {
               <p className="text-lg text-blue-100/90 leading-relaxed max-w-2xl mx-auto">
                 Let our expert team transform your space into a spotless haven.
                 Contact us today to schedule your cleaning service and
-                experience the Spotless Cleaning difference.
+                experience the N&T Spotless Cleaning difference.
               </p>
             </div>
 

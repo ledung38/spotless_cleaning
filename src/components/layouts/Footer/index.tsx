@@ -1,5 +1,4 @@
 "use client";
-
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Facebook, Instagram, Phone, Mail, MapPin } from "lucide-react";
@@ -68,7 +67,11 @@ const Footer = () => {
           href: "mailto:cleaningsydney102@gmail.com",
           icon: Mail,
         },
-        { label: "Sydney, Australia", href: "#", icon: MapPin },
+        {
+          label: "Sydney, Australia",
+          href: "https://maps.app.goo.gl/Zj9SkChrEE7eZX8T9",
+          icon: MapPin,
+        },
       ],
     },
   ];
@@ -216,7 +219,7 @@ const Footer = () => {
             transition={{ duration: 0.6 }}
             className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white"
           >
-            <p>© {currentYear} Spotless Cleaning. All Rights Reserved.</p>
+            <p>© {currentYear} N&T Spotless Cleaning. All Rights Reserved.</p>
             <div className="flex gap-6">
               <motion.a
                 href="#"

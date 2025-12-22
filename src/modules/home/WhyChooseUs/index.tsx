@@ -1,79 +1,10 @@
-"use client";
-
-import React from "react";
-import { motion } from "motion/react";
-import {
-  CheckCircle2,
-  Sparkles,
-  Users,
-  Clock,
-  Shield,
-  Leaf,
-  Award,
-  Zap,
-} from "lucide-react";
+import { AnimateDiv, AnimateP, AnimateSpan } from "@/components/common/Animate";
 import { TickIcon } from "@/components/icons";
 import TagTitle from "@/modules/home/Tag";
+import CounterStat from "@/modules/home/WhyChooseUs/CounterStat";
 import { featuresData, statsData } from "@/modules/home/contants";
-import { useInView } from "framer-motion";
-
-const CounterStat = ({
-  number,
-  suffix,
-  label,
-  delay,
-}: {
-  number: number;
-  suffix: string;
-  label: string;
-  delay: number;
-}) => {
-  const ref = React.useRef<HTMLDivElement | null>(null);
-  const isInView = useInView(ref, { once: true });
-
-  const [count, setCount] = React.useState(0);
-
-  React.useEffect(() => {
-    if (!isInView) return; // ⛔ chưa scroll tới thì không chạy
-
-    let start = 0;
-    const end = number;
-    const duration = 2; // giây
-    const fps = 60;
-    const increment = end / (duration * fps);
-
-    const timer = setInterval(() => {
-      start += increment;
-      if (start >= end) {
-        setCount(end);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(start));
-      }
-    }, 1000 / fps);
-
-    return () => clearInterval(timer);
-  }, [isInView, number]);
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, scale: 0.5 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5, delay }}
-      viewport={{ once: true }}
-      className="text-center"
-    >
-      <div className="text-3xl sm:text-4xl font-black text-white drop-shadow-lg">
-        {count}
-        <span className="text-xl sm:text-2xl ml-1">{suffix}</span>
-      </div>
-      <p className="text-md sm:text-lg text-white/90 font-semibold mt-2 drop-shadow-md">
-        {label}
-      </p>
-    </motion.div>
-  );
-};
+import { Award, Clock, Sparkles, Users } from "lucide-react";
+import React from "react";
 
 const FeatureItem = ({
   title,
@@ -85,14 +16,14 @@ const FeatureItem = ({
   delay: number;
 }) => {
   return (
-    <motion.div
+    <AnimateDiv
       initial={{ opacity: 0, x: -20 }}
       whileInView={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5, delay }}
       viewport={{ once: true }}
       className="flex items-start gap-4 group"
     >
-      <motion.div
+      <AnimateDiv
         whileHover={{ scale: 1.2, rotate: 360 }}
         transition={{ duration: 0.5 }}
         className="flex-shrink-0 mt-1"
@@ -100,7 +31,7 @@ const FeatureItem = ({
         <div className="flex items-center justify-center group-hover:scale-110 transition-all duration-300">
           <TickIcon className="size-8 shrink-0 " />
         </div>
-      </motion.div>
+      </AnimateDiv>
       <div className="flex-1">
         <h4 className="text-lg sm:text-xl font-bold text-foreground mb-1 group-hover:text-primary">
           {title}
@@ -109,7 +40,7 @@ const FeatureItem = ({
           {description}
         </p>
       </div>
-    </motion.div>
+    </AnimateDiv>
   );
 };
 
@@ -123,7 +54,7 @@ export const WhyChooseUs = () => {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 relative">
           {/* Header */}
-          {/* <motion.div
+          {/* <AnimateDiv
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -140,7 +71,7 @@ export const WhyChooseUs = () => {
             Why choose us?
           </motion.h2>
 
-          <motion.p
+          <AnimateP
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -149,10 +80,10 @@ export const WhyChooseUs = () => {
           >
             Discover why thousands of customers trust us for their professional
             cleaning needs
-          </motion.p>
-        </motion.div> */}
+          </AnimateP>
+        </AnimateDiv> */}
 
-          <motion.div
+          <AnimateDiv
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -167,7 +98,7 @@ export const WhyChooseUs = () => {
                 </span>
               </TagTitle>
 
-              {/* <motion.span
+              {/* <AnimateSpan
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
@@ -178,11 +109,11 @@ export const WhyChooseUs = () => {
                 <span className="text-sm font-semibold text-primary">
                   Why Choose N&T Spotless
                 </span>
-              </motion.span> */}
+              </AnimateSpan> */}
             </div>
 
             <h2 className="text-4xl sm:text-5xl font-black text-foreground leading-tight mb-6">
-              <motion.span
+              <AnimateSpan
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
@@ -190,8 +121,8 @@ export const WhyChooseUs = () => {
                 className="block"
               >
                 Professional Cleaning
-              </motion.span>
-              <motion.span
+              </AnimateSpan>
+              <AnimateSpan
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -199,10 +130,10 @@ export const WhyChooseUs = () => {
                 className="block bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent"
               >
                 You Can Trust
-              </motion.span>
+              </AnimateSpan>
             </h2>
 
-            <motion.p
+            <AnimateP
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -212,13 +143,13 @@ export const WhyChooseUs = () => {
               {`Experience premium cleaning services with our dedicated team.
               We're committed to transforming your space into a spotless
               sanctuary with professional expertise and attention to detail.`}
-            </motion.p>
-          </motion.div>
+            </AnimateP>
+          </AnimateDiv>
 
           {/* Features Grid - 2 columns */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 mb-16 sm:mb-20 max-sm:gap-4">
             {/* Left Column - Features List */}
-            <motion.div
+            <AnimateDiv
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
@@ -233,10 +164,10 @@ export const WhyChooseUs = () => {
                   delay={idx * 0.1}
                 />
               ))}
-            </motion.div>
+            </AnimateDiv>
 
             {/* Right Column - Features List */}
-            <motion.div
+            <AnimateDiv
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
@@ -251,11 +182,11 @@ export const WhyChooseUs = () => {
                   delay={idx * 0.1}
                 />
               ))}
-            </motion.div>
+            </AnimateDiv>
           </div>
 
           {/* CTA Section */}
-          {/* <motion.div
+          {/* <AnimateDiv
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
@@ -278,11 +209,11 @@ export const WhyChooseUs = () => {
               Schedule Service
             </motion.button>
           </div>
-        </motion.div> */}
+        </AnimateDiv> */}
         </div>
       </div>
       {/* Stats Section with Background Image */}
-      <motion.div
+      <AnimateDiv
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.3 }}
@@ -308,7 +239,7 @@ export const WhyChooseUs = () => {
 
         {/* Content */}
         <div className="relative z-10 px-6 sm:px-8 lg:px-20 py-12 sm:py-16 lg:py-20">
-          <motion.div
+          <AnimateDiv
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -324,7 +255,7 @@ export const WhyChooseUs = () => {
                 delay={0.1 * idx}
               />
             ))}
-          </motion.div>
+          </AnimateDiv>
         </div>
 
         {/* Stats Icons Overlay */}
@@ -342,7 +273,7 @@ export const WhyChooseUs = () => {
             <Sparkles size={48} />
           </div>
         </div>
-      </motion.div>
+      </AnimateDiv>
     </div>
   );
 };
