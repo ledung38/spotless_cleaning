@@ -11,9 +11,9 @@ import {
 } from "@/components/ui";
 import Autoplay from "embla-carousel-autoplay";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { motion } from "motion/react";
+import Image from "next/image";
 import { useEffect, useState } from "react";
-const AnimateCarousel = motion(Carousel);
+// const AnimateCarousel = motion(Carousel);
 
 const BannerSlider = ({ images, autoPlay, autoPlayInterval }) => {
   const [api, setApi] = useState<CarouselApi | null>(null);
@@ -57,20 +57,20 @@ const BannerSlider = ({ images, autoPlay, autoPlayInterval }) => {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, x: 40 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+    <div
+      // initial={{ opacity: 0, x: 40 }}
+      // animate={{ opacity: 1, x: 0 }}
+      // transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
       className="relative h-96 lg:h-[480px] rounded-3xl overflow-hidden"
     >
-      <AnimateCarousel
-        variants={{
-          hidden: { opacity: 0, transform: "scale(0.9)" },
-          visible: { opacity: 1, transform: "scale(1)" },
-        }}
-        initial="hidden"
-        animate={"visible"}
-        transition={{ type: "spring", delay: 0.2 }}
+      <Carousel
+        // variants={{
+        //   hidden: { opacity: 0, transform: "scale(0.9)" },
+        //   visible: { opacity: 1, transform: "scale(1)" },
+        // }}
+        // initial="hidden"
+        // animate={"visible"}
+        // transition={{ type: "spring", delay: 0.2 }}
         setApi={setApi}
         className={`relative z-[2] w-full
                inset-0 rounded-3xl overflow-hidden bg-gradient-to-br from-primary/10 to-blue-100/20 border border-primary/10
@@ -100,43 +100,51 @@ const BannerSlider = ({ images, autoPlay, autoPlayInterval }) => {
               key={index}
               className={`relative w-full h-[450px] max-sm:basis-full`}
             >
-              <motion.img
+              <Image
                 key={index}
                 src={item.src}
                 alt={`Slide ${index + 1}`}
-                variants={slideVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{
-                  x: { type: "spring", stiffness: 300, damping: 30 },
-                  opacity: { duration: 0.5 },
-                }}
-                className="absolute inset-0 w-full h-[450px] object-fill "
+                // variants={slideVariants}
+                // initial="enter"
+                // animate="center"
+                // exit="exit"
+                width={500}
+                height={450}
+                priority
+                quality={100}
+                // transition={{
+                //   x: { type: "spring", stiffness: 300, damping: 30 },
+                //   opacity: { duration: 0.5 },
+                // }}
+                className="absolute inset-0 w-full h-[450px] object-fill"
               />
             </CarouselItem>
           ))}
         </CarouselContent>
         <div className="absolute inset-0 flex items-center justify-between p-4 z-20 rounded-3xl">
-          <motion.button
-            whileHover={{ scale: 1.15 }}
-            whileTap={{ scale: 0.9 }}
+          <button
+            data-slot="button"
+            aria-label="previous slider"
+            // whileHover={{ scale: 1.15 }}
+            // whileTap={{ scale: 0.9 }}
             onClick={() => api?.scrollPrev()}
-            className="w-10 h-10 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center text-primary hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="w-10 h-10 rounded-full hover:scale-115 active:scale-90 bg-white/95 backdrop-blur-sm flex items-center justify-center text-primary hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl"
           >
-            <ChevronLeft size={20} />
-          </motion.button>
+            <ChevronLeft aria-hidden="true" size={20} />
+          </button>
 
-          <motion.button
-            whileHover={{ scale: 1.15 }}
-            whileTap={{ scale: 0.9 }}
+          <button
+            data-slot="button"
+            aria-label="next slider"
+            // whileHover={{ scale: 1.15 }}
+            // whileTap={{ scale: 0.9 }}
             onClick={() => api?.scrollNext()}
-            className="w-10 h-10 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center text-primary hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="w-10 h-10 rounded-full hover:scale-115 active:scale-90 bg-white/95 backdrop-blur-sm flex items-center justify-center text-primary hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl"
           >
-            <ChevronRight size={20} />
-          </motion.button>
+            <ChevronRight aria-hidden="true" size={20} />
+          </button>
         </div>
-      </AnimateCarousel>
+      </Carousel>
       <div className="mt-2">
         <Pagination>
           <PaginationContent>
@@ -167,7 +175,7 @@ const BannerSlider = ({ images, autoPlay, autoPlayInterval }) => {
           </PaginationContent>
         </Pagination>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

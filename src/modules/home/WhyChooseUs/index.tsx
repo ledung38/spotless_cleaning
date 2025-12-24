@@ -33,9 +33,9 @@ const FeatureItem = ({
         </div>
       </AnimateDiv>
       <div className="flex-1">
-        <h4 className="text-lg sm:text-xl font-bold text-foreground mb-1 group-hover:text-primary">
+        <h3 className="text-lg sm:text-xl font-bold text-foreground mb-1 group-hover:text-primary">
           {title}
-        </h4>
+        </h3>
         <p className="text-md sm:text-lg text-muted-foreground leading-relaxed">
           {description}
         </p>

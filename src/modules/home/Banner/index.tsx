@@ -8,10 +8,8 @@ import { ArrowCircleRightIcon } from "@/components/icons";
 import BannerSlider from "@/modules/home/Banner/BannerSlider";
 import { imageImages } from "@/modules/home/Banner/contants";
 import { HandCoins, Shield, Sparkles, Zap } from "lucide-react";
-import { motion } from "motion/react";
 import { StaticImageData } from "next/image";
 import React from "react";
-
 const FloatingIcon = ({
   Icon,
   delay,
@@ -52,20 +50,20 @@ const FeatureBadge = ({
   delay?: number;
 }) => {
   return (
-    <AnimateDiv
-      initial={{ opacity: 0, x: -20 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{
-        duration: 0.5,
-        delay: 0.6 + delay,
-        ease: "easeOut",
-      }}
-      whileHover={{ scale: 1.05, translateY: -3 }}
-      className="flex justify-start items-center gap-2 rounded-full px-2.5 sm:px-4  lg:pr-10  py-2 transition-all duration-300 bg-[#c8d4e0] hover:brightness-110"
+    <div
+      // initial={{ opacity: 0, x: -20 }}
+      // animate={{ opacity: 1, x: 0 }}
+      // transition={{
+      //   duration: 0.5,
+      //   delay: 0.6 + delay,
+      //   ease: "easeOut",
+      // }}
+      // whileHover={{ scale: 1.05, translateY: -3 }}
+      className="flex justify-start items-center gap-2 rounded-full px-2.5 sm:px-4  lg:pr-10  py-2 transition-all duration-300 bg-[#c8d4e0] hover:brightness-110 hover:scale-105"
     >
       <Icon size={18} className="text-[#6b7d94] font-bold" />
       <span className="font-bold text-[#6b7d94] text ">{text}</span>
-    </AnimateDiv>
+    </div>
   );
 };
 const AnimatedText = ({
@@ -150,10 +148,10 @@ export const Banner = ({
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
 
-          <AnimateDiv
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
+          <div
+            // initial={{ opacity: 0 }}
+            // animate={{ opacity: 1 }}
+            // transition={{ duration: 0.5 }}
             className="space-y-6"
           >
             {/* Main Heading */}
@@ -163,21 +161,20 @@ export const Banner = ({
                 2800+ Services Completed
               </span> */}
               <h1 className="text-4xl lg:text-5xl font-black  leading-tight bg-gradient-to-r from-[#0871eb] via-primary/80 to-[#1565C0] bg-clip-text  text-[#e8e3da]">
-                <AnimatedText delay={0}>
-                  Professional Cleaning Service in Sydney
-                </AnimatedText>
-                {/* <AnimatedText delay={0.5}>Spotless Care</AnimatedText> */}
+                {/* <AnimatedText delay={0}> */}
+                Professional Cleaning Service in Sydney
+                {/* </AnimatedText> */}
               </h1>
 
               <p className=" sm:text-xl text-lg text-[#e8e3da] leading-relaxed max-w-xl ">
-                <AnimateSpan
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 0.8 }}
+                <span
+                  // initial={{ opacity: 0 }}
+                  // animate={{ opacity: 1 }}
+                  // transition={{ duration: 0.8, delay: 0.8 }}
                   className="inline"
                 >
                   {description}
-                </AnimateSpan>
+                </span>
               </p>
             </div>
 
@@ -202,15 +199,15 @@ export const Banner = ({
             </div>
 
             {/* CTA Button */}
-            <AnimateDiv
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.2, ease: "easeOut" }}
+            <div
+              // initial={{ opacity: 0, y: 20 }}
+              // animate={{ opacity: 1, y: 0 }}
+              // transition={{ duration: 0.6, delay: 1.2, ease: "easeOut" }}
               className="pt-6"
             >
-              <AnimateButton
-                whileHover={{ scale: 1.05, translateY: -2 }}
-                whileTap={{ scale: 0.95 }}
+              <button
+                // whileHover={{ scale: 1.05, translateY: -2 }}
+                // whileTap={{ scale: 0.95 }}
                 onClick={onCtaClick}
                 className="relative px-8 py-4 bg-gradient-to-r from-[oklch(0.62_0.18_250)] to-[oklch(0.55_0.15_250)] text-white font-bold rounded-xl shadow-lg hover:shadow-xl hover:shadow-[oklch(0.62_0.18_250)]/30 transition-all duration-300 group overflow-hidden"
               >
@@ -228,25 +225,25 @@ export const Banner = ({
                     <ArrowCircleRightIcon className="size-6" />
                   </AnimateSpan>
                 </span>
-              </AnimateButton>
-            </AnimateDiv>
+              </button>
+            </div>
 
             {/* Trust Stats */}
-            <AnimateDiv className="grid grid-cols-3 gap-4 pt-8 border-t border-white/20">
+            <div className="grid grid-cols-3 gap-4 pt-8 border-t border-white/20">
               {[
                 { number: "2000+", label: "Happy Clients" },
                 { number: "8+", label: "Years Experience" },
                 { number: "24/7", label: "Customer Support" },
               ].map((stat, idx) => (
-                <AnimateDiv
+                <div
                   key={idx}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 0.5,
-                    delay: 1.4 + idx * 0.1,
-                    ease: "easeOut",
-                  }}
+                  // initial={{ opacity: 0, y: 10 }}
+                  // animate={{ opacity: 1, y: 0 }}
+                  // transition={{
+                  //   duration: 0.5,
+                  //   delay: 1.4 + idx * 0.1,
+                  //   ease: "easeOut",
+                  // }}
                   className="text-center"
                 >
                   <p className="text-3xl font-black text-secondary">
@@ -255,10 +252,10 @@ export const Banner = ({
                   <p className="text-sm font-medium text-[#c8d4e0] mt-1">
                     {stat.label}
                   </p>
-                </AnimateDiv>
+                </div>
               ))}
-            </AnimateDiv>
-          </AnimateDiv>
+            </div>
+          </div>
 
           {/* Right Side - Image Carousel */}
           <BannerSlider
