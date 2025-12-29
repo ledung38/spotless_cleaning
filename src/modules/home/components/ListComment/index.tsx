@@ -43,8 +43,7 @@ const Item = ({ item }: { item: any }) => {
           <NextAvatar
             width={64}
             height={64}
-            // src={genUrlImage(item.avatarUrlCustomer)}\
-            src={""}
+            src={item.avatar}
             className="relative h-16 w-16 rounded-full [&_img]:object-cover"
             alt="subject"
           >
