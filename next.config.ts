@@ -78,7 +78,6 @@ const nextConfig: NextConfig = {
         has: [
           {
             type: "host",
-            key: "host",
             value: "spotlesscleaningsydney.com",
           },
         ],
@@ -100,7 +99,7 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
-      // 3️⃣ (Tuỳ chọn) Remove trailing slash
+      // 3️⃣ Remove trailing slash
       {
         source: "/:path+/",
         destination: "/:path+",
