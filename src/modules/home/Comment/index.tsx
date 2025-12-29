@@ -66,6 +66,6 @@ export default Comment;
 export type TRatingDto = {
   customerName: string;
   comment: string;
-
+  avatar: string;
   serviceName: string;
 };
