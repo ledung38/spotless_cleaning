@@ -25,11 +25,11 @@ export const metadata: Metadata = {
     title: "Professional Cleaning Services in Sydney",
     description:
       "N&T Spotless Cleaning provides professional house, restaurant, and commercial cleaning services in Sydney.",
-    url: "https://spotlesscleaningsydney.com",
+    url: "https://www.spotlesscleaningsydney.com",
     type: "website",
     images: [
       {
-        url: "https://spotlesscleaningsydney.com/screenshot-wide.png",
+        url: "https://www.spotlesscleaningsydney.com/screenshot-wide.png",
         width: 1200,
         height: 630,
         alt: "N&T Spotless Cleaning - Sydney",

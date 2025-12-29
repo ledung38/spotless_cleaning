@@ -6,7 +6,8 @@ import services from "@/modules/service/contants";
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || "https://spotlesscleaningsydney.com";
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    "https://www.spotlesscleaningsydney.com";
   const service = services[slug];
 
   // Nếu slug không tồn tại -> fallback metadata an toàn

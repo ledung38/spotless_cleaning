@@ -1,22 +1,29 @@
 import { AnimateDiv } from "@/components/common/Animate";
 import { TextGradient } from "@/components/common/TextGradient";
-import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
 
 const HomeAreas = () => {
   const areas = [
-    "Sydney CBD",
-    "Inner West",
-    "Eastern Suburbs",
-    "North Shore",
-    "Western Sydney",
+    "Bankstown",
+    "Punchbowl",
+    "Lakemba",
+    "Yagoona",
+    "Greenacre",
+    "Campsie",
+    "Canterbury",
+    "Marrickville",
+    "Revesby",
+    "Padstow",
+    "Panania",
+    "Lidcombe",
+    "Auburn",
     "Parramatta",
-    "Manly",
-    "Bondi",
-    "Coogee",
-    "Newtown",
-    "Paddington",
-    "Surry Hills",
+    "Fairfield",
+    "Strathfield",
+    "Burwood",
+    "Homebush",
+    "Sydney Olympic Park",
+    "Sydney CBD",
   ];
 
   const containerVariants = {

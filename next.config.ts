@@ -72,19 +72,35 @@ const nextConfig: NextConfig = {
   // Redirects for SEO
   async redirects() {
     return [
-      // Redirect old domain
+      // 1️⃣ Redirect non-www → www
       {
         source: "/:path*",
         has: [
           {
             type: "host",
-            value: "www.spotlesscleaningsydney.com",
+            key: "host",
+            value: "spotlesscleaningsydney.com",
           },
         ],
-        destination: "https://spotlesscleaningsydney.com/:path*",
+        destination: "https://www.spotlesscleaningsydney.com/:path*",
         permanent: true,
       },
-      // Redirect trailing slashes
+
+      // 2️⃣ Redirect HTTP → HTTPS
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "header",
+            key: "x-forwarded-proto",
+            value: "http",
+          },
+        ],
+        destination: "https://www.spotlesscleaningsydney.com/:path*",
+        permanent: true,
+      },
+
+      // 3️⃣ (Tuỳ chọn) Remove trailing slash
       {
         source: "/:path+/",
         destination: "/:path+",
@@ -123,7 +139,8 @@ const nextConfig: NextConfig = {
   // Environment variables
   env: {
     NEXT_PUBLIC_SITE_URL:
-      process.env.NEXT_PUBLIC_SITE_URL || "https://spotlesscleaningsydney.com",
+      process.env.NEXT_PUBLIC_SITE_URL ||
+      "https://www.spotlesscleaningsydney.com",
   },
 
   // Turbopack for faster builds
