@@ -915,7 +915,7 @@ export const BookingWizard: React.FC = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           to: values.email,
-          subject: `New Cleaning Order – ${values.fullName}`,
+          subject: `Boss, we have a New Cleaning Order – ${values.fullName}`,
           message: content,
         }),
       });

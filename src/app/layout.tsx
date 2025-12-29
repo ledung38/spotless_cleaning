@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 // Base metadata
-const baseUrl = "https://spotlesscleaningsydney.com";
+const baseUrl = "https://www.spotlesscleaningsydney.com";
 const siteName = "N&T Spotless Cleaning";
 const description =
   "Professional cleaning services in Sydney. Deep cleaning, regular maintenance, end of lease cleaning, restaurant and mould cleaning. 2000+ happy clients, 8+ years experience.";
@@ -24,7 +24,7 @@ const description =
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: `${siteName} - Professional Cleaning Services Sydney`,
+    default: `${siteName} - Professional Cleaning Services in Sydney`,
     template: `%s | ${siteName}`,
   },
   description,
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: baseUrl,
-    title: `${siteName} - Professional Cleaning Services Sydney`,
+    title: `${siteName} - Professional Cleaning Services in Sydney`,
     description,
     siteName,
     images: [
@@ -71,10 +71,10 @@ export const metadata: Metadata = {
   // Twitter Card
   twitter: {
     card: "summary_large_image",
-    title: `${siteName} - Professional Cleaning Services Sydney`,
+    title: `${siteName} - Professional Cleaning Services in Sydney`,
     description,
     images: [`/screenshot-wide.png`],
-    creator: "@N&Tspotlesscleaning",
+    creator: "@NTspotlesscleaning",
   },
 
   // Additional SEO

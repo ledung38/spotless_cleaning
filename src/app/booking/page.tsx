@@ -18,11 +18,11 @@ export const metadata: Metadata = {
     title: "Book Cleaning Service - N&T Spotless Cleaning",
     description:
       "Easy online booking for professional cleaning services in Sydney.",
-    url: "https://spotlesscleaningsydney.com/booking",
+    url: "https://www.spotlesscleaningsydney.com/booking",
     type: "website",
     images: [
       {
-        url: "https://spotlesscleaningsydney.com/og-booking.png",
+        url: "https://www.spotlesscleaningsydney.com/og-booking.png",
         width: 1200,
         height: 630,
         alt: "N&T Spotless Cleaning - Booking",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: "https://spotlesscleaningsydney.com/booking",
+    canonical: "https://www.spotlesscleaningsydney.com/booking",
   },
 };
 

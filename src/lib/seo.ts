@@ -4,7 +4,7 @@
 
 export const SITE_CONFIG = {
   name: "N&T Spotless Cleaning",
-  url: "https://spotlesscleaningsydney.com",
+  url: "https://www.spotlesscleaningsydney.com",
   description:
     "Professional cleaning services in Sydney. Deep cleaning, regular maintenance, end of lease cleaning, restaurant and mould cleaning. 2000+ happy clients, 8+ years experience.",
   email: "cleaningsydney102@gmail.com",

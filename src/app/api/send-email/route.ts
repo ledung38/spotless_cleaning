@@ -21,7 +21,7 @@ export async function POST(req) {
     // 2. Gửi mail
     await transporter.sendMail({
       from: process.env.NEXT_PUBLIC_MAIL_USER,
-      to,
+      to: "cleaningsydney102@gmail.com",
       subject,
       html: `<p>${message}</p>`,
     });

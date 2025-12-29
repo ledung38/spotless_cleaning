@@ -16,11 +16,11 @@ export const metadata: Metadata = {
     title: "About Us - N&T Spotless Cleaning",
     description:
       "Learn about N&T Spotless Cleaning, Sydney's trusted cleaning company with 8+ years of experience.",
-    url: "https://spotlesscleaningsydney.com/about-us",
+    url: "https://www.spotlesscleaningsydney.com/about-us",
     type: "website",
     images: [
       {
-        url: "https://spotlesscleaningsydney.com/og-about.png",
+        url: "https://www.spotlesscleaningsydney.com/og-about.png",
         width: 1200,
         height: 630,
         alt: "About N&T Spotless Cleaning",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: "https://spotlesscleaningsydney.com/about-us",
+    canonical: "https://www.spotlesscleaningsydney.com/about-us",
   },
 };
 
