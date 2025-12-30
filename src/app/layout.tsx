@@ -113,7 +113,7 @@ export const metadata: Metadata = {
         type: "image/png",
       },
     ],
-    apple: "/logo-maskable.png",
+    apple: "/logo_500x500.png",
   },
 
   // Manifest
@@ -227,7 +227,7 @@ export default function RootLayout({
               aggregateRating: {
                 "@type": "AggregateRating",
                 ratingValue: "5",
-                reviewCount: "10",
+                reviewCount: "50",
               },
             }),
           }}
@@ -240,9 +240,10 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
+              "@id": `${baseUrl}#organization`,
               name: "N&T Spotless Cleaning",
               url: baseUrl,
-              logo: `${baseUrl}/favicon-16x16.png`,
+              logo: `${baseUrl}/logo_500x500.png`,
               description,
               sameAs: [
                 "https://www.facebook.com/sydney.spotlesscleaning",
@@ -297,7 +298,7 @@ export default function RootLayout({
         />
 
         {/* Apple icons */}
-        <link rel="apple-touch-icon" href="/logo-maskable.png" />
+        <link rel="apple-touch-icon" href="/logo_500x500.png" />
 
         {/* Android Chrome */}
         <link rel="manifest" href="/site.webmanifest" />

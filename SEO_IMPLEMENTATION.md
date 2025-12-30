@@ -97,7 +97,7 @@ public/
 ├── apple-touch-icon.png
 ├── android-chrome-192x192.png
 ├── android-chrome-512x512.png
-├── logo-maskable.png
+├── logo_500x500.png
 ├── og-image.jpg (default)
 ├── og-home.jpg
 ├── og-about.png
