@@ -92,7 +92,7 @@ const ListComment = ({ data }: { data: any }) => {
             </p>
             <DecorQuote
               mainColor={"#FFEDA7"}
-              className="absolute top-4 right-[100px] z-0 max-sm:top-12 max-sm:right-[-16px] max-sm:size-[60px]"
+              className="absolute top-12 right-[40px] z-0  max-sm:right-[-16px] max-sm:size-[60px]"
             />
           </div>
         </Flex>

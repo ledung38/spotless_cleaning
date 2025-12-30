@@ -21,16 +21,17 @@ import image20 from "@/lib/assets/images/home/banner/image-20.png";
 import image21 from "@/lib/assets/images/home/banner/image-21.jpg";
 import image22 from "@/lib/assets/images/home/banner/image-22.png";
 import image23 from "@/lib/assets/images/home/banner/image-23.png";
-import image24 from "@/lib/assets/images/home/banner/image-24.png";
-import image25 from "@/lib/assets/images/home/banner/image-25.png";
+import image24 from "@/lib/assets/images/home/banner/image-24.jpg";
+import image25 from "@/lib/assets/images/home/banner/image-25.jpg";
 import image26 from "@/lib/assets/images/home/banner/image-26.jpg";
-import image27 from "@/lib/assets/images/home/banner/image-27.png";
-import image28 from "@/lib/assets/images/home/banner/image-28.png";
+import image27 from "@/lib/assets/images/home/banner/image-27.jpg";
+import image28 from "@/lib/assets/images/home/banner/image-28.jpg";
 import image29 from "@/lib/assets/images/home/banner/image-29.jpg";
 import image30 from "@/lib/assets/images/home/banner/image-30.jpg";
 import image31 from "@/lib/assets/images/home/banner/image-31.jpg";
 import image32 from "@/lib/assets/images/home/banner/image-32.jpg";
 import image33 from "@/lib/assets/images/home/banner/image-33.jpg";
+import image34 from "@/lib/assets/images/home/banner/image-34.jpg";
 
 export const imageImages = [
   image1,
@@ -41,7 +42,8 @@ export const imageImages = [
   image11,
   image12,
   image13,
-  // image16,
+  image34,
+  image16,
   image17,
   image18,
   image19,

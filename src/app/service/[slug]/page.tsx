@@ -2,6 +2,7 @@
 
 import ServiceComponent from "@/modules/service";
 import services from "@/modules/service/contants";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
@@ -53,7 +54,7 @@ export default async function ServiceDetails({ params }) {
 
   //   console.log("services", services);
   if (!service) {
-    return <div>Service not found</div>;
+    notFound();
   }
 
   return <ServiceComponent data={service} slug={slug} />;

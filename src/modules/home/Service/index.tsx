@@ -21,69 +21,60 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   description,
   color,
 }) => {
-  const link = `/service/${title.toLowerCase().replace(" ", "-")}`;
+  const link = `/service/${title.toLowerCase().replaceAll(" ", "-")}`;
   return (
-    <AnimateDiv
-      variants={{
-        hidden: { opacity: 0, y: 20 },
-        visible: {
-          opacity: 1,
-          y: 0,
-          transition: { duration: 0.3, ease: "easeOut" },
-        },
-      }}
-      whileHover={{ y: -8, transition: { duration: 0.2 } }}
-      className="group relative rounded-2xl bg-card border border-border/50 hover:border-primary/50 transition-all duration-300 overflow-hidden"
+    <Link
+      href={link}
+      className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-2xl"
     >
-      {/* Background gradient on hover */}
       <AnimateDiv
-        className={`absolute inset-0 bg-gradient-to-br ${color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
-      />
+        variants={{
+          hidden: { opacity: 0, y: 20 },
+          visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.3, ease: "easeOut" },
+          },
+        }}
+        whileHover={{ y: -8, transition: { duration: 0.2 } }}
+        className="relative rounded-2xl bg-card border border-border/50 hover:border-primary/50 transition-all duration-300 overflow-hidden"
+      >
+        {/* Background gradient */}
+        <AnimateDiv
+          className={`absolute inset-0 bg-gradient-to-br ${color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
+        />
 
-      {/* Content */}
-      <div>
-        <img src={Icon.src} alt={title} className="w-full h-full" />
+        {/* Nội dung */}
+        <div>
+          <img src={Icon.src} alt={title} className="w-full h-full" />
 
-        <div className="relative z-10 p-6">
-          {/* Icon */}
-          {/* <AnimateDiv
-          whileHover={{ rotate: 0, scale: 1.2 }}
-          transition={{ duration: 0.3 }}
-          className={`w-12 h-12 rounded-xl bg-gradient-to-br ${color} group-hover:scale-110 flex items-center justify-center mb-4 text-white transition-all duration-300`}
-        >
-          <Icon className="w-6 h-6" />
-        </AnimateDiv> */}
+          <div className="relative z-10 p-6">
+            <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
+              {title}
+            </h3>
 
-          {/* Title */}
-          <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
-            {title}
-          </h3>
+            <p className="text-foreground/60 leading-relaxed mb-4">
+              {description}
+            </p>
 
-          {/* Description */}
-          <p className="text-foreground/60 leading-relaxed mb-4">
-            {description}
-          </p>
-
-          {/* CTA link */}
-          <Link
-            href={link}
-            className="inline-flex items-center gap-2 text-primary font-medium text-sm  hover:ml-1 transition-all duration-300"
-          >
-            <span className="sr-only">Learn more about {title}</span>
-            <span aria-hidden="true">Learn more</span>
-            <ArrowRightIcon className="w-5 h-5 [&_path]:stroke-primary" />
-          </Link>
+            {/* CTA text (nằm trong link luôn) */}
+            <div className="inline-flex items-center gap-2 text-primary font-medium text-sm hover:ml-1 transition-all duration-300">
+              <span className="sr-only">Learn more about {title}</span>
+              <span aria-hidden="true">Learn more</span>
+              <ArrowRightIcon className="w-5 h-5 [&_path]:stroke-primary" />
+            </div>
+          </div>
         </div>
-      </div>
 
-      {/* Shine effect */}
-      <AnimateDiv
-        className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-10"
-        initial={{ x: "-100%" }}
-        whileHover={{ x: "100%" }}
-        transition={{ duration: 0.5 }}
-      />
-    </AnimateDiv>
+        {/* Shine effect */}
+        <AnimateDiv
+          className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-10"
+          initial={{ x: "-100%" }}
+          whileHover={{ x: "100%" }}
+          transition={{ duration: 0.5 }}
+        />
+      </AnimateDiv>
+    </Link>
   );
 };
 
