@@ -16,17 +16,17 @@ import imageAirbnb14 from "@/lib/assets/images/services/airbnb/image-14.jpg";
 //deep
 
 import imageDeep1 from "@/lib/assets/images/services/deep/image-1.jpg";
-import imageDeep2 from "@/lib/assets/images/services/deep/image-2.jpg";
-import imageDeep3 from "@/lib/assets/images/services/deep/image-3.jpg";
-import imageDeep4 from "@/lib/assets/images/services/deep/image-4.jpg";
+// import imageDeep2 from "@/lib/assets/images/services/deep/image-2.jpg";
+// import imageDeep3 from "@/lib/assets/images/services/deep/image-3.jpg";
+// import imageDeep4 from "@/lib/assets/images/services/deep/image-4.jpg";
 import imageDeep5 from "@/lib/assets/images/services/deep/image-5.jpg";
-import imageDeep6 from "@/lib/assets/images/services/deep/image-6.jpg";
-import imageDeep7 from "@/lib/assets/images/services/deep/image-7.jpg";
+// import imageDeep6 from "@/lib/assets/images/services/deep/image-6.jpg";
+// import imageDeep7 from "@/lib/assets/images/services/deep/image-7.jpg";
 import imageDeep8 from "@/lib/assets/images/services/deep/image-8.jpg";
-import imageDeep9 from "@/lib/assets/images/services/deep/image-9.jpg";
+// import imageDeep9 from "@/lib/assets/images/services/deep/image-9.jpg";
 import imageDeep10 from "@/lib/assets/images/services/deep/image-10.jpg";
-import imageDeep11 from "@/lib/assets/images/services/deep/image-11.jpg";
-import imageDeep12 from "@/lib/assets/images/services/deep/image-12.jpg";
+// import imageDeep11 from "@/lib/assets/images/services/deep/image-11.jpg";
+// import imageDeep12 from "@/lib/assets/images/services/deep/image-12.jpg";
 
 // end of lease
 
@@ -51,7 +51,7 @@ import imageMould5 from "@/lib/assets/images/services/mould/image-5.jpg";
 import imageMould6 from "@/lib/assets/images/services/mould/image-6.jpg";
 import imageMould7 from "@/lib/assets/images/services/mould/image-7.jpg";
 import imageMould8 from "@/lib/assets/images/services/mould/image-8.jpg";
-import imageMould9 from "@/lib/assets/images/services/mould/image-9.jpg";
+// import imageMould9 from "@/lib/assets/images/services/mould/image-9.jpg";
 import imageMould10 from "@/lib/assets/images/services/mould/image-10.jpg";
 import imageMould11 from "@/lib/assets/images/services/mould/image-11.jpg";
 import imageMould12 from "@/lib/assets/images/services/mould/image-12.jpg";
@@ -83,13 +83,13 @@ import imageRestaurant3 from "@/lib/assets/images/services/restaurant/image-3.jp
 import imageRestaurant4 from "@/lib/assets/images/services/restaurant/image-4.jpg";
 import imageRestaurant5 from "@/lib/assets/images/services/restaurant/image-5.jpg";
 import imageRestaurant6 from "@/lib/assets/images/services/restaurant/image-6.jpg";
-import imageRestaurant7 from "@/lib/assets/images/services/restaurant/image-7.jpg";
-import imageRestaurant8 from "@/lib/assets/images/services/restaurant/image-8.jpg";
+// import imageRestaurant7 from "@/lib/assets/images/services/restaurant/image-7.jpg";
+// import imageRestaurant8 from "@/lib/assets/images/services/restaurant/image-8.jpg";
 import imageRestaurant9 from "@/lib/assets/images/services/restaurant/image-9.jpg";
-import imageRestaurant10 from "@/lib/assets/images/services/restaurant/image-10.jpg";
+// import imageRestaurant10 from "@/lib/assets/images/services/restaurant/image-10.jpg";
 import imageRestaurant11 from "@/lib/assets/images/services/restaurant/image-11.jpg";
 import imageRestaurant12 from "@/lib/assets/images/services/restaurant/image-12.jpg";
-import imageRestaurant13 from "@/lib/assets/images/services/restaurant/image-13.jpg";
+// import imageRestaurant13 from "@/lib/assets/images/services/restaurant/image-13.jpg";
 import imageRestaurant14 from "@/lib/assets/images/services/restaurant/image-14.jpg";
 import imageRestaurant15 from "@/lib/assets/images/services/restaurant/image-15.jpg";
 import imageRestaurant16 from "@/lib/assets/images/services/restaurant/image-16.jpg";
@@ -114,17 +114,17 @@ export const imagesAirbnb = [
 
 export const imagesDeep = [
   imageDeep1,
-  imageDeep2,
-  imageDeep3,
-  imageDeep4,
+  // imageDeep2,
+  // imageDeep3,
+  // imageDeep4,
   imageDeep5,
-  imageDeep6,
-  imageDeep7,
+  // imageDeep6,
+  // imageDeep7,
   imageDeep8,
-  imageDeep9,
+  // imageDeep9,
   imageDeep10,
-  imageDeep11,
-  imageDeep12,
+  // imageDeep11,
+  // imageDeep12,
 ];
 
 export const imagesEndOfLease = [
@@ -149,7 +149,6 @@ export const imagesMould = [
   imageMould6,
   imageMould7,
   imageMould8,
-  imageMould9,
   imageMould10,
   imageMould11,
   imageMould12,
@@ -181,13 +180,13 @@ export const imagesRestaurant = [
   imageRestaurant4,
   imageRestaurant5,
   imageRestaurant6,
-  imageRestaurant7,
-  imageRestaurant8,
+  // imageRestaurant7,
+  // imageRestaurant8,
   imageRestaurant9,
-  imageRestaurant10,
+  // imageRestaurant10,
   imageRestaurant11,
   imageRestaurant12,
-  imageRestaurant13,
+  // imageRestaurant13,
   imageRestaurant14,
   imageRestaurant15,
   imageRestaurant16,

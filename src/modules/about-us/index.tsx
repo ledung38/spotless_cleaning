@@ -1,13 +1,9 @@
-import {
-  AnimateButton,
-  AnimateDiv,
-  AnimateLink,
-} from "@/components/common/Animate";
+import { AnimateDiv, AnimateLink } from "@/components/common/Animate";
 import SmoothLoopVideo from "@/components/common/BannerVideo";
+import { CompactApp } from "@/components/common/Compact";
 import { TextGradient } from "@/components/common/TextGradient";
 import { Routes } from "@/lib/enum/routes";
 import TagTitle from "@/modules/home/Tag";
-import { ArrowRight } from "lucide-react";
 import React from "react";
 
 // ============================================================================
@@ -581,6 +577,23 @@ const AboutUs = () => {
               </AnimateDiv>
             ))}
           </div>
+
+          <AnimateDiv
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="mt-20"
+          >
+            <CompactApp
+              title="Ready for Spotless Perfection?"
+              subtitle=" Let our expert team transform your space into a spotless haven.
+                Contact us today to schedule your cleaning service and
+                experience the N&T Spotless Cleaning difference."
+              textButton="Book Now"
+              className="rounded-3xl"
+            />
+          </AnimateDiv>
         </div>
       </section>
 
@@ -779,54 +792,6 @@ const AboutUs = () => {
       </section> */}
 
       {/* ========== CTA SECTION ========== */}
-      <section className="relative py-8 lg:py-16 overflow-hidden bg-gradient-to-r from-blue-600 via-blue-700 to-cyan-600 ">
-        {/* Animated background blobs */}
-        <AnimateDiv
-          className="absolute inset-0 opacity-30 "
-          animate={{
-            backgroundPosition: ["0% 0%", "100% 100%"],
-          }}
-          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 20% 50%, rgba(255,255,255, 0.1), transparent 50%), radial-gradient(circle at 80% 80%, rgba(255,255,255, 0.1), transparent 50%)",
-            backgroundSize: "200% 200%",
-          }}
-        />
-
-        <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 ">
-          <AnimateDiv
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="text-center space-y-8"
-          >
-            <div>
-              <h2 className="text-4xl lg:text-5xl font-black text-white mb-6 leading-tight">
-                Ready for Spotless Perfection?
-              </h2>
-              <p className="text-lg text-blue-100/90 leading-relaxed max-w-2xl mx-auto">
-                Let our expert team transform your space into a spotless haven.
-                Contact us today to schedule your cleaning service and
-                experience the N&T Spotless Cleaning difference.
-              </p>
-            </div>
-
-            <AnimateDiv className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <AnimateLink
-                whileHover={{ scale: 1.05, translateY: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-white text-blue-700 font-bold rounded-xl shadow-xl hover:shadow-2xl hover:shadow-blue-600/40 transition-all duration-300 inline-flex items-center justify-center gap-2"
-                href={Routes.BOOKING}
-              >
-                Book Now
-                <ArrowRight size={20} />
-              </AnimateLink>
-            </AnimateDiv>
-          </AnimateDiv>
-        </div>
-      </section>
     </div>
   );
 };
