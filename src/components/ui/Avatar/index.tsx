@@ -66,13 +66,14 @@ function NextAvatar({ children, className, src, ...props }: Props) {
   const imageProps = getImageProps({
     width: 40,
     height: 40,
+    quality: 75,
     src: safeSrc,
     ...props,
   }).props;
 
   return (
     <Avatar className={className}>
-      <AvatarImage {...imageProps} />
+      <AvatarImage {...imageProps} loading="lazy" decoding="async" />
       <AvatarFallback>{children}</AvatarFallback>
     </Avatar>
   );

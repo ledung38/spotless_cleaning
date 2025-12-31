@@ -8,11 +8,15 @@ import Script from "next/script";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
+  fallback: ["system-ui", "arial"],
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
+  fallback: ["monospace"],
 });
 
 // Base metadata
@@ -152,7 +156,7 @@ export default function RootLayout({
   return (
     <html lang="en-AU" suppressHydrationWarning>
       <head>
-        {/* Preconnect to external resources */}
+        {/* Critical resources */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -160,7 +164,11 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
 
-        {/* Google tag (gtag.js) */}
+        {/* DNS Prefetch */}
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+
+        {/* Google tag (gtag.js) - Deferred */}
         <Script
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-HWPMP7DHGW"
@@ -177,9 +185,6 @@ export default function RootLayout({
             `,
           }}
         />
-        {/* DNS Prefetch */}
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
 
         {/* Structured Data - Organization */}
         <script

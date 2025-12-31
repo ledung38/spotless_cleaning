@@ -39,9 +39,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         whileHover={{ y: -8, transition: { duration: 0.2 } }}
         className="relative rounded-2xl bg-card border border-border/50 hover:border-primary/50 transition-all duration-300 overflow-hidden"
       >
-        {/* Background gradient */}
+        {/* Background gradient - Disabled on mobile */}
         <AnimateDiv
-          className={`absolute inset-0 bg-gradient-to-br ${color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
+          className={`absolute inset-0 bg-gradient-to-br ${color} opacity-0 group-hover:opacity-5 transition-opacity duration-300 hidden sm:block`}
         />
 
         {/* Nội dung */}
@@ -52,6 +52,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             height={Icon.height}
             alt={title}
             className="w-full h-full"
+            quality={75}
           />
 
           <div className="relative z-10 p-6">
@@ -72,9 +73,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           </div>
         </div>
 
-        {/* Shine effect */}
+        {/* Shine effect - Hidden on mobile */}
         <AnimateDiv
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-10"
+          className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-10 hidden sm:block"
           initial={{ x: "-100%" }}
           whileHover={{ x: "100%" }}
           transition={{ duration: 0.5 }}

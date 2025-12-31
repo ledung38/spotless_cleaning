@@ -77,8 +77,7 @@ const BannerSlider = ({ images, autoPlay, autoPlayInterval }) => {
                 alt={`Slide ${index + 1}`}
                 width={500}
                 height={450}
-                priority
-                quality={100}
+                priority={index === 0}
                 className="absolute inset-0 w-full h-[450px] object-fill"
               />
             </CarouselItem>

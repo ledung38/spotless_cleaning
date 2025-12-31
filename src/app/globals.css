@@ -1,6 +1,45 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Core Web Vitals Optimization */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Reduce animation on mobile for better performance */
+@media (max-width: 768px) {
+  * {
+    animation-duration: 0.2s !important;
+    transition-duration: 0.15s !important;
+  }
+
+  /* Disable animations for elements */
+  [data-animation="disabled"],
+  .motion-reduce-mobile {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Optimize images for better LCP */
+img {
+  content-visibility: auto;
+}
+
+/* Preload critical resources */
+link[rel="preload"] {
+  font-display: swap;
+}
+
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @theme inline {
