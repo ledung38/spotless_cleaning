@@ -1,47 +1,13 @@
 import {
-  AnimateButton,
   AnimateDiv,
-  AnimateLi,
   AnimateSpan,
   AnimateTr,
-  AnimateUl,
 } from "@/components/common/Animate";
 import { CompactApp } from "@/components/common/Compact";
-import { TextGradient } from "@/components/common/TextGradient";
 import { TickIcon } from "@/components/icons";
-import { useAppRouter } from "@/hooks/useAppRouter";
-import { Routes } from "@/lib/enum/routes";
 import PricingList from "@/modules/pricing/PricingCard";
 
 import React from "react";
-
-const FloatingShape: React.FC<{
-  delay: number;
-  position: string;
-  size: number;
-  opacity: number;
-}> = ({ delay, position, size, opacity }) => {
-  return (
-    <AnimateDiv
-      className={`absolute ${position} rounded-full bg-primary/10 blur-3xl pointer-events-none`}
-      style={{
-        width: size,
-        height: size,
-        opacity,
-      }}
-      animate={{
-        y: [0, -50, 0],
-        x: [0, 30, 0],
-      }}
-      transition={{
-        duration: 8 + delay,
-        delay: delay * 0.5,
-        repeat: Infinity,
-        ease: "easeInOut",
-      }}
-    />
-  );
-};
 
 const ComparisonRow: React.FC<{
   label: string;
@@ -82,26 +48,6 @@ const ComparisonRow: React.FC<{
 export const Pricing: React.FC = () => {
   return (
     <section className="relative w-full py-10 sm:py-16 overflow-hidden bg-gradient-to-b from-background via-primary/2 to-background">
-      {/* Animated background shapes */}
-      {/* <FloatingShape
-        delay={0}
-        position="top-20 -right-40 z-9999"
-        size={400}
-        opacity={0.08}
-      />
-      <FloatingShape
-        delay={2}
-        position="bottom-40 -left-32"
-        size={350}
-        opacity={0.06}
-      />
-      <FloatingShape
-        delay={4}
-        position="top-1/2 right-1/4"
-        size={300}
-        opacity={0.05}
-      /> */}
-
       {/* Grid pattern background */}
       <div className="absolute inset-0 bg-grid-primary/5 bg-[size:50px_50px] [mask-image:linear-gradient(to_bottom,transparent,black,black,transparent)]" />
 
@@ -115,18 +61,6 @@ export const Pricing: React.FC = () => {
           className="text-center mb-16"
         >
           {/* Badge */}
-          {/* <AnimateDiv
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="inline-flex items-center gap-2 bg-primary/10 backdrop-blur-sm border border-primary/20 rounded-full px-4 py-2 mb-6 hover:bg-primary/15 transition-colors duration-300"
-          >
-            <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-            <span className="text-sm font-semibold text-primary">
-              Pricing options
-            </span>
-          </AnimateDiv> */}
 
           {/* Title */}
           <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-4 leading-tight">
@@ -226,35 +160,6 @@ export const Pricing: React.FC = () => {
             </table>
           </div>
         </AnimateDiv>
-
-        {/* CTA Section */}
-        {/* <AnimateDiv
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="text-center bg-gradient-to-r from-primary/5 via-primary/3 to-primary/5 border border-primary/20 rounded-3xl p-8 lg:p-12"
-        >
-          <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-4">
-            Ready to get started?
-          </h3>
-          <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Pick the perfect cleaning plan for your needs and experience the N&T
-            Spotless Cleaning difference today.
-          </p>
-          <motion.button
-            whileHover={{ scale: 1.05, translateY: -2 }}
-            whileTap={{ scale: 0.95 }}
-            className="relative px-8 py-4 bg-gradient-to-r from-primary to-blue-600 text-primary-foreground font-bold rounded-xl shadow-lg hover:shadow-2xl hover:shadow-primary/40 transition-all duration-300 group overflow-hidden inline-flex items-center gap-2"
-          >
-            <span className="relative z-10 flex items-center gap-2">
-              Get Your Free Quote
-              <AnimateSpan whileHover={{ x: 4 }} transition={{ duration: 0.3 }}>
-                →
-              </AnimateSpan>
-            </span>
-          </motion.button>
-        </AnimateDiv> */}
 
         <AnimateDiv
           initial={{ opacity: 0, y: 30 }}

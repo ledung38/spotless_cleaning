@@ -4,73 +4,12 @@ import { CompactApp } from "@/components/common/Compact";
 import { TextGradient } from "@/components/common/TextGradient";
 import { Routes } from "@/lib/enum/routes";
 import TagTitle from "@/modules/home/Tag";
+import Image from "next/image";
 import React from "react";
 
 // ============================================================================
 // COMPONENTS
 // ============================================================================
-
-const ValueCard = ({
-  icon: Icon,
-  title,
-  description,
-  delay,
-  colorClass,
-}: {
-  icon: React.ComponentType<any>;
-  title: string;
-  description: string;
-  delay: number;
-  colorClass: string;
-}) => {
-  return (
-    <AnimateDiv
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay }}
-      viewport={{ once: true, margin: "-100px" }}
-      whileHover={{ y: -12, scale: 1.02 }}
-      className={`group relative h-full overflow-hidden rounded-3xl p-8 border-2 backdrop-blur-sm ${colorClass} transition-all duration-300 cursor-pointer`}
-    >
-      {/* Animated gradient overlay */}
-      <AnimateDiv
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        initial={false}
-        animate={{
-          background:
-            "radial-gradient(600px at 50% 50%, rgba(255,255,255, 0.1), transparent 80%)",
-        }}
-      />
-
-      {/* Content */}
-      <div className="relative z-10 space-y-4">
-        {/* Icon */}
-        <AnimateDiv
-          whileHover={{ rotate: 360, scale: 1.15 }}
-          transition={{ duration: 0.8 }}
-          className="w-20 h-20 rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20 group-hover:bg-white/20 transition-all duration-300"
-        >
-          <Icon className="w-10 h-10 text-white" />
-        </AnimateDiv>
-
-        {/* Title */}
-        <h3 className="text-2xl font-bold text-white">{title}</h3>
-
-        {/* Description */}
-        <p className="text-white/80 leading-relaxed text-sm">{description}</p>
-
-        {/* Bottom accent */}
-        <AnimateDiv
-          initial={{ width: 0 }}
-          whileInView={{ width: 40 }}
-          transition={{ duration: 0.8, delay: delay + 0.2 }}
-          viewport={{ once: true }}
-          className="h-1 bg-white/40 rounded-full mt-6"
-        />
-      </div>
-    </AnimateDiv>
-  );
-};
 
 // MAIN COMPONENT
 // ============================================================================
@@ -186,9 +125,13 @@ const AboutUs = () => {
               <div className="relative overflow-hidden rounded-3xl h-96 lg:h-full min-h-96 shadow-2xl">
                 {/* Image placeholder with gradient */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-blue-100/30 to-primary/20 flex items-center justify-center">
-                  <div className="bg-[rgba(37,37,37,0.19)] absolute inset-0" />
                   <div className="text-center space-y-4 h-full">
-                    <img
+                    <Image
+                      width={400}
+                      height={400}
+                      quality={100}
+                      unoptimized
+                      priority
                       src={"/cleaning.png"}
                       alt="image about us"
                       className="w-full h-full object-cover"

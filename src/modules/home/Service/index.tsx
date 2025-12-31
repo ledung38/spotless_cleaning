@@ -3,7 +3,7 @@ import { TextGradient } from "@/components/common/TextGradient";
 import { ArrowRightIcon } from "@/components/icons";
 import { services } from "@/modules/home/contants";
 import TagTitle from "@/modules/home/Tag";
-import { StaticImageData } from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -46,7 +46,13 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 
         {/* Nội dung */}
         <div>
-          <img src={Icon.src} alt={title} className="w-full h-full" />
+          <Image
+            src={Icon.src}
+            width={Icon.width}
+            height={Icon.height}
+            alt={title}
+            className="w-full h-full"
+          />
 
           <div className="relative z-10 p-6">
             <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">

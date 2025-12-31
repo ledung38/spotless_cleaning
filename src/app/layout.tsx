@@ -161,10 +161,10 @@ export default function RootLayout({
         />
 
         {/* Google tag (gtag.js) */}
-        <script
-          async
+        <Script
+          strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-HWPMP7DHGW"
-        ></script>
+        ></Script>
         <Script
           id="ga4-init"
           strategy="afterInteractive"

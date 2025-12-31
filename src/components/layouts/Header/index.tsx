@@ -86,18 +86,8 @@ export const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const ref = React.useRef<HTMLDivElement>(null);
-  const navigate = useAppRouter();
   const route = useAppRouter();
   const isHome = pathname === "/";
-
-  const onChangeTab = useCallback(
-    (key: string) => {
-      setActive(key);
-      navigate.push(key);
-      setIsMobileMenuOpen(false);
-    },
-    [navigate],
-  );
 
   const toggleMobileMenu = useCallback(() => {
     setIsMobileMenuOpen((prev) => !prev);
@@ -177,7 +167,7 @@ export const Header = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
             >
-              {MENU_ITEMS.map((item, index) => {
+              {MENU_ITEMS.map((item) => {
                 const hasSubTabs = item.children && item.children.length > 0;
 
                 if (hasSubTabs) {

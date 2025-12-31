@@ -39,38 +39,9 @@ const BannerSlider = ({ images, autoPlay, autoPlayInterval }) => {
     };
   }, [api]);
 
-  const slideVariants = {
-    enter: (direction: number) => ({
-      x: direction > 0 ? 1000 : -1000,
-      opacity: 0,
-    }),
-    center: {
-      zIndex: 1,
-      x: 0,
-      opacity: 1,
-    },
-    exit: (direction: number) => ({
-      zIndex: 0,
-      x: direction < 0 ? 1000 : -1000,
-      opacity: 0,
-    }),
-  };
-
   return (
-    <div
-      // initial={{ opacity: 0, x: 40 }}
-      // animate={{ opacity: 1, x: 0 }}
-      // transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-      className="relative h-96 lg:h-[480px] rounded-3xl overflow-hidden"
-    >
+    <div className="relative h-96 lg:h-[480px] rounded-3xl overflow-hidden">
       <Carousel
-        // variants={{
-        //   hidden: { opacity: 0, transform: "scale(0.9)" },
-        //   visible: { opacity: 1, transform: "scale(1)" },
-        // }}
-        // initial="hidden"
-        // animate={"visible"}
-        // transition={{ type: "spring", delay: 0.2 }}
         setApi={setApi}
         className={`relative z-[2] w-full
                inset-0 rounded-3xl overflow-hidden bg-gradient-to-br from-primary/10 to-blue-100/20 border border-primary/10
@@ -104,18 +75,10 @@ const BannerSlider = ({ images, autoPlay, autoPlayInterval }) => {
                 key={index}
                 src={item.src}
                 alt={`Slide ${index + 1}`}
-                // variants={slideVariants}
-                // initial="enter"
-                // animate="center"
-                // exit="exit"
                 width={500}
                 height={450}
                 priority
                 quality={100}
-                // transition={{
-                //   x: { type: "spring", stiffness: 300, damping: 30 },
-                //   opacity: { duration: 0.5 },
-                // }}
                 className="absolute inset-0 w-full h-[450px] object-fill"
               />
             </CarouselItem>
@@ -125,8 +88,6 @@ const BannerSlider = ({ images, autoPlay, autoPlayInterval }) => {
           <button
             data-slot="button"
             aria-label="previous slider"
-            // whileHover={{ scale: 1.15 }}
-            // whileTap={{ scale: 0.9 }}
             onClick={() => api?.scrollPrev()}
             className="w-10 h-10 rounded-full hover:scale-115 active:scale-90 bg-white/95 backdrop-blur-sm flex items-center justify-center text-primary hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl"
           >
@@ -136,8 +97,6 @@ const BannerSlider = ({ images, autoPlay, autoPlayInterval }) => {
           <button
             data-slot="button"
             aria-label="next slider"
-            // whileHover={{ scale: 1.15 }}
-            // whileTap={{ scale: 0.9 }}
             onClick={() => api?.scrollNext()}
             className="w-10 h-10 rounded-full hover:scale-115 active:scale-90 bg-white/95 backdrop-blur-sm flex items-center justify-center text-primary hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl"
           >

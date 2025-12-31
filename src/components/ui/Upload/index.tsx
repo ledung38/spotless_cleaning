@@ -1,17 +1,11 @@
 import React, { useCallback, useRef, useState } from "react";
 
+import { Button } from "@/components/ui/Button";
+import Modal from "@/components/ui/Dialog/Modal";
+import Image from "@/components/ui/Image";
 import { Input } from "@/components/ui/Input";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/Button";
-import { DeleteIcon, Edit2, Eye, SquarePen, Trash, X } from "lucide-react";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/Dialog";
-import Image from "@/components/ui/Image";
-import Modal from "@/components/ui/Dialog/Modal";
+import { Eye, SquarePen, X } from "lucide-react";
 
 export type FileWithPreview = File & {
   preview?: string;
@@ -167,8 +161,10 @@ const Upload = ({
                 key={file.uid}
                 className="relative w-full overflow-hidden rounded-lg"
               >
-                <img
-                  src={file.preview}
+                <Image
+                  width={100}
+                  height={100}
+                  src={file.preview || ""}
                   alt={file.name}
                   className="h-full w-full"
                 />
@@ -233,10 +229,12 @@ const Upload = ({
         disableCloseIcon={true}
         className="p-0"
       >
-        <img
-          src={previewFile?.preview}
-          alt={previewFile?.name}
-          className="w-full"
+        <Image
+          width={100}
+          height={100}
+          src={previewFile?.preview || ""}
+          alt={previewFile?.name || ""}
+          className="w-full h-auto"
         />
       </Modal>
     </>
