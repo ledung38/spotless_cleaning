@@ -41,26 +41,9 @@ export const ServiceImages = ({ slug }) => {
     };
   }, [api]);
 
-  const slideVariants = {
-    enter: (direction: number) => ({
-      x: direction > 0 ? 1000 : -1000,
-      opacity: 0,
-    }),
-    center: {
-      zIndex: 1,
-      x: 0,
-      opacity: 1,
-    },
-    exit: (direction: number) => ({
-      zIndex: 0,
-      x: direction < 0 ? 1000 : -1000,
-      opacity: 0,
-    }),
-  };
   return (
     <div className="relative">
       <div className="relative w-full overflow-hidden bg-white py-16 sm:py-24 lg:py-24 !pb-24 dark:bg-gradient-to-b dark:from-background dark:to-background dark:via-primary/60">
-        {/* <div className="bg-[url('/bg_layer.webp')] bg-repeat w-64 h-64 absolute"></div> */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 relative">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -121,18 +104,12 @@ export const ServiceImages = ({ slug }) => {
                     key={index}
                     className={`relative max-w-none  h-[450px] pl-16 max-sm:basis-full md:basis-1/2 lg:basis-1/3   `}
                   >
-                    <motion.img
+                    <img
                       key={index}
                       src={item.src}
                       alt={`Slide ${index + 1}`}
-                      variants={slideVariants}
-                      initial="enter"
-                      animate="center"
-                      exit="exit"
-                      transition={{
-                        x: { type: "spring", stiffness: 300, damping: 30 },
-                        opacity: { duration: 0.5 },
-                      }}
+                      loading={index <= 2 ? "eager" : "lazy"}
+                      decoding="async"
                       className="w-full h-full object-fill rounded-2xl"
                     />
                   </CarouselItem>
@@ -144,6 +121,7 @@ export const ServiceImages = ({ slug }) => {
                   whileTap={{ scale: 0.9 }}
                   onClick={() => api?.scrollPrev()}
                   className="w-10 h-10 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center text-primary hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl"
+                  aria-label="Previous slide"
                 >
                   <ChevronLeft size={20} />
                 </motion.button>
@@ -153,6 +131,7 @@ export const ServiceImages = ({ slug }) => {
                   whileTap={{ scale: 0.9 }}
                   onClick={() => api?.scrollNext()}
                   className="w-10 h-10 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center text-primary hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl"
+                  aria-label="Next slide"
                 >
                   <ChevronRight size={20} />
                 </motion.button>

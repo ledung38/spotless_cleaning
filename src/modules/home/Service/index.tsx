@@ -3,7 +3,7 @@ import { TextGradient } from "@/components/common/TextGradient";
 import { ArrowRightIcon } from "@/components/icons";
 import { services } from "@/modules/home/contants";
 import TagTitle from "@/modules/home/Tag";
-import { StaticImageData } from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -39,14 +39,21 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         whileHover={{ y: -8, transition: { duration: 0.2 } }}
         className="relative rounded-2xl bg-card border border-border/50 hover:border-primary/50 transition-all duration-300 overflow-hidden"
       >
-        {/* Background gradient */}
+        {/* Background gradient - Disabled on mobile */}
         <AnimateDiv
-          className={`absolute inset-0 bg-gradient-to-br ${color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
+          className={`absolute inset-0 bg-gradient-to-br ${color} opacity-0 group-hover:opacity-5 transition-opacity duration-300 hidden sm:block`}
         />
 
         {/* Nội dung */}
         <div>
-          <img src={Icon.src} alt={title} className="w-full h-full" />
+          <Image
+            src={Icon.src}
+            width={Icon.width}
+            height={Icon.height}
+            alt={title}
+            className="w-full h-full"
+            quality={75}
+          />
 
           <div className="relative z-10 p-6">
             <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
@@ -66,9 +73,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           </div>
         </div>
 
-        {/* Shine effect */}
+        {/* Shine effect - Hidden on mobile */}
         <AnimateDiv
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-10"
+          className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-10 hidden sm:block"
           initial={{ x: "-100%" }}
           whileHover={{ x: "100%" }}
           transition={{ duration: 0.5 }}

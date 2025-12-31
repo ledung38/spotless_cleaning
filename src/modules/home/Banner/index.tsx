@@ -1,8 +1,4 @@
-import {
-  AnimateButton,
-  AnimateDiv,
-  AnimateSpan,
-} from "@/components/common/Animate";
+import { AnimateSpan } from "@/components/common/Animate";
 import SmoothLoopVideo from "@/components/common/BannerVideo";
 import { ArrowCircleRightIcon } from "@/components/icons";
 import BannerSlider from "@/modules/home/Banner/BannerSlider";
@@ -10,98 +6,18 @@ import { imageImages } from "@/modules/home/Banner/contants";
 import { HandCoins, Shield, Sparkles, Zap } from "lucide-react";
 import { StaticImageData } from "next/image";
 import React from "react";
-const FloatingIcon = ({
-  Icon,
-  delay,
-  position,
-}: {
-  Icon: React.ComponentType<any>;
-  delay: number;
-  position: string;
-}) => {
-  return (
-    <AnimateDiv
-      className={`absolute ${position}`}
-      animate={{
-        y: [0, -30, 0],
-        rotate: [0, 5, -5, 0],
-      }}
-      transition={{
-        duration: 4,
-        delay,
-        repeat: Infinity,
-        ease: "easeInOut",
-      }}
-    >
-      <div className="text-primary opacity-60">
-        <Icon size={64} className="drop-shadow-lg" />
-      </div>
-    </AnimateDiv>
-  );
-};
 
 const FeatureBadge = ({
   icon: Icon,
   text,
-  delay = 0,
 }: {
   icon: React.ComponentType<any>;
   text: string;
-  delay?: number;
 }) => {
   return (
-    <div
-      // initial={{ opacity: 0, x: -20 }}
-      // animate={{ opacity: 1, x: 0 }}
-      // transition={{
-      //   duration: 0.5,
-      //   delay: 0.6 + delay,
-      //   ease: "easeOut",
-      // }}
-      // whileHover={{ scale: 1.05, translateY: -3 }}
-      className="flex justify-start items-center gap-2 rounded-full px-2.5 sm:px-4  lg:pr-10  py-2 transition-all duration-300 bg-[#c8d4e0] hover:brightness-110 hover:scale-105"
-    >
+    <div className="flex justify-start items-center gap-2 rounded-full px-2.5 sm:px-4  lg:pr-10  py-2 transition-all duration-300 bg-[#c8d4e0] hover:brightness-110 hover:scale-105">
       <Icon size={18} className="text-[#6b7d94] font-bold" />
       <span className="font-bold text-[#6b7d94] text ">{text}</span>
-    </div>
-  );
-};
-const AnimatedText = ({
-  children,
-  delay,
-}: {
-  children: string;
-  delay: number;
-}) => {
-  const words = children.split(" ");
-
-  return (
-    <div className="overflow-hidden">
-      <AnimateDiv
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          duration: 0.6,
-          delay,
-          ease: "easeOut",
-        }}
-      >
-        {words.map((word, idx) => (
-          <AnimateSpan
-            key={idx}
-            className="inline-block mr-2"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.5,
-              delay: delay + idx * 0.08,
-              ease: "easeOut",
-            }}
-          >
-            {word}
-          </AnimateSpan>
-        ))}
-      </AnimateDiv>
     </div>
   );
 };
@@ -134,14 +50,6 @@ export const Banner = ({
       <div className="absolute inset-0">
         <SmoothLoopVideo src="/banner_video.mp4" />
       </div>
-      {/* <FloatingIcon Icon={Sparkles} delay={0} position="top-20 right-10" /> */}
-      {/* <FloatingIcon Icon={Zap} delay={0.5} position="top-40 left-20" /> */}
-      {/* <FloatingIcon Icon={Shield} delay={1} position="bottom-32 right-20" /> */}
-      {/* <FloatingIcon Icon={Sparkles} delay={1.5} position="bottom-20 left-32" /> */}
-      {/* <div className="bg-[url('/home_banner_v2.png')] absolute inset-0 bg-cover" /> */}
-      {/* <div className="bg-gradient-to-r  from-[rgba(248,248,248,.89)] via-[rgba(248,248,248,.59)] to-[rgba(248,248,248,.01)] absolute inset-0" /> */}
-      {/* <div className="bg-gradient-to-br from-primary via-blue-800 to-purple-900 absolute inset-0 opacity-40" /> */}
-      {/* <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/10 to-transparent" /> */}
 
       {/* Main Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-25">
@@ -180,22 +88,10 @@ export const Banner = ({
 
             {/* Feature Badges */}
             <div className="grid grid-cols-2 gap-3 pt-6 w-fit">
-              <FeatureBadge
-                icon={Sparkles}
-                text="Professional Team"
-                delay={0}
-              />
-              <FeatureBadge icon={Zap} text="On Time" delay={0.1} />
-              <FeatureBadge
-                icon={Shield}
-                text="100% Satisfaction"
-                delay={0.2}
-              />
-              <FeatureBadge
-                icon={HandCoins}
-                text="Affordable Rates"
-                delay={0.3}
-              />
+              <FeatureBadge icon={Sparkles} text="Professional Team" />
+              <FeatureBadge icon={Zap} text="On Time" />
+              <FeatureBadge icon={Shield} text="100% Satisfaction" />
+              <FeatureBadge icon={HandCoins} text="Affordable Rates" />
             </div>
 
             {/* CTA Button */}

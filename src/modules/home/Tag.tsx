@@ -7,7 +7,7 @@ type Props = {
   className?: string;
   isShowPulse?: boolean;
 };
-const TagTitle = ({ children, className = "", isShowPulse = false }) => {
+const TagTitle = ({ children, className = "", isShowPulse = false }: Props) => {
   return (
     <motion.span
       initial={{ opacity: 0, x: -20 }}

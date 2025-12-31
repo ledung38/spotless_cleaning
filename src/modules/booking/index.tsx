@@ -933,6 +933,7 @@ export const BookingWizard: React.FC = () => {
         );
       }
     } catch (error: any) {
+      console.error(error);
       message.error("Something went wrong.");
     }
   }

@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Image optimization
+  // Image optimization - Aggressive quality reduction
   images: {
     remotePatterns: [
       {
@@ -25,7 +25,7 @@ const nextConfig: NextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 86400,
-    qualities: [75, 85, 90, 95, 100],
+    qualities: [60, 75, 85, 90, 95, 100],
   },
 
   // Headers for SEO
@@ -58,6 +58,10 @@ const nextConfig: NextConfig = {
             key: "Permissions-Policy",
             value: "camera=(), microphone=(), geolocation=(self), usb=()",
           },
+          {
+            key: "Accept-Encoding",
+            value: "gzip, deflate, br",
+          },
         ],
       },
       // Cache static assets
@@ -70,7 +74,7 @@ const nextConfig: NextConfig = {
           },
         ],
       },
-      // Cache images
+      // Cache images - very aggressive
       {
         source: "/images/:path*",
         headers: [

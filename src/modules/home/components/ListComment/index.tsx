@@ -13,7 +13,6 @@ import {
   Text,
 } from "@/components/ui";
 import Flex from "@/components/ui/Flex";
-import { usePathname } from "next/navigation";
 import { memo, useEffect, useRef, useState } from "react";
 
 const Item = ({ item }: { item: any }) => {
@@ -61,7 +60,6 @@ const Item = ({ item }: { item: any }) => {
 const ListComment = ({ data }: { data: any }) => {
   const [api, setApi] = useState<CarouselApi | null>(null);
   const [current, setCurrent] = useState(1);
-  const pathname = usePathname();
 
   const totalSlides = data?.length ?? 0; // Total number of slides
   const slidesPerGroup = totalSlides >= 3 ? 3 : totalSlides; // Number of slides per pagination item
