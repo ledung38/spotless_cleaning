@@ -1,10 +1,4 @@
 {
-  "buildCommand": "next build",
-  "framework": "nextjs",
-  "installCommand": "yarn install",
-  "env": {
-    "NEXT_PUBLIC_SITE_URL": "@next-public-site-url"
-  },
   "headers": [
     {
       "source": "/:path*",
@@ -33,11 +27,5 @@
         }
       ]
     }
-  ],
-  "functions": {
-    "api/send-email.js": {
-      "memory": 1024,
-      "maxDuration": 30
-    }
-  }
+  ]
 }
