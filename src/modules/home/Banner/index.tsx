@@ -1,10 +1,12 @@
 import { AnimateSpan } from "@/components/common/Animate";
 import SmoothLoopVideo from "@/components/common/BannerVideo";
 import { ArrowCircleRightIcon } from "@/components/icons";
+import { Routes } from "@/lib/enum/routes";
 import BannerSlider from "@/modules/home/Banner/BannerSlider";
 import { imageImages } from "@/modules/home/Banner/contants";
 import { HandCoins, Shield, Sparkles, Zap } from "lucide-react";
 import { StaticImageData } from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const FeatureBadge = ({
@@ -95,10 +97,11 @@ export const Banner = ({
             </div>
 
             {/* CTA Button */}
-            <div
+            <Link
               // initial={{ opacity: 0, y: 20 }}
               // animate={{ opacity: 1, y: 0 }}
               // transition={{ duration: 0.6, delay: 1.2, ease: "easeOut" }}
+              href={Routes.BOOKING}
               className="pt-6"
             >
               <button
@@ -122,7 +125,7 @@ export const Banner = ({
                   </AnimateSpan>
                 </span>
               </button>
-            </div>
+            </Link>
 
             {/* Trust Stats */}
             <div className="grid grid-cols-3 gap-4 pt-8 border-t border-white/20">
