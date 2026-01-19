@@ -8,149 +8,150 @@ import RestaurantCleaning from "@/lib/assets/images/home/restaurant.png";
 import AirbnbCleaning from "@/lib/assets/images/home/airbnb.png";
 export const ratingsExample: TRatingDto[] = [
   {
-    customerName: "Sophie Williams",
+    customerName: "Bram Jansen",
     comment:
-      "Fantastic job! The apartment looks spotless and smells amazing. Would absolutely recommend.",
+      "Highly recommend N&T Spotless Cleaning. They were punctual, efficient, and extremely thorough.",
     serviceName: "Regular Cleaning",
-    avatar: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg", // nữ 30+, nụ cười nhẹ, tone ấm
+    avatar: "https://images.pexels.com/photos/937481/pexels-photo-937481.jpeg", // Nam Âu
   },
   {
     customerName: "Jack Thompson",
     comment: "Thorough end of lease cleaning that met agent requirements.",
     serviceName: "End of Lease Cleaning",
-    avatar: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg", // nam 35+, business look
+    avatar:
+      "https://images.pexels.com/photos/1680172/pexels-photo-1680172.jpeg", // Nam Âu
   },
   {
-    customerName: "Olivia Harris",
-    comment: "A very thorough deep clean with great attention to detail.",
-    serviceName: "Deep Cleaning",
-    avatar: "https://images.pexels.com/photos/340152/pexels-photo-340152.jpeg", // nữ 25+, friendly
-  },
-  {
-    customerName: "Liam Anderson",
+    customerName: "Marrtijn",
     comment:
-      "Really happy with the service. Quick, efficient, and great attention to detail.",
+      "Great attention to detail and very friendly cleaners. Will definitely use their service again.",
+    serviceName: "Deep Cleaning",
+    avatar: "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg", // Nam Âu
+  },
+  {
+    customerName: "Vinh Phạm",
+    comment:
+      "Very impressed with the quality of cleaning. The house looked perfect after they finished.",
     serviceName: "End of Lease Cleaning",
     avatar:
-      "https://images.pexels.com/photos/1840608/pexels-photo-1840608.jpeg", // nam 30+, casual
+      "https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg", // Nam Việt
   },
   {
-    customerName: "Charlotte Brown",
+    customerName: "Gia Anh Phan",
     comment:
-      "Excellent service! The kitchen and bathrooms are spotless. Feels so fresh now.",
+      "The team worked quickly, and cleaned everything really well. Very reliable, efficient, and also really friendly. Highly recommend!",
     serviceName: "Deep Cleaning",
-    avatar: "https://images.pexels.com/photos/325531/pexels-photo-325531.jpeg", // nữ 30+, natural
+    avatar: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg", // Nữ Việt
   },
   {
-    customerName: "Noah Martin",
+    customerName: "Phương Trần Thuk",
     comment:
-      "Outstanding Airbnb cleaning. The home was immaculate and ready on arrival.",
-    serviceName: "Airbnb Cleaning",
-    avatar: "https://images.pexels.com/photos/775358/pexels-photo-775358.jpeg", // nam 35+, chuyên nghiệp
-  },
-  {
-    customerName: "Emily Johnson",
-    comment:
-      "Lovely staff and top-quality work. My flat looks so tidy and bright!",
-    serviceName: "Regular Cleaning",
-    avatar:
-      "https://images.pexels.com/photos/3228213/pexels-photo-3228213.jpeg", // nữ 25+, business casual
-  },
-  {
-    customerName: "Benjamin White",
-    comment:
-      "End of lease cleaning done perfectly – we got our full bond back.",
-    serviceName: "End of Lease Cleaning",
-    avatar:
-      "https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg", // nam 30+, clean look
-  },
-  {
-    customerName: "Isla Clarke",
-    comment:
-      "Professional cleaning service that helps us maintain food safety standards.",
-    serviceName: "Restaurant Cleaning",
-    avatar: "https://images.pexels.com/photos/936075/pexels-photo-936075.jpeg", // nữ 25+, studio light
-  },
-  {
-    customerName: "Ethan Hall",
-    comment:
-      "Affordable, reliable, and friendly. Definitely my go-to for fortnightly cleans.",
-    serviceName: "Regular Cleaning",
-    avatar:
-      "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg", // nam 25+, ngoài trời
-  },
-  {
-    customerName: "Mia Roberts",
-    comment:
-      "The team was friendly and efficient. My house looks fresh and clean.",
-    serviceName: "Mould Cleaning",
-    avatar: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg", // nữ 25+, tóc ngắn, tự nhiên
-  },
-  {
-    customerName: "Oliver King",
-    comment:
-      "The crew did a spot-on job with our Restaurant. Floors and desks look great.",
-    serviceName: "Restaurant Cleaning",
-    avatar:
-      "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg", // nam 30+, friendly
-  },
-  {
-    customerName: "Harper Evans",
-    comment:
-      "Very clean, fresh, and well organised – exactly what we expect from an Airbnb.",
+      "The cleaning team did a very good job. The house is clean, tidy, and feels fresh and comfortable. The kitchen and bathroom were cleaned thoroughly, and everything was well organized. The staff were professional, polite, and worked efficiently. Overall, I am very satisfied with the service and would recommend it to others.",
     serviceName: "Airbnb Cleaning",
     avatar:
-      "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg", // nữ 25+, ngoài trời
+      "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg", // Nữ Việt
   },
   {
-    customerName: "Charlie Adams",
-    comment: "Mould issues were handled quickly and effectively.",
-    serviceName: "Mould Cleaning",
-    avatar:
-      "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg", // nam 30+, tự tin
+    customerName: "Giao Nguyễn",
+    comment: `I’m genuinely impressed with the quality of the cleaning service. From car cleaning to home cleaning, everything was handled with great care and attention to detail. The team works efficiently yet thoughtfully, leaving both the car and the house spotless and refreshed.
+What I appreciate most is the consistency and professionalis. It’s clear they take pride in their work. The results speak for themselves, making the whole experience effortless and reassuring. Highly recommended for anyone who values a clean space done properly.
+Thank youuu`,
+    serviceName: "Regular Cleaning",
+    avatar: "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg", // Nữ Việt
   },
   {
-    customerName: "Grace Lewis",
+    customerName: "Phuong Hoai",
     comment:
-      "Very happy with their end-of-lease service. Friendly staff and fair pricing.",
+      "The team did a wonderful job. Everything was cleaned to a very high standard.",
     serviceName: "End of Lease Cleaning",
-    avatar: "https://images.pexels.com/photos/428333/pexels-photo-428333.jpeg", // nữ 30+, áo trắng
+    avatar: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg", // Nữ Việt
   },
   {
-    customerName: "Mason Wilson",
-    comment: "A trustworthy regular cleaning service we rely on.",
+    customerName: "Dung Ruby",
+    comment: "Very good service. Highly recommend.",
+    serviceName: "Restaurant Cleaning",
+    avatar:
+      "https://images.pexels.com/photos/1520760/pexels-photo-1520760.jpeg", // Nữ Việt
+  },
+  {
+    customerName: "Do Nguyen",
+    comment: "Very professional, reliable, and detail-oriented service.",
     serviceName: "Regular Cleaning",
     avatar:
-      "https://images.pexels.com/photos/4587183/pexels-photo-4587183.jpeg", // nam 35+, thân thiện
+      "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg", // Nam Việt
   },
   {
-    customerName: "Ella Turner",
+    customerName: "Shoaib Khan",
     comment:
-      "The cleaners were polite and worked quickly. Everything looks spotless now.",
+      "These guys are very humble, honest and did a great job spotlessly cleaning my newly purchased house. Its always a risk hiring people of the internet and I was concerned whether I would have to clean up after them. Within the first 15 minutes, I realised how dedicated they are and how they took their time cleaning high priority areas like the bathrooms and kitchen. I am extremely grateful and as long as they are in business, I am contacting them first for all my cleaning needs.",
+    serviceName: "Mould Cleaning",
+    avatar: "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg", // Nam Nam Á
+  },
+  {
+    customerName: "Thao Vy Pham Thi",
+    comment: "The team arrived on time and cleaned everything thoroughly.",
     serviceName: "Restaurant Cleaning",
-    avatar: "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg", // nữ 25+, ánh sáng tự nhiên
+    avatar: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg", // Nữ Việt
   },
   {
-    customerName: "Henry Scott",
+    customerName: "Pham Trung Anh",
     comment:
-      "The mould was completely removed and the place feels much healthier now.",
+      "Spotless Cleaning did an amazing job — the place was absolutely spotless.",
+    serviceName: "Airbnb Cleaning",
+    avatar:
+      "https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg", // Nam Việt
+  },
+  {
+    customerName: "Lina Nguyen",
+    comment: "Good cleaning.",
+    serviceName: "Mould Cleaning",
+    avatar: "https://images.pexels.com/photos/340152/pexels-photo-340152.jpeg", // Nữ Việt
+  },
+  {
+    customerName: "Jinny Nguyen",
+    comment:
+      "Great experience overall. The cleaning team was efficient, responsive, and very easy to communicate with. The place was left spotless, and the price was very reasonable for such high-quality work. Highly recommend this cleaning team!",
+    serviceName: "End of Lease Cleaning",
+    avatar:
+      "https://images.pexels.com/photos/2102416/pexels-photo-2102416.jpeg", // Nữ Việt
+  },
+  {
+    customerName: "Minh Thang Pham",
+    comment:
+      "Reliable and professional cleaning service that exceeded my expectations. I will use it again.",
+    serviceName: "Regular Cleaning",
+    avatar:
+      "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg", // Nam Việt
+  },
+  {
+    customerName: "Duong Van",
+    comment:
+      "High-quality cleaning service with friendly and hardworking staff. Definitely worth the money.",
+    serviceName: "Restaurant Cleaning",
+    avatar:
+      "https://images.pexels.com/photos/1840608/pexels-photo-1840608.jpeg", // Nam Việt
+  },
+  {
+    customerName: "nguyen duc",
+    comment:
+      "My house looks brand new after the cleaning. The service was efficient and well-organized.",
     serviceName: "Mould Cleaning",
     avatar:
-      "https://images.pexels.com/photos/1840608/pexels-photo-1840608.jpeg", // nam 30+, casual
+      "https://images.pexels.com/photos/1704489/pexels-photo-1704489.jpeg", // Nam Việt
   },
   {
-    customerName: "Zoe Campbell",
+    customerName: "Hoa Nguyen",
     comment:
-      "Lovely experience. The team was cheerful and thorough. Highly recommend them!",
+      "The house cleaning service was very professional and thorough. My home felt fresh and spotless afterward.",
     serviceName: "Regular Cleaning",
-    avatar: "https://images.pexels.com/photos/340152/pexels-photo-340152.jpeg", // nữ 25+, tone ấm
+    avatar:
+      "https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg", // Nữ Việt
   },
   {
-    customerName: "Lucas Davis",
-    comment:
-      "They went above and beyond! Even cleaned spots I didn’t notice before.",
+    customerName: "Nguyen Linh",
+    comment: "Good service.",
     serviceName: "Deep Cleaning",
-    avatar: "https://images.pexels.com/photos/775358/pexels-photo-775358.jpeg", // nam 35+, business
+    avatar: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg", // Nữ Việt
   },
 ];
 

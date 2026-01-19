@@ -113,8 +113,8 @@ export const getLocalBusinessSchema = () => ({
   },
   aggregateRating: {
     "@type": "AggregateRating",
-    ratingValue: "4.9",
-    reviewCount: "2000",
+    ratingValue: "5",
+    reviewCount: "50",
   },
 });
 

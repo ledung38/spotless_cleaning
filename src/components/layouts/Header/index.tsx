@@ -337,7 +337,7 @@ export const Header = () => {
                 <a href="tel:0451210238" className="block">
                   <Button className="w-full flex gap-2 bg-white text-primary font-semibold hover:bg-blue-50 transition-all duration-200 py-3 rounded-lg shadow-md">
                     <PhoneIcon className="[&_path]:stroke-primary size-5" />
-                    <span className="text-white">0451210238</span>
+                    <span className="text-primary">0451210238</span>
                   </Button>
                 </a>
                 <Button
