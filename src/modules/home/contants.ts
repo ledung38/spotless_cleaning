@@ -1,7 +1,7 @@
 import { TRatingDto } from "@/modules/home/Comment";
 
 import ImageEndOfLeaseCleaning from "@/lib/assets/images/home/end-of-lease.png";
-import RegularCleaning from "@/lib/assets/images/home/regular-cleaning1.png";
+import RegularCleaning from "@/lib/assets/images/home/regular-cleaning.png";
 import DeepCleaning from "@/lib/assets/images/home/deep.png";
 import MouldCleaning from "@/lib/assets/images/home/mould.png";
 import RestaurantCleaning from "@/lib/assets/images/home/restaurant.png";

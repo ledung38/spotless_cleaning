@@ -5,7 +5,6 @@ import { Facebook, Instagram, Phone, Mail, MapPin } from "lucide-react";
 import { NextAvatar } from "@/components/ui";
 import { Routes } from "@/lib/enum/routes";
 import logo from "@/lib/assets/images/logo.webp";
-import { TikTokIcon } from "@/components/icons";
 import { AnimateLink } from "@/components/common/Animate";
 
 const Footer = () => {

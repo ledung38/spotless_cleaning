@@ -98,17 +98,6 @@ const SectionTitle: React.FC<{ delay: number }> = ({ delay }) => {
       viewport={{ once: true, margin: "-100px" }}
       className="text-center mb-16"
     >
-      {/* Badge */}
-      {/* <AnimateDiv
-        initial={{ opacity: 0, scale: 0.8 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, delay: delay - 0.1 }}
-        viewport={{ once: true, margin: "-100px" }}
-        className="inline-flex items-center gap-2 bg-primary/10 backdrop-blur-sm border border-primary/20 rounded-full px-4 py-2 mb-6 hover:bg-primary/15 transition-colors duration-300"
-      >
-        <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-        <span className="text-sm font-semibold text-primary">Our Services</span>
-        </AnimateDiv>*/}
       <TagTitle isShowPulse={true}>Our Services</TagTitle>
 
       {/* Main Title */}
@@ -217,37 +206,6 @@ export const Service: React.FC = () => {
             );
           })}
         </AnimateDiv>
-
-        {/* CTA Section */}
-
-        {/* <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.6,
-            delay: 0.9,
-            ease: "easeOut",
-          }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="mt-16 text-center"
-        >
-          <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-            Ready to experience spotless clean? Our team is here to help with
-            professional cleaning services tailored to your needs.
-          </p>
-          <motion.button
-            whileHover={{ scale: 1.05, translateY: -2 }}
-            whileTap={{ scale: 0.95 }}
-            className="relative px-8 py-4 bg-gradient-to-r from-primary to-blue-600 text-primary-foreground font-bold rounded-xl shadow-lg hover:shadow-2xl hover:shadow-primary/40 transition-all duration-300 group overflow-hidden"
-          >
-            <span className="relative z-10 flex items-center gap-2">
-              Book a Service
-              <motion.span whileHover={{ x: 4 }} transition={{ duration: 0.3 }}>
-                <ArrowRight size={20} />
-              </motion.span>
-            </span>
-          </motion.button>
-        </motion.div> */}
       </div>
     </section>
   );

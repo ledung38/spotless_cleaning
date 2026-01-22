@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://www.spotlesscleaningsydney.com/og-about.png",
+        url: "https://www.spotlesscleaningsydney.com/screenshot-wide.png",
         width: 1200,
         height: 630,
         alt: "About N&T Spotless Cleaning",

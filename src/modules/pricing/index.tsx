@@ -60,8 +60,6 @@ export const Pricing: React.FC = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-16"
         >
-          {/* Badge */}
-
           {/* Title */}
           <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-4 leading-tight">
             Transparent Pricing Plans
