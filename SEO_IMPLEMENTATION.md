@@ -100,7 +100,6 @@ public/
 ├── logo_500x500.png
 ├── og-image.jpg (default)
 ├── og-home.jpg
-├── og-about.png
 ├── og-pricing.png
 ├── og-services.png
 ├── og-booking.png

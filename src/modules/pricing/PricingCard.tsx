@@ -86,14 +86,6 @@ const PricingCard: React.FC<PricingCardProps> = ({
           </AnimateDiv>
         )}
 
-        {/* Shine effect */}
-        {/* <AnimateDiv
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-20"
-          initial={{ x: "-100%" }}
-          animate={isHovered ? { x: "100%" } : { x: "-100%" }}
-          transition={{ duration: 0.6 }}
-        /> */}
-
         {/* Content */}
         <div className="relative z-10 flex flex-col justify-between h-full">
           {/* Header */}
