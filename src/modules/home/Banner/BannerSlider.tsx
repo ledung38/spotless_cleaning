@@ -44,7 +44,6 @@ const BannerSlider = ({ images, autoPlay, autoPlayInterval }) => {
       <Carousel
         setApi={setApi}
         className={`relative z-[2] w-full
-               inset-0 rounded-3xl overflow-hidden bg-gradient-to-br from-primary/10 to-blue-100/20 border border-primary/10
               `}
         opts={{
           align: "center",
@@ -78,7 +77,7 @@ const BannerSlider = ({ images, autoPlay, autoPlayInterval }) => {
                 width={500}
                 height={450}
                 priority={index === 0}
-                className="absolute inset-0 w-full h-[450px] object-fill"
+                className={`absolute inset-0 w-full h-[450px] object-contain`}
               />
             </CarouselItem>
           ))}
