@@ -17,7 +17,7 @@ import { useEffect, useState } from "react";
 
 const BannerSlider = ({ images, autoPlay, autoPlayInterval }) => {
   const [api, setApi] = useState<CarouselApi | null>(null);
-  const [current, setCurrent] = useState(1);
+  const [current, setCurrent] = useState(0);
   const totalSlides = images.length; // Total number of slides
   const slidesPerGroup = 1; // Number of slides per pagination item
 
@@ -50,7 +50,7 @@ const BannerSlider = ({ images, autoPlay, autoPlayInterval }) => {
           loop: true,
           skipSnaps: false,
           slidesToScroll: 1,
-          startIndex: 1,
+          startIndex: 0,
         }}
         // plugins={
         //   autoPlay
