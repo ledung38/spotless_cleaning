@@ -40,7 +40,7 @@ const BannerSlider = ({ images, autoPlay, autoPlayInterval }) => {
   }, [api]);
 
   return (
-    <div className="relative h-96 lg:h-[480px] rounded-3xl overflow-hidden">
+    <div className="relative  lg:h-[480px] rounded-3xl overflow-hidden">
       <Carousel
         setApi={setApi}
         className={`relative z-[2] w-full
@@ -52,17 +52,17 @@ const BannerSlider = ({ images, autoPlay, autoPlayInterval }) => {
           slidesToScroll: 1,
           startIndex: 1,
         }}
-        plugins={
-          autoPlay
-            ? [
-                Autoplay({
-                  delay: autoPlayInterval, // thời gian chuyển slide
-                  stopOnMouseEnter: true, // 👈 hover là STOP
-                  stopOnInteraction: false, // 👈 rời chuột chạy lại
-                }),
-              ]
-            : []
-        }
+        // plugins={
+        //   autoPlay
+        //     ? [
+        //         Autoplay({
+        //           delay: autoPlayInterval, // thời gian chuyển slide
+        //           stopOnMouseEnter: true, // 👈 hover là STOP
+        //           stopOnInteraction: false, // 👈 rời chuột chạy lại
+        //         }),
+        //       ]
+        //     : []
+        // }
       >
         <CarouselContent className={` w-full h-full ml-0`}>
           {images.map((item, index) => (
