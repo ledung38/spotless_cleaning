@@ -318,6 +318,24 @@ export const Header = () => {
               </AnimateButton>
             </div>
           </div>
+          {/* Mobile Action Buttons */}
+          <div className="sm:hidden flex gap-4  border-white/20 space-y-3">
+            <a href="tel:0451210238" className="block flex-1">
+              <Button className="w-full flex gap-2 bg-primary text-primary font-semibold hover:bg-blue-50 transition-all duration-200 py-3 rounded-lg shadow-md">
+                <PhoneIcon className="[&_path]:stroke-white  size-5" />
+                <span className="text-white">0451210238</span>
+              </Button>
+            </a>
+            <Button
+              onClick={() => {
+                route.push(Routes.BOOKING);
+              }}
+              className="w-full flex-1 flex gap-2 bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold hover:shadow-lg transition-all duration-200 py-3 rounded-lg"
+            >
+              <BellIcon className="size-5" />
+              <span>Book now</span>
+            </Button>
+          </div>
         </div>
 
         {/* Mobile Navigation - Premium Design */}
@@ -331,25 +349,6 @@ export const Header = () => {
                   onClose={() => setIsMobileMenuOpen(false)}
                 />
               ))}
-
-              {/* Mobile Action Buttons */}
-              <div className="pt-6 border-t border-white/20 space-y-3 mt-4">
-                <a href="tel:0451210238" className="block">
-                  <Button className="w-full flex gap-2 bg-white text-primary font-semibold hover:bg-blue-50 transition-all duration-200 py-3 rounded-lg shadow-md">
-                    <PhoneIcon className="[&_path]:stroke-primary size-5" />
-                    <span className="text-primary">0451210238</span>
-                  </Button>
-                </a>
-                <Button
-                  onClick={() => {
-                    route.push(Routes.BOOKING);
-                  }}
-                  className="w-full flex gap-2 bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold hover:shadow-lg transition-all duration-200 py-3 rounded-lg"
-                >
-                  <BellIcon className="size-5" />
-                  <span>Book now</span>
-                </Button>
-              </div>
             </div>
           </div>
         )}
